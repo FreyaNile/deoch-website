@@ -3,3 +3,9 @@
 debug/
 node_modules/
 directives/
+.vscode/
+skills/
+package.json
+package-lock.json
+qualityy_aaudit_results.md
+
