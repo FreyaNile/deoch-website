@@ -1,0 +1,12 @@
+/* base.css - Module Manifest */
+/* Modularized into specific buckets */
+
+@import "components/deoch-splash.css";
+@import "components/character-creation-tour.css";
+@import "components/bestiary.css";
+@import "components/data-management.css";
+@import "components/orbs.css";
+@import "components/hud.css";
+@import "components/main-character-card.css";
+@import "components/home-why-deoch-classes-updates.css";
+@import "components/shared-core.css";

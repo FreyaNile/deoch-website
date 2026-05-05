@@ -1,0 +1,377 @@
+.management-menu-content {
+    position: absolute;
+    bottom: 55px;
+    right: -40px;
+    width: 250px;
+    padding: 1rem;
+    border: 1px solid var(--accent-primary);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+    background: rgba(15, 15, 20, 0.98);
+    backdrop-filter: blur(16px);
+    z-index: 1000;
+}
+
+.management-menu-content .menu-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.management-menu-content .menu-item {
+    justify-content: flex-start;
+    gap: 0.75rem;
+    font-size: 0.75rem;
+    padding: 0.6rem 0.8rem;
+    width: 100%;
+    height: auto;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.management-menu-content .menu-item.danger {
+    background: rgba(239, 68, 68, 0.05);
+    color: #ef4444;
+    border-color: rgba(239, 68, 68, 0.2);
+}
+
+.management-menu-content .gallery-section {
+    width: 100%;
+    position: relative;
+    padding: 0.25rem 0;
+}
+
+.management-menu-content .gallery-header {
+    margin: 0;
+    font-family: var(--font-secondary);
+    font-size: 0.65rem;
+    color: var(--accent-primary);
+    letter-spacing: 0.15em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    opacity: 0.7;
+}
+
+.management-menu-content .gallery-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    max-height: 180px;
+    overflow-y: auto;
+    padding-right: 4px;
+    scrollbar-width: thin;
+}
+
+.management-menu-content .divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 0.25rem 0;
+}
+
+/* Data Transfer Modal */
+.data-transfer-dialog {
+    max-width: 500px;
+    width: 90%;
+    padding: 2rem;
+    border: 1px solid var(--accent-primary);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    background: rgba(15, 15, 20, 0.98);
+    backdrop-filter: blur(16px);
+    color: white;
+    overflow: visible;
+}
+
+.data-transfer-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+}
+
+.data-transfer-dialog .close-btn {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+}
+
+.data-transfer-dialog .close-btn:hover {
+    opacity: 1;
+}
+
+.data-transfer-dialog h3 {
+    color: var(--accent-primary);
+    margin-bottom: 0.5rem;
+    font-size: 1.6rem;
+    text-align: center;
+    letter-spacing: 0.1em;
+}
+
+.data-transfer-dialog .transfer-desc {
+    text-align: center;
+    font-size: 0.85rem;
+    opacity: 0.6;
+    margin-bottom: 1.5rem;
+}
+
+.data-transfer-dialog label {
+    display: block;
+    margin-bottom: 0.75rem;
+    color: var(--text-secondary);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 700;
+}
+
+.data-transfer-dialog textarea {
+    font-family: monospace;
+    font-size: 0.85rem;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    width: 100%;
+    padding: 1.25rem;
+    border-radius: 12px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    resize: none;
+    line-height: 1.5;
+}
+
+.data-transfer-dialog .data-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.data-transfer-dialog .primary-btn {
+    grid-column: span 2;
+    height: 50px;
+    background: var(--accent-primary);
+    color: white;
+    font-weight: 900;
+    letter-spacing: 0.15em;
+    font-size: 0.85rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Equipment Components */
+
+.equipment-card {
+    background: var(--surface-glass-dark);
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.equipment-card summary {
+    list-style: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.equipment-slot {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.25rem 0;
+}
+
+.equipment-slot-header {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.equipment-slot-header input {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    transition: border-color 0.3s ease;
+}
+
+.equipment-slot-header input:focus {
+    border-color: var(--accent-primary);
+    outline: none;
+}
+
+.equipment-desc-wrapper {
+    margin-top: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 0.5rem;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.equipment-desc-wrapper textarea {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    resize: none;
+}
+
+.equipment-desc-wrapper textarea:focus {
+    border-color: var(--accent-primary);
+    outline: none;
+}
+
+details.management-menu summary {
+    list-style: none;
+    outline: none;
+    cursor: pointer;
+}
+
+details.management-menu summary::-webkit-details-marker {
+    display: none;
+}
+
+.equipment-column {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.equipment-slot {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 0.6rem;
+    transition: all 0.3s ease;
+}
+
+.equipment-slot:focus-within {
+    border-color: var(--accent-primary);
+    background: var(--accent-glow);
+}
+
+.equipment-slot.attuned {
+    box-shadow: 0 0 20px var(--accent-glow), inset 0 0 10px var(--accent-glow);
+    border-color: var(--accent-primary);
+    background: var(--accent-glow);
+}
+
+.equipment-slot-header {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.equipment-slot .equipment-slot-header input {
+    flex-grow: 1;
+    margin: 0;
+    padding: 0.6rem 0.8rem;
+    border: none;
+    background: rgba(10, 10, 15, 0.4);
+}
+
+.equipment-desc-wrapper {
+    max-height: 150px;
+    overflow: hidden;
+    transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, margin 0.3s ease;
+    opacity: 1;
+}
+
+.equipment-desc-wrapper.hidden {
+    max-height: 0;
+    opacity: 0;
+    margin-top: -0.5rem;
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .rules-grid,
+    .cards-grid,
+    .classes-grid,
+    .equipment-grid,
+    .combat-actions-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+}
+
+@media (max-width: 768px) {
+    body.on-test-page #test-settings-btn,
+    body.on-test-page #test-theme-btn,
+    body.on-test-page #test-hud-exp-details,
+    body.on-test-page #test-hud-exp-box-wrapper,
+    body.on-test-page #test-hud-exp-box-wrapper summary,
+    body.on-test-page #test-hud-exp-box-wrapper .clickable-input,
+    body.on-test-page .inspiration-toggle,
+    body.on-test-page .hud-avatar,
+    body.on-test-page .management-menu-content button {
+        pointer-events: auto;
+    }
+}
+
+.bulk-adjustment-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 15, 0.4);
+    z-index: 1000000;
+    display: none;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 25px;
+    /* Adjust this to center vertically between orbs */
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.bulk-adjustment-modal.active {
+    display: flex;
+    opacity: 1;
+}
+
+.bulk-adjustment-content {
+    background: rgba(10, 10, 15, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--accent-primary);
+    border-radius: 16px;
+    padding: 0.5rem;
+    width: 75px;
+    /* Narrow enough to sit between the 110px orbs */
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8), 0 0 20px var(--accent-glow);
+    transform: translateY(10px);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.bulk-adjustment-modal.active .bulk-adjustment-content {
+    transform: translateY(0);
+}
+
+.bulk-adjustment-title {
+    display: block;
+}
