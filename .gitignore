@@ -4,6 +4,7 @@
 debug/
 directives/
 node_modules/
+tests/
 skills/
 .env
 mcp_config.json
