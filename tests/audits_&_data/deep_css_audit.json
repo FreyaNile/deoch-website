@@ -1,0 +1,1642 @@
+{
+  "orphaned_selectors": [
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "*::-webkit-scrollbar-track"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "*::-webkit-scrollbar-thumb"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "*::-webkit-scrollbar-thumb:hover"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "*"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "*"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".modal-dialog.border-danger"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".modal-dialog.p-xl"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".tab-btn.active"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".custom-select-wrapper"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".custom-select-wrapper.open"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".custom-option.selected"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".nav-btn.active::after"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".tour-check-label.selected"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "0%,\n    100%"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "50%"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".tour-step.exiting"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "0%"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "30%"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "100%"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".secondary-btn.active-gallery-btn"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".orb-container.sloshing"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "10%,\n    90%"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "20%,\n    80%"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "30%,\n    50%,\n    70%"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "40%,\n    60%"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".class-card.stretch-goal"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".class-card.stretch-goal::before"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".class-card.stretch-goal:hover"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".next-level-text"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".hud-header-toggles"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".hud-header-toggles .stat-btn.plus"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "0%"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "100%"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "0%"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "100%"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".tabs-card.gm-mode-active"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".exp-group,\n    .level-group,\n    .class-group,\n    .ac-group,\n    .sec-level-group,\n    .sec-class-group,\n    .inspiration-form-group,\n    .attunements-form-group,\n    .damage-calc-form-group"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".info-grid"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".stats-grid"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".stat-points-display.hidden"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".equipment-slot.attuned"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".slot-attune-toggle.active"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".equipment-desc-wrapper.hidden"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".form-group.full-width"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".save-status.show"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".expanded-points-tracker"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "0%,\n    100%"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "50%"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".top-mobile-hud.expanded .summary-item.can-increase::after, .attr-box.can-increase::after"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".summary-item.allocated, .attr-box.allocated"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "0%"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "70%"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "100%"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".floating-vitality-orbs.expanded"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".top-mobile-hud.expanded"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".floating-vitality-orbs.expanded"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "body.combat-mode"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "body.combat-mode #hud-chevron"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".hud-bar.hp"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".hud-bar.mp"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".health-mana-grid"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".armor-stats-grid"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".damage-calc-form-group"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".inspiration-form-group"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".physical-traits-grid"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".full-width-span"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".stats-grid"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".vitals-status-grid"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".vitals-label"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".exhaustion-track"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".rest-actions-grid"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "#char-life-stage-indicator,\n    #char-heritage-indicator"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".hud-stats-grid"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".hud-stat-box"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".hud-stat-sep"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".stats-grid"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".conditions-container"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".exhaustion-track"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".vitals-status-grid"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "#lang-header"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".stats-grid"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".equipment-grid"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".physical-traits-grid"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".combat-actions-grid,\n    .rest-actions-grid"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".combat-actions-grid"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".combat-side-grid"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".rest-actions-grid"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".conditions-wrapper.expanded"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".restoration-content-wrapper.expanded, .damage-calc-content-wrapper.expanded"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".combat-actions-grid"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".damage-calc-content-wrapper.expanded,\n    .restoration-content-wrapper.expanded,\n    .conditions-wrapper.expanded"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".rest-actions-grid"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".age-card"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".test-scroll-content"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".test-scroll-content"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".tab-btn.active::before"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".tab-btn.active::after"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".circle-checkbox-group"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".languages-wrapper.expanded"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "0%"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "100%"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".floating-widget.minimized"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "body.on-test-page .floating-widget.minimized"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".size-slider::-webkit-slider-thumb"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".shake"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "10%,\n    90%"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "20%,\n    80%"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "30%,\n    50%,\n    70%"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "40%,\n    60%"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".sim-roll-val"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".mod-btn.active"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".adv-btn.active"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".conditions-container"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".section-content.collapsed"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".dis-btn.active"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".privacy-content.open"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".action-grid-2x2"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".action-grid-2x2"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".tour-overlay"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".premium-interactive.top-border::before"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".premium-interactive.secondary-btn, .premium-interactive.announcement-bar"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".premium-interactive.secondary-btn"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".expandable-card.expanded"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".gallery-character-btn"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "body.on-test-page .mobile-bottom-nav"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "body.on-test-page"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "body.on-test-page .top-mobile-hud.expanded"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "body.on-test-page .hud-avatar-container"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "body.on-test-page .tab-btn.active::after"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "body.on-test-page .conditions-wrapper.expanded,\n    body.on-test-page .restoration-content-wrapper.expanded,\n    body.on-test-page .damage-calc-content-wrapper.expanded"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "body.on-test-page .vitals-status-grid"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "body.on-test-page .exhaustion-track"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".orb-touch-zone.up"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".orb-touch-zone.down"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".bulk-adjustment-modal.active"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".bulk-btn"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".bulk-btn:active"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".bulk-btn.plus"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".bulk-btn.minus"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".bulk-btn.shield"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "0%"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "100%"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "#test-settings-btn.active"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "0%"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "40%"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": "100%"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".stat-notification-popup"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".stat-overlay-btn"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".stat-overlay-btn.plus"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".stat-confirm-bar.active"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".confirm-btn-mini.yes"
+    },
+    {
+      "file": "zprime/css\\base.css",
+      "selector": ".confirm-btn-mini.no"
+    },
+    {
+      "file": "zprime/css\\navigation.css",
+      "selector": ".nav-btn.active"
+    },
+    {
+      "file": "zprime/css\\navigation.css",
+      "selector": ".nav-btn.active::after"
+    },
+    {
+      "file": "zprime/css\\tokens.css",
+      "selector": ".m-b-md"
+    },
+    {
+      "file": "zprime/css\\tokens.css",
+      "selector": ".flex-center"
+    },
+    {
+      "file": "zprime/css\\tokens.css",
+      "selector": ".flex-column"
+    },
+    {
+      "file": "zprime/css\\tokens.css",
+      "selector": ".gap-sm"
+    },
+    {
+      "file": "zprime/css\\tokens.css",
+      "selector": ".gap-md"
+    }
+  ],
+  "duplicate_blocks": [
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".u-flex-center",
+        "rules": "display: flex;\n    align-items: center;\n    justify-content: center;",
+        "norm_rules": "display:flex;align-items:center;justify-content:center;"
+      },
+      {
+        "file": "zprime/css\\tokens.css",
+        "selector": ".flex-center",
+        "rules": "display: flex; align-items: center; justify-content: center;",
+        "norm_rules": "display:flex;align-items:center;justify-content:center;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".u-flex-column",
+        "rules": "display: flex;\n    flex-direction: column;",
+        "norm_rules": "display:flex;flex-direction:column;"
+      },
+      {
+        "file": "zprime/css\\tokens.css",
+        "selector": ".flex-column",
+        "rules": "display: flex; flex-direction: column;",
+        "norm_rules": "display:flex;flex-direction:column;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".u-gap-0-5",
+        "rules": "gap: 0.5rem;",
+        "norm_rules": "gap:0.5rem;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": "body.on-test-page .top-hud-right",
+        "rules": "gap: 0.5rem;",
+        "norm_rules": "gap:0.5rem;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": "body.on-test-page .languages-grid",
+        "rules": "gap: 0.5rem;",
+        "norm_rules": "gap:0.5rem;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".u-gap-1",
+        "rules": "gap: 1rem;",
+        "norm_rules": "gap:1rem;"
+      },
+      {
+        "file": "zprime/css\\navigation.css",
+        "selector": ".nav-links",
+        "rules": "gap: 1rem;",
+        "norm_rules": "gap:1rem;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".u-pl-1-75",
+        "rules": "padding-left: 1.75rem;",
+        "norm_rules": "padding-left:1.75rem;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".updates-timeline",
+        "rules": "padding-left: 1.75rem;",
+        "norm_rules": "padding-left:1.75rem;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".u-p-1-25, \n.mega-card",
+        "rules": "padding: 1.25rem;",
+        "norm_rules": "padding:1.25rem;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".contact-footer-form",
+        "rules": "padding: 1.25rem;",
+        "norm_rules": "padding:1.25rem;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".u-w-full",
+        "rules": "width: 100%;",
+        "norm_rules": "width:100%;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": "#newsletter-email",
+        "rules": "width: 100%;",
+        "norm_rules": "width:100%;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".u-h-auto",
+        "rules": "height: auto;",
+        "norm_rules": "height:auto;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": "#test-tabs-card .tab-pane",
+        "rules": "height: auto;",
+        "norm_rules": "height:auto;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".u-font-size-xs",
+        "rules": "font-size: 0.7rem;",
+        "norm_rules": "font-size:0.7rem;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".tooltip-title",
+        "rules": "font-size: 0.7rem;",
+        "norm_rules": "font-size:0.7rem;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".u-font-size-sm",
+        "rules": "font-size: 0.75rem;",
+        "norm_rules": "font-size:0.75rem;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".vitals-label",
+        "rules": "font-size: 0.75rem;",
+        "norm_rules": "font-size:0.75rem;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".summary-item .mod",
+        "rules": "font-size: 0.75rem;",
+        "norm_rules": "font-size:0.75rem;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".u-font-size-base",
+        "rules": "font-size: 0.9rem;",
+        "norm_rules": "font-size:0.9rem;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".nav-btn",
+        "rules": "font-size: 0.9rem;",
+        "norm_rules": "font-size:0.9rem;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".u-font-size-xl, .stamina-orb span",
+        "rules": "font-size: 1rem;",
+        "norm_rules": "font-size:1rem;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".ethos-header",
+        "rules": "font-size: 1rem;",
+        "norm_rules": "font-size:1rem;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".u-pointer-events-auto",
+        "rules": "pointer-events: auto;",
+        "norm_rules": "pointer-events:auto;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": "body.on-test-page .top-hud-content",
+        "rules": "pointer-events: auto;",
+        "norm_rules": "pointer-events:auto;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": "body.on-test-page .top-hud-expanded-content",
+        "rules": "pointer-events: auto;",
+        "norm_rules": "pointer-events:auto;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".u-pointer-events-none, .stat-rolling, \n#toggle-dice-btn i, #toggle-dice-btn svg, body.on-test-page #toggle-dice-btn i",
+        "rules": "pointer-events: none;",
+        "norm_rules": "pointer-events:none;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": "details",
+        "rules": "pointer-events: none;",
+        "norm_rules": "pointer-events:none;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".u-grid-cols-2",
+        "rules": "grid-template-columns: 1fr 1fr;",
+        "norm_rules": "grid-template-columns:1fr1fr;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".languages-grid",
+        "rules": "grid-template-columns: 1fr 1fr;",
+        "norm_rules": "grid-template-columns:1fr1fr;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".action-grid-2x2",
+        "rules": "grid-template-columns: 1fr 1fr;",
+        "norm_rules": "grid-template-columns:1fr1fr;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".u-mb-0-75, \n.feature-card-header-wrapper, .mega-card h3.gothic-header",
+        "rules": "margin-bottom: 0.75rem;",
+        "norm_rules": "margin-bottom:0.75rem;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": "body.on-test-page .actions-panel",
+        "rules": "margin-bottom: 0.75rem;",
+        "norm_rules": "margin-bottom:0.75rem;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".tour-option-grid",
+        "rules": "display: grid;\n        grid-template-columns: 1fr 1fr;\n        gap: 1rem;",
+        "norm_rules": "display:grid;grid-template-columns:1fr1fr;gap:1rem;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".action-grid-2x2",
+        "rules": "display: grid;\n    grid-template-columns: 1fr 1fr;\n    gap: 1rem;",
+        "norm_rules": "display:grid;grid-template-columns:1fr1fr;gap:1rem;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": "details.management-menu summary::-webkit-details-marker, .languages-wrapper.hidden, .floating-vitality-orbs.is-dragging::-webkit-scrollbar, summary::-webkit-details-marker, .hidden-checkbox, .lang-checkbox, \n#dice-roller-widget .dice-widget-mobile-stats, body.on-test-page #dice-roller-widget .dice-widget-mobile-stats, body.on-test-page #combat-log-widget, .hidden, #toggle-dice-btn .dice-icon, body.on-test-page #toggle-dice-btn .chevron-icon, .condition-item input, #combat-log-list::-webkit-scrollbar, \nbody.on-test-page .global-header, body.on-test-page .site-footer, \nbody.tour-active .top-mobile-hud, body.tour-active .floating-vitality-orbs, body.tour-active .combat-utilities-wrapper, body.tour-active #toggle-dice-btn, .top-mobile-hud:not(.expanded) .stat-confirm-bar",
+        "rules": "display: none;",
+        "norm_rules": "display:none;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".hero-rulebook-wrapper",
+        "rules": "display: none;",
+        "norm_rules": "display:none;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".btn-prefix",
+        "rules": "display: none;",
+        "norm_rules": "display:none;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": "#char-life-stage-indicator,\n    #char-heritage-indicator",
+        "rules": "display: none;",
+        "norm_rules": "display:none;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".hud-stat-sep",
+        "rules": "display: none;",
+        "norm_rules": "display:none;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".global-header",
+        "rules": "position: relative;\n    \n    width: 100%;\n    top: 0;\n    left: 0;\n    z-index: 20000;\n    padding-top: 1rem;\n    overflow: hidden;",
+        "norm_rules": "position:relative;width:100%;top:0;left:0;z-index:20000;padding-top:1rem;overflow:hidden;"
+      },
+      {
+        "file": "zprime/css\\navigation.css",
+        "selector": ".global-header",
+        "rules": "position: relative;\n    width: 100%;\n    top: 0;\n    left: 0;\n    z-index: 20000;\n    padding-top: 1rem;\n    overflow: hidden;",
+        "norm_rules": "position:relative;width:100%;top:0;left:0;z-index:20000;padding-top:1rem;overflow:hidden;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".global-header",
+        "rules": "overflow: visible;",
+        "norm_rules": "overflow:visible;"
+      },
+      {
+        "file": "zprime/css\\navigation.css",
+        "selector": ".global-header",
+        "rules": "overflow: visible;",
+        "norm_rules": "overflow:visible;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".top-social-bar",
+        "rules": "display: flex;\n    justify-content: flex-end;\n    align-items: center;\n    width: 100%;\n    padding: 0.15rem 0;\n    \n    position: relative;\n    z-index: 50;",
+        "norm_rules": "display:flex;justify-content:flex-end;align-items:center;width:100%;padding:0.15rem0;position:relative;z-index:50;"
+      },
+      {
+        "file": "zprime/css\\navigation.css",
+        "selector": ".top-social-bar",
+        "rules": "display: flex;\n    justify-content: flex-end;\n    align-items: center;\n    width: 100%;\n    padding: 0.15rem 0;\n    position: relative;\n    z-index: 50;",
+        "norm_rules": "display:flex;justify-content:flex-end;align-items:center;width:100%;padding:0.15rem0;position:relative;z-index:50;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".theme-label",
+        "rules": "font-size: 0.7rem;\n    color: var(--text-secondary);\n    opacity: 0.8;\n    text-transform: uppercase;\n    letter-spacing: 0.05em;\n    font-weight: 700;\n    margin-right: 0.5rem;\n    display: flex;\n    align-items: center;\n    gap: 0.4rem;",
+        "norm_rules": "font-size:0.7rem;color:var(--text-secondary);opacity:0.8;text-transform:uppercase;letter-spacing:0.05em;font-weight:700;margin-right:0.5rem;display:flex;align-items:center;gap:0.4rem;"
+      },
+      {
+        "file": "zprime/css\\navigation.css",
+        "selector": ".theme-label",
+        "rules": "font-size: 0.7rem;\n    color: var(--text-secondary);\n    opacity: 0.8;\n    text-transform: uppercase;\n    letter-spacing: 0.05em;\n    font-weight: 700;\n    margin-right: 0.5rem;\n    display: flex;\n    align-items: center;\n    gap: 0.4rem;",
+        "norm_rules": "font-size:0.7rem;color:var(--text-secondary);opacity:0.8;text-transform:uppercase;letter-spacing:0.05em;font-weight:700;margin-right:0.5rem;display:flex;align-items:center;gap:0.4rem;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".social-icons",
+        "rules": "display: flex;\n    gap: 1.5rem;\n    align-items: center;",
+        "norm_rules": "display:flex;gap:1.5rem;align-items:center;"
+      },
+      {
+        "file": "zprime/css\\navigation.css",
+        "selector": ".social-icons",
+        "rules": "display: flex;\n    gap: 1.5rem;\n    align-items: center;",
+        "norm_rules": "display:flex;gap:1.5rem;align-items:center;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".social-icons a",
+        "rules": "color: var(--text-secondary);\n    font-size: 1.1rem;\n    transition: color var(--transition-fast), transform var(--transition-fast);\n    text-decoration: none;",
+        "norm_rules": "color:var(--text-secondary);font-size:1.1rem;transition:colorvar(--transition-fast),transformvar(--transition-fast);text-decoration:none;"
+      },
+      {
+        "file": "zprime/css\\navigation.css",
+        "selector": ".social-icons a",
+        "rules": "color: var(--text-secondary);\n    font-size: 1.1rem;\n    transition: color var(--transition-fast), transform var(--transition-fast);\n    text-decoration: none;",
+        "norm_rules": "color:var(--text-secondary);font-size:1.1rem;transition:colorvar(--transition-fast),transformvar(--transition-fast);text-decoration:none;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".social-icons a:hover",
+        "rules": "color: var(--accent-primary);\n    transform: translateY(-2px);",
+        "norm_rules": "color:var(--accent-primary);transform:translatey(-2px);"
+      },
+      {
+        "file": "zprime/css\\navigation.css",
+        "selector": ".social-icons a:hover",
+        "rules": "color: var(--accent-primary);\n    transform: translateY(-2px);",
+        "norm_rules": "color:var(--accent-primary);transform:translatey(-2px);"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".main-navbar",
+        "rules": "display: flex;\n    justify-content: space-between;\n    align-items: center;\n    background: transparent;\n    padding: 1rem 0;",
+        "norm_rules": "display:flex;justify-content:space-between;align-items:center;background:transparent;padding:1rem0;"
+      },
+      {
+        "file": "zprime/css\\navigation.css",
+        "selector": ".main-navbar",
+        "rules": "display: flex;\n    justify-content: space-between;\n    align-items: center;\n    background: transparent;\n    padding: 1rem 0;",
+        "norm_rules": "display:flex;justify-content:space-between;align-items:center;background:transparent;padding:1rem0;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".logo-container",
+        "rules": "display: flex;\n    flex-direction: column;\n    align-items: center;\n    position: relative;\n    padding: 1rem 2rem;\n    \n    margin-left: -2rem;\n    z-index: 1;\n    flex-shrink: 0;\n    overflow: visible;",
+        "norm_rules": "display:flex;flex-direction:column;align-items:center;position:relative;padding:1rem2rem;margin-left:-2rem;z-index:1;flex-shrink:0;overflow:visible;"
+      },
+      {
+        "file": "zprime/css\\navigation.css",
+        "selector": ".logo-container",
+        "rules": "display: flex;\n    flex-direction: column;\n    align-items: center;\n    position: relative;\n    padding: 1rem 2rem;\n    margin-left: -2rem;\n    z-index: 1;\n    flex-shrink: 0;\n    overflow: visible;",
+        "norm_rules": "display:flex;flex-direction:column;align-items:center;position:relative;padding:1rem2rem;margin-left:-2rem;z-index:1;flex-shrink:0;overflow:visible;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".logo-container::before",
+        "rules": "transform: scale(1.4);",
+        "norm_rules": "transform:scale(1.4);"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": "40%",
+        "rules": "transform: scale(1.4);",
+        "norm_rules": "transform:scale(1.4);"
+      },
+      {
+        "file": "zprime/css\\navigation.css",
+        "selector": ".logo-container::before",
+        "rules": "transform: scale(1.4);",
+        "norm_rules": "transform:scale(1.4);"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".logo-container",
+        "rules": "margin-left: 0;\n        padding: 1rem 3rem;",
+        "norm_rules": "margin-left:0;padding:1rem3rem;"
+      },
+      {
+        "file": "zprime/css\\navigation.css",
+        "selector": ".logo-container",
+        "rules": "margin-left: 0;\n        padding: 1rem 3rem;",
+        "norm_rules": "margin-left:0;padding:1rem3rem;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".logo",
+        "rules": "font-size: 1.8rem;",
+        "norm_rules": "font-size:1.8rem;"
+      },
+      {
+        "file": "zprime/css\\navigation.css",
+        "selector": ".logo",
+        "rules": "font-size: 1.8rem;",
+        "norm_rules": "font-size:1.8rem;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".logo-subtitle",
+        "rules": "font-size: 0.65rem;\n        letter-spacing: 0.15em;",
+        "norm_rules": "font-size:0.65rem;letter-spacing:0.15em;"
+      },
+      {
+        "file": "zprime/css\\navigation.css",
+        "selector": ".logo-subtitle",
+        "rules": "font-size: 0.65rem;\n        letter-spacing: 0.15em;",
+        "norm_rules": "font-size:0.65rem;letter-spacing:0.15em;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".nav-links",
+        "rules": "list-style: none;\n    display: flex;\n    gap: 2rem;\n    align-items: center;\n    position: relative;\n    z-index: 50;",
+        "norm_rules": "list-style:none;display:flex;gap:2rem;align-items:center;position:relative;z-index:50;"
+      },
+      {
+        "file": "zprime/css\\navigation.css",
+        "selector": ".nav-links",
+        "rules": "list-style: none;\n    display: flex;\n    gap: 2rem;\n    align-items: center;\n    position: relative;\n    z-index: 50;",
+        "norm_rules": "list-style:none;display:flex;gap:2rem;align-items:center;position:relative;z-index:50;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".nav-btn:hover, .nav-btn.active, .tab-btn:hover, .condition-item:hover",
+        "rules": "color: var(--text-primary);",
+        "norm_rules": "color:var(--text-primary);"
+      },
+      {
+        "file": "zprime/css\\navigation.css",
+        "selector": ".nav-btn:hover",
+        "rules": "color: var(--text-primary);",
+        "norm_rules": "color:var(--text-primary);"
+      },
+      {
+        "file": "zprime/css\\navigation.css",
+        "selector": ".nav-btn.active",
+        "rules": "color: var(--text-primary);",
+        "norm_rules": "color:var(--text-primary);"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".nav-btn.active::after",
+        "rules": "content: '';\n    position: absolute;\n    bottom: -6px;\n    left: 0;\n    width: 100%;\n    height: 2px;\n    background: var(--accent-primary);\n    box-shadow: 0 0 10px var(--accent-glow);",
+        "norm_rules": "content:'';position:absolute;bottom:-6px;left:0;width:100%;height:2px;background:var(--accent-primary);box-shadow:0010pxvar(--accent-glow);"
+      },
+      {
+        "file": "zprime/css\\navigation.css",
+        "selector": ".nav-btn.active::after",
+        "rules": "content: '';\n    position: absolute;\n    bottom: -6px;\n    left: 0;\n    width: 100%;\n    height: 2px;\n    background: var(--accent-primary);\n    box-shadow: 0 0 10px var(--accent-glow);",
+        "norm_rules": "content:'';position:absolute;bottom:-6px;left:0;width:100%;height:2px;background:var(--accent-primary);box-shadow:0010pxvar(--accent-glow);"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": "from",
+        "rules": "opacity: 1;\n        transform: translateY(0);",
+        "norm_rules": "opacity:1;transform:translatey(0);"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": "to",
+        "rules": "opacity: 1;\n        transform: translateY(0);",
+        "norm_rules": "opacity:1;transform:translatey(0);"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": "30%",
+        "rules": "left: 150%;",
+        "norm_rules": "left:150%;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": "100%",
+        "rules": "left: 150%;",
+        "norm_rules": "left:150%;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".primary-btn:active, .secondary-btn:active, .bulk-adjustment-modal.active .bulk-adjustment-content",
+        "rules": "transform: translateY(0);",
+        "norm_rules": "transform:translatey(0);"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": "0%,\n    100%",
+        "rules": "transform: translateY(0);",
+        "norm_rules": "transform:translatey(0);"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".hero-actions>*:nth-child(3)",
+        "rules": "grid-column: span 2;",
+        "norm_rules": "grid-column:span2;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".info-grid .full-width,\n    .info-grid .double-width",
+        "rules": "grid-column: span 2;",
+        "norm_rules": "grid-column:span2;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": "body .info-grid .form-group.full-width",
+        "rules": "grid-column: span 2;",
+        "norm_rules": "grid-column:span2;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".contact-grid .full-width",
+        "rules": "grid-column: span 2;",
+        "norm_rules": "grid-column:span2;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".ethos-grid",
+        "rules": "grid-template-columns: 1fr;",
+        "norm_rules": "grid-template-columns:1fr;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".equipment-grid",
+        "rules": "grid-template-columns: 1fr;",
+        "norm_rules": "grid-template-columns:1fr;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".test-scroll-content:has(> :only-child)",
+        "rules": "grid-template-columns: 1fr;",
+        "norm_rules": "grid-template-columns:1fr;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": "#test-tab-core .languages-grid",
+        "rules": "grid-template-columns: 1fr;",
+        "norm_rules": "grid-template-columns:1fr;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".rules-grid",
+        "rules": "grid-template-columns: 1fr;",
+        "norm_rules": "grid-template-columns:1fr;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".contact-grid",
+        "rules": "grid-template-columns: 1fr;",
+        "norm_rules": "grid-template-columns:1fr;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".rules-grid,\n    .cards-grid,\n    .classes-grid",
+        "rules": "grid-template-columns: 1fr;\n        \n        gap: 1.5rem;",
+        "norm_rules": "grid-template-columns:1fr;gap:1.5rem;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".form-header",
+        "rules": "grid-template-columns: 1fr;\n        gap: 1.5rem;",
+        "norm_rules": "grid-template-columns:1fr;gap:1.5rem;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".class-icon i, .class-icon svg",
+        "rules": "width: 48px;\n    height: 48px;",
+        "norm_rules": "width:48px;height:48px;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": "body.on-test-page .hud-avatar-container",
+        "rules": "width: 48px;\n        height: 48px;",
+        "norm_rules": "width:48px;height:48px;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": "body.has-available-points .floating-vitality-orbs.expanded .hud-header-toggles, body.has-available-points .expanded-points-tracker, body.on-test-page .top-mobile-hud, body.on-test-page.char-sheet-active .combat-utilities-wrapper, body.on-test-page .combat-utilities-wrapper, body.on-test-page.char-sheet-active #toggle-dice-btn, body.on-test-page #toggle-dice-btn",
+        "rules": "display: flex;",
+        "norm_rules": "display:flex;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": "body.on-test-page .hud-avatar",
+        "rules": "display: flex;",
+        "norm_rules": "display:flex;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".info-grid",
+        "rules": "grid-template-columns: repeat(2, 1fr);",
+        "norm_rules": "grid-template-columns:repeat(2,1fr);"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".test-scroll-content",
+        "rules": "grid-template-columns: repeat(2, 1fr);",
+        "norm_rules": "grid-template-columns:repeat(2,1fr);"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": "#test-tab-core .languages-grid",
+        "rules": "grid-template-columns: repeat(2, 1fr);",
+        "norm_rules": "grid-template-columns:repeat(2,1fr);"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".equip-toggle-btn.open svg, #toggle-dice-btn.active i, #toggle-dice-btn.active svg",
+        "rules": "transform: rotate(180deg);",
+        "norm_rules": "transform:rotate(180deg);"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": "100%",
+        "rules": "transform: rotate(180deg);",
+        "norm_rules": "transform:rotate(180deg);"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".hud-menu-btn i",
+        "rules": "width: 18px;\n    height: 18px;",
+        "norm_rules": "width:18px;height:18px;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".exhaustion-toggle i",
+        "rules": "width: 18px;\n        height: 18px;",
+        "norm_rules": "width:18px;height:18px;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".health-mana-grid",
+        "rules": "grid-template-columns: repeat(2, 1fr);\n        gap: 1rem;",
+        "norm_rules": "grid-template-columns:repeat(2,1fr);gap:1rem;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".stats-grid",
+        "rules": "grid-template-columns: repeat(2, 1fr);\n        gap: 1rem;",
+        "norm_rules": "grid-template-columns:repeat(2,1fr);gap:1rem;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".armor-stats-grid",
+        "rules": "grid-template-columns: 1fr;\n        gap: 1rem;",
+        "norm_rules": "grid-template-columns:1fr;gap:1rem;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".combat-actions-grid,\n    .rest-actions-grid",
+        "rules": "grid-template-columns: 1fr;\n        gap: 1rem;",
+        "norm_rules": "grid-template-columns:1fr;gap:1rem;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".combat-actions-grid",
+        "rules": "grid-template-columns: 1fr;\n        gap: 1rem;",
+        "norm_rules": "grid-template-columns:1fr;gap:1rem;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".damage-calc-form-group",
+        "rules": "margin-bottom: 0;",
+        "norm_rules": "margin-bottom:0;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".privacy-accordion",
+        "rules": "margin-bottom: 0;",
+        "norm_rules": "margin-bottom:0;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".inspiration-form-group",
+        "rules": "grid-column: span 1;",
+        "norm_rules": "grid-column:span1;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".contact-grid .full-width",
+        "rules": "grid-column: span 1;",
+        "norm_rules": "grid-column:span1;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".logo-container",
+        "rules": "margin-left: 0;\n        padding: 1rem 2rem;",
+        "norm_rules": "margin-left:0;padding:1rem2rem;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".logo-container",
+        "rules": "margin-left: 0;\n        padding: 1rem 2rem;",
+        "norm_rules": "margin-left:0;padding:1rem2rem;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".exhaustion-track",
+        "rules": "gap: 0.5rem;\n        flex-wrap: wrap;\n        justify-content: center;",
+        "norm_rules": "gap:0.5rem;flex-wrap:wrap;justify-content:center;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".exhaustion-track",
+        "rules": "gap: 0.5rem;\n        flex-wrap: wrap;\n        justify-content: center;",
+        "norm_rules": "gap:0.5rem;flex-wrap:wrap;justify-content:center;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".rest-actions-grid",
+        "rules": "flex-direction: column;\n        gap: 0.75rem;",
+        "norm_rules": "flex-direction:column;gap:0.75rem;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".rest-actions-grid",
+        "rules": "flex-direction: column;\n        gap: 0.75rem;",
+        "norm_rules": "flex-direction:column;gap:0.75rem;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".hud-stats-grid",
+        "rules": "gap: 0.75rem 0.5rem;",
+        "norm_rules": "gap:0.75rem0.5rem;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".vitals-status-grid",
+        "rules": "gap: 0.75rem 0.5rem;",
+        "norm_rules": "gap:0.75rem0.5rem;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".stats-grid",
+        "rules": "grid-template-columns: repeat(2, minmax(0, 1fr));\n        gap: 0.75rem;",
+        "norm_rules": "grid-template-columns:repeat(2,minmax(0,1fr));gap:0.75rem;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".form-header",
+        "rules": "grid-template-columns: repeat(2, minmax(0, 1fr));\n        gap: 0.75rem;",
+        "norm_rules": "grid-template-columns:repeat(2,minmax(0,1fr));gap:0.75rem;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": "body .info-grid",
+        "rules": "grid-template-columns: repeat(2, minmax(0, 1fr));\n        gap: 0.75rem;",
+        "norm_rules": "grid-template-columns:repeat(2,minmax(0,1fr));gap:0.75rem;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".languages-grid",
+        "rules": "grid-template-columns: repeat(2, minmax(0, 1fr));\n        gap: 0.75rem;",
+        "norm_rules": "grid-template-columns:repeat(2,minmax(0,1fr));gap:0.75rem;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": "body.on-test-page .combat-utilities-wrapper",
+        "rules": "bottom: auto;\n        top: 50%;\n        left: 0;\n        right: auto;\n        width: auto;\n        align-items: flex-start;",
+        "norm_rules": "bottom:auto;top:50%;left:0;right:auto;width:auto;align-items:flex-start;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": "body.on-test-page .combat-utilities-wrapper",
+        "rules": "bottom: auto;\n        top: 50%;\n        left: 0;\n        right: auto;\n        width: auto;\n        align-items: flex-start;",
+        "norm_rules": "bottom:auto;top:50%;left:0;right:auto;width:auto;align-items:flex-start;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".dice-controls-row",
+        "rules": "gap: 0.25rem;",
+        "norm_rules": "gap:0.25rem;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".modifier-buttons,\n    .dice-buttons",
+        "rules": "gap: 0.25rem;",
+        "norm_rules": "gap:0.25rem;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": "body.on-test-page .exhaustion-dots",
+        "rules": "gap: 0.25rem;",
+        "norm_rules": "gap:0.25rem;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": "#dice-result-value",
+        "rules": "font-size: 1.4rem;",
+        "norm_rules": "font-size:1.4rem;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".health-orb span, .mana-orb span",
+        "rules": "font-size: 1.4rem;",
+        "norm_rules": "font-size:1.4rem;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": "to",
+        "rules": "opacity: 1;\n        transform: translate(-50%, 0);",
+        "norm_rules": "opacity:1;transform:translate(-50%,0);"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": "to",
+        "rules": "opacity: 1;\n        transform: translate(-50%, 0);",
+        "norm_rules": "opacity:1;transform:translate(-50%,0);"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": "to",
+        "rules": "opacity: 1;\n        transform: translate(-50%, 0);",
+        "norm_rules": "opacity:1;transform:translate(-50%,0);"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": ".flex-between",
+        "rules": "display: flex;\n    align-items: center;\n    justify-content: space-between;",
+        "norm_rules": "display:flex;align-items:center;justify-content:space-between;"
+      },
+      {
+        "file": "zprime/css\\tokens.css",
+        "selector": ".flex-between",
+        "rules": "display: flex; align-items: center; justify-content: space-between;",
+        "norm_rules": "display:flex;align-items:center;justify-content:space-between;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": "body.on-test-page .top-hud-left",
+        "rules": "gap: 0.55rem;",
+        "norm_rules": "gap:0.55rem;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": "body.on-test-page .exhaustion-track",
+        "rules": "gap: 0.55rem;",
+        "norm_rules": "gap:0.55rem;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": "body.on-test-page .conditions-panel,\n    body.on-test-page .restoration-panel,\n    body.on-test-page .damage-calculator",
+        "rules": "margin-top: 0.35rem;",
+        "norm_rules": "margin-top:0.35rem;"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": "body.on-test-page .conditions-wrapper.expanded,\n    body.on-test-page .restoration-content-wrapper.expanded,\n    body.on-test-page .damage-calc-content-wrapper.expanded",
+        "rules": "margin-top: 0.35rem;",
+        "norm_rules": "margin-top:0.35rem;"
+      }
+    ],
+    [
+      {
+        "file": "zprime/css\\base.css",
+        "selector": "0%",
+        "rules": "transform: scale(1);",
+        "norm_rules": "transform:scale(1);"
+      },
+      {
+        "file": "zprime/css\\base.css",
+        "selector": "100%",
+        "rules": "transform: scale(1);",
+        "norm_rules": "transform:scale(1);"
+      }
+    ]
+  ],
+  "statistics": {
+    "total_files": 4,
+    "total_selectors": 935,
+    "orphaned_count": 159,
+    "duplicate_rule_sets": 62
+  }
+}

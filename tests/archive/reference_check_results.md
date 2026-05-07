@@ -1,0 +1,71 @@
+# Dynamic Reference Check Results
+
+## Orphaned JS Functions
+- `applyTheme` found in:
+  - c:\Users\molti\.gemini\antigravity\scratch\deoch-website\zprime\gamejs\core\utils.js
+  - c:\Users\molti\.gemini\antigravity\scratch\deoch-website\zprime\index.html
+  - c:\Users\molti\.gemini\antigravity\scratch\deoch-website\zprime\gamejs\game\test-sheet.js
+- `initCustomSelect` found in:
+  - c:\Users\molti\.gemini\antigravity\scratch\deoch-website\zprime\app.js
+- `modText` found in:
+  - c:\Users\molti\.gemini\antigravity\scratch\deoch-website\zprime\gamejs\game\stats.js
+  - c:\Users\molti\.gemini\antigravity\scratch\deoch-website\zprime\gamejs\ui\dice-roller.js
+- `switchCharacter` found in:
+  - c:\Users\molti\.gemini\antigravity\scratch\deoch-website\zprime\app.js
+  - c:\Users\molti\.gemini\antigravity\scratch\deoch-website\zprime\gamejs\core\gallery.js
+- `toggleCardDetail` found in:
+  - c:\Users\molti\.gemini\antigravity\scratch\deoch-website\zprime\index.html
+- `updateConditionsBadge` found in:
+  - c:\Users\molti\.gemini\antigravity\scratch\deoch-website\zprime\gamejs\game\logic.js
+- `updateGalleryUI` found in:
+  - c:\Users\molti\.gemini\antigravity\scratch\deoch-website\zprime\css\base.css
+- `updateStatPointsDisplay` found in:
+  - c:\Users\molti\.gemini\antigravity\scratch\deoch-website\zprime\css\base.css
+- `updateVitalitySummary` found in:
+  - c:\Users\molti\.gemini\antigravity\scratch\deoch-website\zprime\gamejs\game\test-sheet.js
+
+## Orphaned CSS Selectors
+- `#char-name` potential substring found in:
+  - c:\Users\molti\.gemini\antigravity\scratch\deoch-website\zprime\index.html
+- `#conditions-count-badge-container` potential substring found in:
+  - c:\Users\molti\.gemini\antigravity\scratch\deoch-website\zprime\index.html
+  - c:\Users\molti\.gemini\antigravity\scratch\deoch-website\zprime\gamejs\game\test-sheet.js
+- `.ac-group` potential substring found in:
+  - c:\Users\molti\.gemini\antigravity\scratch\deoch-website\zprime\css\base.css
+  - c:\Users\molti\.gemini\antigravity\scratch\deoch-website\zprime\index.html
+- `.attunements-form-group` potential substring found in:
+  - c:\Users\molti\.gemini\antigravity\scratch\deoch-website\zprime\css\base.css
+- `.character-form` potential substring found in:
+  - c:\Users\molti\.gemini\antigravity\scratch\deoch-website\zprime\index.html
+  - c:\Users\molti\.gemini\antigravity\scratch\deoch-website\zprime\gamejs\core\character.js
+- `.character-form-container` potential substring found in:
+  - c:\Users\molti\.gemini\antigravity\scratch\deoch-website\zprime\index.html
+- `.class-group` potential substring found in:
+  - c:\Users\molti\.gemini\antigravity\scratch\deoch-website\zprime\css\base.css
+- `.combat-side-grid` potential substring found in:
+  - c:\Users\molti\.gemini\antigravity\scratch\deoch-website\zprime\css\base.css
+- `.equipment-slot-header input` potential substring found in:
+  - c:\Users\molti\.gemini\antigravity\scratch\deoch-website\zprime\css\base.css
+- `.exp-group` potential substring found in:
+  - c:\Users\molti\.gemini\antigravity\scratch\deoch-website\zprime\css\base.css
+  - c:\Users\molti\.gemini\antigravity\scratch\deoch-website\zprime\index.html
+- `.health-mana-grid` potential substring found in:
+  - c:\Users\molti\.gemini\antigravity\scratch\deoch-website\zprime\css\base.css
+- `.heritage-indicator` potential substring found in:
+  - c:\Users\molti\.gemini\antigravity\scratch\deoch-website\zprime\css\base.css
+- `.level-group` potential substring found in:
+  - c:\Users\molti\.gemini\antigravity\scratch\deoch-website\zprime\css\base.css
+- `.name-input` potential substring found in:
+  - c:\Users\molti\.gemini\antigravity\scratch\deoch-website\zprime\gamejs\game\tour.js
+  - c:\Users\molti\.gemini\antigravity\scratch\deoch-website\zprime\index.html
+- `.panel-success` potential substring found in:
+  - c:\Users\molti\.gemini\antigravity\scratch\deoch-website\zprime\index.html
+- `.stat-box` potential substring found in:
+  - c:\Users\molti\.gemini\antigravity\scratch\deoch-website\zprime\css\base.css
+- `.theme-label i svg` potential substring found in:
+  - c:\Users\molti\.gemini\antigravity\scratch\deoch-website\zprime\css\base.css
+- `.theme-select-box` potential substring found in:
+  - c:\Users\molti\.gemini\antigravity\scratch\deoch-website\zprime\css\base.css
+  - c:\Users\molti\.gemini\antigravity\scratch\deoch-website\zprime\index.html
+- `.theme-select-box:hover` potential substring found in:
+  - c:\Users\molti\.gemini\antigravity\scratch\deoch-website\zprime\css\base.css

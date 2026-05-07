@@ -11,7 +11,7 @@
     <link rel="icon" type="image/png" href="./images/favicon32.png">
 
     <!-- Performance Optimization: Module Preloading -->
-    <link rel="modulepreload" href="./app.js">
+    <link rel="modulepreload" href="./gamejs/app.js">
     <link rel="modulepreload" href="./gamejs/InterfaceManager.js">
     <link rel="modulepreload" href="./gamejs/MechanicsManager.js">
     <link rel="modulepreload" href="./gamejs/orbs.js">
@@ -1725,115 +1725,12 @@
                         </details>
                     </div>
 
-                    <!-- Tab 2: Equipment (Functional) -->
-                    <div class="tab-pane test-tab-pane" id="test-tab-equipment" style="display: none; padding: 0;">
-
-                        <details class="equipment-column equipment-card" id="major-items-card" open>
-                            <summary>
-                                <div class="flex-between">
-                                    <div class="flex-center-gap">
-                                        <i data-lucide="package"></i>
-                                        <h4 class="text-uppercase-tracked u-font-size-xs"
-                                            style="color: var(--accent-primary);">Major Items</h4>
-                                    </div>
-                                    <div class="flex-center-gap" style="margin-left: auto;">
-                                        <span class="u-font-size-xs u-opacity-0-5 u-bold">(3LBS+)</span>
-                                        <i data-lucide="chevron-down" class="equip-toggle-btn u-w-16 u-text-accent"></i>
-                                    </div>
-                                </div>
-                            </summary>
-                            <div class="section-content u-flex-column u-gap-0-5 u-pt-1">
-                                <div class="equipment-slot">
-                                    <div class="equipment-slot-header">
-                                        <input type="text" id="test-equip-1" placeholder="Major Slot 1">
-                                        <button type="button" class="glass-btn-circle equip-toggle-btn u-h-32"
-                                            style="width: 34px; border-radius: 6px;">
-                                            <i data-lucide="chevron-down" class="u-icon-xs"></i>
-                                        </button>
-                                    </div>
-                                    <div class="equipment-desc-wrapper hidden">
-                                        <textarea id="test-equip-desc-1" rows="2"
-                                            placeholder="Item notes..."></textarea>
-                                        <div class="flex-between u-pt-0-5 u-border-top-faint">
-                                            <span
-                                                class="u-font-size-xs u-opacity-0-5 u-bold text-uppercase-tracked">Attune</span>
-                                            <label class="icon-toggle attune-toggle">
-                                                <input type="checkbox" id="char-attune-1" class="slot-attune-checkbox"
-                                                    style="display: none;">
-                                                <i data-lucide="link" style="width: 14px;"></i>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="equipment-slot">
-                                    <div class="equipment-slot-header">
-                                        <input type="text" id="test-equip-2" placeholder="Major Slot 2">
-                                        <button type="button" class="glass-btn-circle equip-toggle-btn"
-                                            style="width: 34px; height: 34px; border-radius: 6px;">
-                                            <i data-lucide="chevron-down" style="width: 14px;"></i>
-                                        </button>
-                                    </div>
-                                    <div class="equipment-desc-wrapper hidden">
-                                        <textarea id="test-equip-desc-2" rows="2"
-                                            placeholder="Item notes..."></textarea>
-                                        <div class="flex-between u-pt-0-5"
-                                            style="border-top: 1px solid rgba(255,255,255,0.05);">
-                                            <span
-                                                class="u-font-size-xs u-opacity-0-5 u-bold text-uppercase-tracked">Attune</span>
-                                            <label class="icon-toggle attune-toggle">
-                                                <input type="checkbox" id="char-attune-2" class="slot-attune-checkbox"
-                                                    style="display: none;">
-                                                <i data-lucide="link" style="width: 14px;"></i>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </details>
-
-                        <details class="equipment-column equipment-card u-bg-black-15" id="minor-items-card" open>
-                            <summary>
-                                <div class="flex-between">
-                                    <div class="flex-center-gap">
-                                        <i data-lucide="briefcase"></i>
-                                        <h4 class="text-uppercase-tracked u-font-size-xs u-text-accent">Minor Items
-                                        </h4>
-                                    </div>
-                                    <div class="flex-center-gap" style="margin-left: auto;">
-                                        <span class="u-font-size-xs u-opacity-0-5 u-bold">(< 3LBS)</span>
-                                                <i data-lucide="chevron-down" class="equip-toggle-btn"
-                                                    style="width: 16px; color: var(--accent-primary);"></i>
-                                    </div>
-                                </div>
-                            </summary>
-                            <div class="section-content u-flex-column u-gap-0-5 u-pt-1">
-                                <div class="equipment-slot">
-                                    <div class="equipment-slot-header">
-                                        <input type="text" id="test-equip-11" placeholder="Minor Slot 1">
-                                        <button type="button" class="glass-btn-circle equip-toggle-btn"
-                                            style="width: 34px; height: 34px; border-radius: 6px;">
-                                            <i data-lucide="chevron-down" style="width: 14px;"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </details>
-
-                        <div class="section-header-compact u-mt-2">
-                            <i data-lucide="archive"></i>
-                            <h4>Inventory</h4>
-                            <div class="u-flex-center u-gap-0-5" style="margin-left: auto;">
-                                <button type="button" id="test-add-bag-btn"
-                                    class="glass-btn-circle u-h-auto u-p-0-4-0-75 u-border-radius-lg u-font-size-xs u-font-weight-900"
-                                    style="width: auto;">+ BAG</button>
-                                <button type="button" id="test-add-pouch-btn"
-                                    class="glass-btn-circle u-h-auto u-p-0-4-0-75 u-border-radius-lg u-font-size-xs u-font-weight-900"
-                                    style="width: auto;">+ POUCH</button>
-                            </div>
-                        </div>
-                        <div id="test-bags-container" class="u-flex-column u-gap-1-5">
-                            <!-- Bags will be added here -->
-                        </div>
+                    <div class="tab-pane test-tab-pane u-p-1 u-text-center" id="test-tab-equipment" style="display: none;">
+                        <i data-lucide="package" class="u-mt-1 u-mb-1 u-w-48 u-h-48 u-text-accent u-opacity-0-3"></i>
+                        <h4 class="u-mb-0-5 u-font-primary u-font-size-2xl">Equipment</h4>
+                        <p class="u-font-size-sm u-opacity-0-7 u-text-secondary" style="line-height: 1.5;">
+                            The armory is currently being restocked. Gear management and inventory systems will return in a future update.
+                        </p>
                     </div>
 
                     <!-- Tab 3: Grimoire (Static) -->
@@ -1847,39 +1744,12 @@
                         </p>
                     </div>
 
-                    <!-- Tab 4: Lore & Legendmarks (Functional) -->
-                    <div class="tab-pane test-tab-pane u-p-1-25 hidden u-bg-black-05" id="test-tab-lore">
-                        <div class="lore-section">
-                            <!-- Backstory Section -->
-                            <div class="glass-panel-dark p-md">
-                                <div class="section-header-compact">
-                                    <i data-lucide="scroll" style="width: 20px; height: 20px;"></i>
-                                    <h4 class="text-uppercase-tracked u-bold">Character Lore</h4>
-                                </div>
-                                <textarea id="test-lore-textarea"
-                                    placeholder="The chronicles of Tirnoch begin with you..."
-                                    class="u-p-1 u-border-radius-lg u-font-size-md u-flex-1"
-                                    style="width: 100%; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.08); color: white; font-family: var(--font-secondary); line-height: 1.6; min-height: 200px; resize: vertical; border-left: 2px solid var(--accent-primary);"></textarea>
-                            </div>
-
-                            <!-- Legendmarks Section -->
-                            <div class="glass-panel-dark p-md">
-                                <div class="section-header-compact">
-                                    <i data-lucide="award" style="width: 20px; height: 20px;"></i>
-                                    <h4 class="text-uppercase-tracked u-bold">Legendmarks</h4>
-                                    <span class="u-font-size-xs u-opacity-0-5 u-bold text-uppercase-tracked"
-                                        style="margin-left: auto;">MAJOR ACHIEVEMENTS</span>
-                                </div>
-
-                                <div id="test-legendmarks-list" class="u-flex-column u-gap-0-75">
-                                    <div class="legendmark-entry">
-                                        <div class="legendmark-dot"></div>
-                                        <input type="text" placeholder="Slaughter of the Frost-Goliath"
-                                            class="u-p-0-75 u-border-radius-md u-font-size-md u-flex-1 u-bg-black-25 u-border-glass u-text-white">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="tab-pane test-tab-pane u-p-1 u-text-center" id="test-tab-lore" style="display: none;">
+                        <i data-lucide="scroll" class="u-mt-1 u-mb-1 u-w-48 u-h-48 u-text-accent u-opacity-0-3"></i>
+                        <h4 class="u-mb-0-5 u-font-primary u-font-size-2xl">Lore</h4>
+                        <p class="u-font-size-sm u-opacity-0-7 u-text-secondary" style="line-height: 1.5;">
+                            The chronicles of your legend are being written in the stars. Backstory and world-lore tracking will be available soon.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -2898,7 +2768,7 @@
     </div>
 
     <!-- App Entry Point (Modular) -->
-    <script type="module" src="app.js"></script>
+    <script type="module" src="gamejs/app.js"></script>
 </body>
 
 </html>

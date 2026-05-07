@@ -38,88 +38,13 @@ export const DataManager = {
         }
     },
 
-    // --- Storage Primitives ---
-    /**
-     * Retrieves a value from localStorage.
-     * @param {string} key - The storage key.
-     * @param {any} defaultValue - The value to return if the key is not found.
-     * @returns {string|null} The stored value or defaultValue.
-     */
-    get(key, defaultValue = null) {
-        try {
-            const value = localStorage.getItem(key);
-            return value !== null ? value : defaultValue;
-        } catch (e) {
-            console.error(`DataManager: Error reading key "${key}"`, e);
-            return defaultValue;
-        }
-    },
-
-    /**
-     * Stores a value in localStorage.
-     * @param {string} key - The storage key.
-     * @param {string} value - The value to store.
-     * @returns {boolean} True if successful, false otherwise.
-     */
-    set(key, value) {
-        try {
-            localStorage.setItem(key, value);
-            return true;
-        } catch (e) {
-            console.error(`DataManager: Error writing key "${key}"`, e);
-            return false;
-        }
-    },
-
-    /**
-     * Retrieves a JSON-parsed value from localStorage.
-     * @param {string} key - The storage key.
-     * @param {any} defaultValue - The value to return if not found or invalid.
-     * @returns {any} The parsed value or defaultValue.
-     */
-    getJson(key, defaultValue = null) {
-        const val = this.get(key);
-        if (!val) return defaultValue;
-        try {
-            return JSON.parse(val);
-        } catch (e) {
-            console.error(`DataManager: Error parsing JSON for key "${key}"`, e);
-            return defaultValue;
-        }
-    },
-
-    /**
-     * Stores a JSON-serialized value in localStorage.
-     * @param {string} key - The storage key.
-     * @param {any} value - The value to store.
-     * @returns {boolean} True if successful, false otherwise.
-     */
-    setJson(key, value) {
-        return this.set(key, JSON.stringify(value));
-    },
-
-    /**
-     * Removes a value from localStorage.
-     * @param {string} key - The storage key.
-     */
-    remove(key) {
-        try {
-            localStorage.removeItem(key);
-        } catch (e) {
-            console.error(`DataManager: Error removing key "${key}"`, e);
-        }
-    },
-
-    /**
-     * Clears all localStorage data (Caution: destructive).
-     */
-    clear() {
-        try {
-            localStorage.clear();
-        } catch (e) {
-            console.error('DataManager: Error clearing storage', e);
-        }
-    },
+    // --- Storage Delegation ---
+    get: (key, def) => DeochUtils.Storage.get(key, def),
+    set: (key, val) => DeochUtils.Storage.set(key, val),
+    getJson: (key, def) => DeochUtils.Storage.getJson(key, def),
+    setJson: (key, val) => DeochUtils.Storage.setJson(key, val),
+    remove: (key) => DeochUtils.Storage.remove(key),
+    clear: () => DeochUtils.Storage.clear(),
 
     // --- High-Level Character Persistence ---
     saveCharacter() {
@@ -140,13 +65,7 @@ export const DataManager = {
         this.set(this.KEYS.LAST_CHAR_ID, charData.id);
         this.activeCharId = charData.id;
 
-        const btn = document.getElementById('test-save-btn');
-        if (btn) {
-            const originalText = btn.innerHTML;
-            btn.innerHTML = '<i data-lucide="check"></i> Saved!';
-            DeochUtils.queueIconRefresh();
-            setTimeout(() => { btn.innerHTML = originalText; DeochUtils.queueIconRefresh(); }, 2000);
-        }
+        DeochUtils.showFeedback('test-save-btn', 'Saved!');
 
         this.renderGallery();
     },
@@ -175,12 +94,6 @@ export const DataManager = {
             currentMp: window.mobileTargetMp !== undefined ? window.mobileTargetMp : (parseInt(document.getElementById('hud-max-mp-input')?.value) || 12),
             maxSp: parseInt(document.getElementById('mobile-max-sp-input')?.value) || 10,
             currentSp: window.mobileTargetSp !== undefined ? window.mobileTargetSp : (parseInt(document.getElementById('mobile-max-sp-input')?.value) || 10),
-            inspiration: document.getElementById('test-hud-inspiration')?.checked || false,
-            attunements: [
-                document.getElementById('char-attune-1')?.checked || false,
-                document.getElementById('char-attune-2')?.checked || false,
-                document.getElementById('char-attune-3')?.checked || false
-            ],
             primaryClass: document.getElementById('test-hud-class-text')?.dataset.primaryClass || document.getElementById('test-hud-class-text')?.textContent || 'Human',
             classChoiceMade: document.getElementById('test-hud-class-choice-made')?.value || 'false',
             isMulticlass: document.getElementById('test-is-multiclass')?.value || 'false',
@@ -240,13 +153,6 @@ export const DataManager = {
             const insp = document.getElementById('test-hud-inspiration');
             if (insp) insp.checked = char.inspiration;
         }
-        if (char.attunements && Array.isArray(char.attunements)) {
-            char.attunements.forEach((val, i) => {
-                const att = document.getElementById(`char-attune-${i + 1}`);
-                if (att) att.checked = val;
-            });
-        }
-
         // Apply flags
         const setFlag = (id, val) => {
             const el = document.getElementById(id);
@@ -278,11 +184,7 @@ export const DataManager = {
         }
 
         // Apply EXP
-        const expInput = document.getElementById('test-exp-input');
-        if (expInput) {
-            if (expInput.tagName === 'SPAN') expInput.textContent = char.exp || 20;
-            else expInput.value = char.exp || 20;
-        }
+        DeochUtils.smartSet('test-exp-input', char.exp || 20);
 
         // Apply Theme
         if (char.theme && window.InterfaceManager?.applyTheme) window.InterfaceManager.applyTheme(char.theme);
@@ -379,17 +281,7 @@ export const DataManager = {
         if (classInput2) classInput2.value = '';
 
         // Reset EXP
-        const expInput = document.getElementById('test-exp-input');
-        if (expInput) {
-            if (expInput.tagName === 'SPAN') expInput.textContent = 20;
-            else expInput.value = 20;
-        }
-
-        // Reset attunements
-        [1, 2, 3].forEach(i => {
-            const att = document.getElementById(`char-attune-${i}`);
-            if (att) att.checked = false;
-        });
+        DeochUtils.smartSet('test-exp-input', 20);
 
         // Reset Theme to default
         if (window.InterfaceManager?.applyTheme) window.InterfaceManager.applyTheme('sandstorm');
@@ -752,17 +644,10 @@ export const DataManager = {
     copyCharacterCode() {
         const charData = this.gatherCurrentData();
         const code = JSON.stringify(charData);
-        const textarea = document.getElementById('test-transfer-textarea');
-        if (textarea) textarea.value = code;
+        DeochUtils.smartSet('test-transfer-textarea', code);
 
         navigator.clipboard.writeText(code).then(() => {
-            const btn = document.getElementById('test-copy-btn');
-            if (btn) {
-                const original = btn.innerHTML;
-                btn.innerHTML = '<i data-lucide="check"></i> COPIED!';
-                DeochUtils.queueIconRefresh();
-                setTimeout(() => { btn.innerHTML = original; DeochUtils.queueIconRefresh(); }, 2000);
-            }
+            DeochUtils.showFeedback('test-copy-btn', 'COPIED!');
         });
     }
 };

@@ -21,7 +21,9 @@ export default [
             }],
             'no-console': 'off',
             'semi': ['error', 'always'],
-            'quotes': ['error', 'single']
+            'quotes': ['error', 'single'],
+            'max-depth': ['warn', 4],
+            'no-undef-init': 'error'
         }
     }
 ];

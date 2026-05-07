@@ -4,15 +4,15 @@
  */
 window.SUSPEND_SAVING = false;
 
-import { DiceRoller } from './gamejs/dice-roller.js';
-import { CreationTour } from './gamejs/tour.js';
-import { DeochUtils } from './gamejs/DeochUtils.js';
-import { DataManager } from './gamejs/DataManager.js';
-import { StatManager } from './gamejs/StatManager.js';
-import { VitalsManager, HealthOrbShader } from './gamejs/orbs.js';
-import { GMManager } from './gamejs/GMManager.js';
-import { MechanicsManager } from './gamejs/MechanicsManager.js';
-import { InterfaceManager } from './gamejs/InterfaceManager.js';
+import { DiceRoller } from './dice-roller.js';
+import { CreationTour } from './tour.js';
+import { DeochUtils } from './DeochUtils.js';
+import { DataManager } from './DataManager.js';
+import { StatManager } from './StatManager.js';
+import { VitalsManager, HealthOrbShader } from './orbs.js';
+import { GMManager } from './GMManager.js';
+import { MechanicsManager } from './MechanicsManager.js';
+import { InterfaceManager } from './InterfaceManager.js';
 
 // Global Bridge for Legacy/Inline Event Handlers
 window.DiceRoller = DiceRoller;

@@ -252,8 +252,7 @@ export const InterfaceManager = {
         if (!expInput) return;
         const current = parseInt(expInput.textContent || expInput.value) || 0;
         const newVal = Math.max(0, current + delta);
-        if (expInput.tagName === 'SPAN') expInput.textContent = newVal;
-        else expInput.value = newVal;
+        DeochUtils.smartSet('test-exp-input', newVal);
         if (window.MechanicsManager) window.MechanicsManager.updateLevelFromExp();
     },
 

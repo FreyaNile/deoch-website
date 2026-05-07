@@ -10,6 +10,7 @@ export const MechanicsManager = {
     availableStatPoints: 0,
     allocatedThisLevel: [],
     preAllocationStats: {},
+    lastProcessedLevel: -1,
 
     CONDITIONS: [
         { id: 'cond-blinded', name: 'Blinded', key: 'cond_blinded' },
@@ -43,6 +44,14 @@ export const MechanicsManager = {
         this.initConditionListeners();
         this.initMulticlassListeners();
         this.initLevelingListeners();
+        
+        // Synchronize initial level state
+        const expInput = document.getElementById('test-exp-input');
+        if (expInput) {
+            const exp = parseInt(expInput.textContent || expInput.value) || 0;
+            this.lastProcessedLevel = this.calculateCurrentLevel(exp);
+        }
+
         this.initialized = true;
     },
 
@@ -159,10 +168,12 @@ export const MechanicsManager = {
 
         const isInitializing = window.DataManager ? window.DataManager.isInitializing : false;
 
-        if (!isInitializing && totalLevel > oldLevel && oldLevel >= 0) {
-            const levelDiff = totalLevel - oldLevel;
+        if (!isInitializing && this.lastProcessedLevel >= 0 && totalLevel > this.lastProcessedLevel) {
+            const levelDiff = totalLevel - this.lastProcessedLevel;
             this.availableStatPoints += levelDiff * 2;
         }
+        
+        this.lastProcessedLevel = totalLevel;
 
         this.syncLevelToMainForm(totalLevel);
 
@@ -229,9 +240,18 @@ export const MechanicsManager = {
                 document.getElementById('test-multiclass-choice-made').value = 'true';
                 document.getElementById('test-is-multiclass').value = 'true';
                 document.getElementById('multiclass-dialog')?.close();
-                setTimeout(() => this.showClassSelection(true), 500);
+                
+                // Refactored from setTimeout to custom event for deterministic timing
+                window.dispatchEvent(new CustomEvent('deoch:request-class-selection', { 
+                    detail: { isSecondary: true } 
+                }));
             }, { signal: this.signal });
         }
+        
+        // Listen for the request
+        window.addEventListener('deoch:request-class-selection', (e) => {
+            this.showClassSelection(e.detail.isSecondary);
+        }, { signal: this.signal });
         if (no) {
             no.addEventListener('click', () => {
                 document.getElementById('test-multiclass-choice-made').value = 'true';

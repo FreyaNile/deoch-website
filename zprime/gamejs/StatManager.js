@@ -26,24 +26,15 @@ export const StatManager = {
     },
 
     setStatValue(stat, value) {
-        const inputs = [
-            document.getElementById(`stat-${stat}`),
-            document.getElementById(`char-${stat}`)
-        ];
-        inputs.forEach(input => {
-            if (input) {
-                if (input.tagName === 'INPUT') input.value = value;
-                else input.textContent = value;
-                input.dispatchEvent(new Event('change', { bubbles: true }));
-            }
-        });
+        DeochUtils.smartSet(`stat-${stat}`, value);
+        DeochUtils.smartSet(`char-${stat}`, value);
 
         // Update summaries
         document.querySelectorAll(`.summary-item[data-stat="${stat}"] .val, .attr-box[data-stat="${stat}"] .val`).forEach(el => {
             el.textContent = value;
         });
 
-        const mod = Math.floor((value - 10) / 2);
+        const mod = DeochUtils.calculateMod(value);
         document.querySelectorAll(`.summary-item[data-stat="${stat}"] .mod, .attr-box[data-stat="${stat}"] .mod`).forEach(el => {
             el.textContent = `(${(mod >= 0 ? '+' : '')}${mod})`;
         });

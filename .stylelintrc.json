@@ -1,0 +1,10 @@
+{
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "max-nesting-depth": 4,
+    "declaration-no-important": true,
+    "selector-max-compound-selectors": 4,
+    "indentation": 4,
+    "string-quotes": "double"
+  }
+}

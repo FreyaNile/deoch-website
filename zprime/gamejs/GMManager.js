@@ -32,9 +32,9 @@ export const GMManager = {
         if (window.InterfaceManager && window.InterfaceManager.toggleHUD) {
             window.InterfaceManager.toggleHUD(false);
         }
-        DeochUtils.setText('test-hud-name', 'GM MODE');
-        DeochUtils.setText('test-hud-level-text', 'Encounter Tools');
-        DeochUtils.setText('test-hud-secondary-level-text', 'Monster Catalog');
+        DeochUtils.smartSet('test-hud-name', 'GM MODE');
+        DeochUtils.smartSet('test-hud-level-text', 'Encounter Tools');
+        DeochUtils.smartSet('test-hud-secondary-level-text', 'Monster Catalog');
         const mainContent = document.getElementById('mobile-sheet-view');
         if (mainContent) {
             mainContent.style.display = 'flex';

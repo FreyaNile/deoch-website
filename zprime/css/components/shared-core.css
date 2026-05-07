@@ -1,8 +1,4 @@
 /* Local @font-face using the provided font files */
-
-
-
-
 @font-face {
     font-family: "Exocet";
     src: url("../../fonts/ExocetTTF.TTF") format("truetype");
@@ -10,10 +6,6 @@
     font-style: normal;
     font-display: block;
 }
-
-
-
-
 
 @font-face {
     font-family: "Cinzel Decorative";
@@ -23,10 +15,6 @@
     font-display: block;
 }
 
-
-
-
-
 @font-face {
     font-family: "Cinzel Decorative";
     src: url("../../fonts/CinzelDecorative-Bold.ttf") format("truetype");
@@ -34,9 +22,6 @@
     font-style: normal;
     font-display: swap;
 }
-
-
-
 
 
 @font-face {
@@ -48,9 +33,6 @@
 }
 
 
-
-
-
 @font-face {
     font-family: "Raleway";
     src: url("../../fonts/Raleway-VariableFont_wght.ttf") format("truetype-variations");
@@ -58,9 +40,6 @@
     font-style: normal;
     font-display: swap;
 }
-
-
-
 
 
 @font-face {
@@ -72,14 +51,7 @@
 }
 
 
-
-
-
-
-
 /* Chrome, Edge, and Safari */
-
-
 
 
 *::-webkit-scrollbar {
@@ -490,6 +462,14 @@ h6 {
 
 
 
+.u-border-accent {
+    border: 1px solid var(--accent-primary);
+}
+
+
+
+
+
 .u-text-secondary {
     color: var(--text-secondary);
 }
@@ -647,14 +627,6 @@ h6 {
 
 
 
-.u-inset-0 {
-    inset: 0;
-}
-
-
-
-
-
 .u-p-0-5 {
     padding: 0.5rem;
 }
@@ -673,14 +645,6 @@ h6 {
 
 .u-border-top-glass {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-
-
-
-
-.u-border-accent {
-    border: 1px solid var(--accent-primary);
 }
 
 
@@ -768,14 +732,6 @@ h6 {
 
 
 
-.u-border-radius-lg {
-    border-radius: 10px;
-}
-
-
-
-
-
 .u-p-0-0-5 {
     padding: 0 0.5rem;
 }
@@ -850,14 +806,6 @@ h6 {
 
 .u-h-auto {
     height: auto;
-}
-
-
-
-
-
-.u-border-top-glass {
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 
@@ -1149,26 +1097,6 @@ h6 {
 
 
 
-.u-inset-0 {
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-}
-
-
-
-
-
-.u-fullscreen {
-    width: 100vw;
-    height: 100vh;
-}
-
-
-
-
-
 .u-pointer-events-auto {
     pointer-events: auto;
 }
@@ -1313,9 +1241,6 @@ h6 {
 
 
 
-.u-max-h-180 {
-    max-height: 180px;
-}
 
 
 
@@ -1705,36 +1630,19 @@ h6 {
 
 
 
-.lore-section {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
+/* Lore removed */
 
 
 
 
 
-.legendmark-entry {
-    display: flex;
-    gap: 0.75rem;
-    align-items: flex-start;
-    padding: 0.5rem 0;
-}
+/* Legendmark entry removed */
 
 
 
 
 
-.legendmark-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--accent-primary);
-    margin-top: 0.6rem;
-    box-shadow: 0 0 10px var(--accent-glow);
-    flex-shrink: 0;
-}
+/* Legendmark dot removed */
 
 
 
@@ -4278,7 +4186,18 @@ summary::-webkit-details-marker {
     z-index: 2;
 }
 
+.tab-nav::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2.75px;
+    background: linear-gradient(to right, transparent, var(--glass-border), var(--accent-primary), var(--glass-border), transparent);
+    opacity: 0.45;
+    pointer-events: none;
 
+}
 
 
 
@@ -4323,27 +4242,8 @@ summary::-webkit-details-marker {
     align-items: center;
     justify-content: center;
     position: relative;
+    transform: translateY(-4px);
 }
-
-
-
-
-
-.tab-btn i,
-.tab-btn svg {
-    width: 24px;
-    height: 24px;
-    display: block;
-    transition: all var(--transition-smooth);
-    position: relative;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-
-
 
 
 .tab-btn.active i,
@@ -4401,6 +4301,7 @@ summary::-webkit-details-marker {
     background: linear-gradient(to right, transparent, var(--accent-primary), transparent);
     z-index: 5;
     border-radius: 2px;
+    transform: translateY(4px);
 }
 
 
@@ -6287,8 +6188,24 @@ body.on-test-page {
 
     body.on-test-page .tab-btn i,
     body.on-test-page .tab-btn svg {
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         transform: translateY(-1px);
+        transition: all var(--transition-smooth);
     }
+
+    /* Grimoire specific visual centering */
+    body.on-test-page .tab-btn [data-lucide="book-open"],
+    body.on-test-page .tab-btn .lucide-book-open {
+        width: 25px;
+        height: 25px;
+        transform: translateY(1px);
+    }
+
+
 
     body.on-test-page .tab-btn {
         padding: 0.4rem 0.5rem;
@@ -6488,9 +6405,7 @@ body.on-test-page {
 
 
 
-    width: 14px;
-    height: 14px;
-}
+
 
 
 
@@ -6872,30 +6787,20 @@ body.on-test-page {
 
 
 
-#test-tab-lore textarea:focus {
-    outline: none;
-    border-color: var(--accent-primary);
-    box-shadow: 0 0 10px var(--accent-glow);
-    background: rgba(0, 0, 0, 0.4);
-    transition: all 0.3s ease;
-}
+/* Lore textarea focus removed */
 
 
 
 
 
-.legendmark-entry:hover input {
-    background: rgba(255, 255, 255, 0.05);
-}
+/* Legendmark hover removed */
 
 
 
 
 
-.legendmark-entry input:focus {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: var(--accent-primary);
-}
+/* Legendmark focus removed */
+
 /* Bulk Adjustment Popup (Vertical between orbs) */
 .bulk-adjustment-modal {
     position: fixed;
@@ -7042,13 +6947,27 @@ body.on-test-page {
 }
 
 @keyframes statRollIn {
-    0% { transform: scale(0.5) translateY(10px); opacity: 0; }
-    100% { transform: scale(1) translateY(0); opacity: 1; }
+    0% {
+        transform: scale(0.5) translateY(10px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
 }
 
 @keyframes statFadeIn {
-    0% { opacity: 0; filter: blur(4px); }
-    100% { opacity: 1; filter: blur(0); }
+    0% {
+        opacity: 0;
+        filter: blur(4px);
+    }
+
+    100% {
+        opacity: 1;
+        filter: blur(0);
+    }
 }
 
 .stat-rolling {
@@ -7067,8 +6986,13 @@ body.on-test-page {
 }
 
 @keyframes spinGear {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(180deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(180deg);
+    }
 }
 
 .btn-clicked-pop i,
@@ -7077,9 +7001,17 @@ body.on-test-page {
 }
 
 @keyframes popPalette {
-    0% { transform: scale(1); }
-    40% { transform: scale(1.4); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(1);
+    }
+
+    40% {
+        transform: scale(1.4);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 #test-settings-btn.active {
@@ -7088,4 +7020,3 @@ body.on-test-page {
     color: var(--accent-primary) !important;
     box-shadow: 0 0 15px var(--accent-glow) !important;
 }
-

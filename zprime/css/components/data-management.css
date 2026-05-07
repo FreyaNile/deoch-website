@@ -168,74 +168,9 @@
 
 /* Equipment Components */
 
-.equipment-card {
-    background: var(--surface-glass-dark);
-    margin-top: 1.5rem;
-    padding: 1.5rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
-    overflow: hidden;
-}
+/* Equipment removed */
 
-.equipment-card summary {
-    list-style: none;
-    cursor: pointer;
-    outline: none;
-}
-
-.equipment-slot {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    padding: 0.25rem 0;
-}
-
-.equipment-slot-header {
-    display: flex;
-    gap: 0.5rem;
-}
-
-.equipment-slot-header input {
-    flex: 1;
-    background: rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: white;
-    padding: 0.5rem;
-    border-radius: 6px;
-    font-size: 0.85rem;
-    transition: border-color 0.3s ease;
-}
-
-.equipment-slot-header input:focus {
-    border-color: var(--accent-primary);
-    outline: none;
-}
-
-.equipment-desc-wrapper {
-    margin-top: 0.4rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-    padding: 0.5rem;
-    background: rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-}
-
-.equipment-desc-wrapper textarea {
-    width: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: white;
-    padding: 0.5rem;
-    border-radius: 6px;
-    font-size: 0.8rem;
-    resize: none;
-}
-
-.equipment-desc-wrapper textarea:focus {
-    border-color: var(--accent-primary);
-    outline: none;
-}
+/* More Equipment removed */
 
 details.management-menu summary {
     list-style: none;
@@ -247,61 +182,7 @@ details.management-menu summary::-webkit-details-marker {
     display: none;
 }
 
-.equipment-column {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-}
-
-.equipment-slot {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    background: rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
-    padding: 0.6rem;
-    transition: all 0.3s ease;
-}
-
-.equipment-slot:focus-within {
-    border-color: var(--accent-primary);
-    background: var(--accent-glow);
-}
-
-.equipment-slot.attuned {
-    box-shadow: 0 0 20px var(--accent-glow), inset 0 0 10px var(--accent-glow);
-    border-color: var(--accent-primary);
-    background: var(--accent-glow);
-}
-
-.equipment-slot-header {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-}
-
-.equipment-slot .equipment-slot-header input {
-    flex-grow: 1;
-    margin: 0;
-    padding: 0.6rem 0.8rem;
-    border: none;
-    background: rgba(10, 10, 15, 0.4);
-}
-
-.equipment-desc-wrapper {
-    max-height: 150px;
-    overflow: hidden;
-    transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, margin 0.3s ease;
-    opacity: 1;
-}
-
-.equipment-desc-wrapper.hidden {
-    max-height: 0;
-    opacity: 0;
-    margin-top: -0.5rem;
-    pointer-events: none;
-}
+/* Column/Slot removed */
 
 @media (max-width: 768px) {
   .rules-grid,

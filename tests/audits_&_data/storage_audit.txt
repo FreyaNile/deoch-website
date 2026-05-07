@@ -1,0 +1,25 @@
+zprime\app.js:45 [Deprecated Gallery] DataManager.updateLegacyGallery(id);
+zprime\app.js:93 [Deprecated Gallery] DataManager.updateLegacyGallery();
+zprime\gamejs\character.js:78 [Deprecated Gallery] this.showStatus('Gallery full (Max 10). Delete a hero first!', true);
+zprime\gamejs\character.js:86 [Deprecated Gallery] DataManager.updateLegacyGallery();
+zprime\gamejs\character.js:87 [Deprecated Gallery] if (showStatus) this.showStatus('Character Saved to Gallery!');
+zprime\gamejs\DataManager.js:36 [Direct localStorage] const value = localStorage.getItem(key);
+zprime\gamejs\DataManager.js:52 [Direct localStorage] localStorage.setItem(key, value);
+zprime\gamejs\DataManager.js:98 [Direct localStorage] localStorage.removeItem(key);
+zprime\gamejs\DataManager.js:109 [Direct localStorage] localStorage.clear();
+zprime\gamejs\DataManager.js:142 [Deprecated Gallery] this.renderGallery();
+zprime\gamejs\DataManager.js:282 [Deprecated Gallery] this.renderGallery();
+zprime\gamejs\DataManager.js:391 [Deprecated Gallery] this.renderGallery();
+zprime\gamejs\DataManager.js:432 [Deprecated Gallery] this.renderGallery();
+zprime\gamejs\DataManager.js:438 [Deprecated GalleryManager] // --- Gallery Logic (Merged from GalleryManager.js) ---
+zprime\gamejs\DataManager.js:438 [Deprecated Gallery] // --- Gallery Logic (Merged from GalleryManager.js) ---
+zprime\gamejs\DataManager.js:442 [Deprecated Gallery] renderGallery() {
+zprime\gamejs\DataManager.js:502 [Deprecated Gallery] // --- Legacy Gallery Logic (Merged from gallery.js) ---
+zprime\gamejs\DataManager.js:507 [Deprecated Gallery] updateLegacyGallery(forcedActiveId = null) {
+zprime\gamejs\navigation.js:204 [Deprecated Gallery] const testGallery = DataManager.getJson(DataManager.KEYS.CHARACTERS, []);
+zprime\gamejs\navigation.js:205 [Deprecated Gallery] if (testGallery && testGallery.length > 0) {
+zprime\gamejs\navigation.js:207 [Deprecated Gallery] const char = testGallery.find(c => c.id === lastId) || testGallery[0];
+zprime\gamejs\navigation.js:262 [Deprecated Gallery] const testGallery = DataManager.getJson(DataManager.KEYS.CHARACTERS, []);
+zprime\gamejs\navigation.js:263 [Deprecated Gallery] const legacyGallery = DataManager.getJson(DataManager.KEYS.LEGACY_GALLERY, []);
+zprime\gamejs\navigation.js:266 [Deprecated Gallery] const hasChar = testGallery.length > 0 || legacyGallery.length > 0 || (legacyData && legacyData.name);
+zprime\gamejs\test-sheet.js:40 [Deprecated Gallery] this.DataManager.renderGallery();
