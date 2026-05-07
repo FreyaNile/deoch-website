@@ -12,6 +12,7 @@ export const StatManager = {
         this.signal = signal;
         
         if (!this.initialized) {
+            this.initStatTooltip();
             this.initStatRolling();
             this.initMobileActions();
             this.initialized = true;
@@ -154,12 +155,24 @@ export const StatManager = {
         const pointsEl = document.getElementById('available-points');
         const indicator = document.getElementById('stat-points-indicator');
         const points = window.MechanicsManager ? window.MechanicsManager.availableStatPoints : 0;
+        const hasPoints = points > 0;
 
         if (pointsEl) pointsEl.textContent = points;
         if (indicator) {
-            indicator.style.display = points > 0 ? 'flex' : 'none';
-            if (points > 0) indicator.classList.add('pulsate-glow');
+            indicator.style.display = hasPoints ? 'flex' : 'none';
+            if (hasPoints) indicator.classList.add('pulsate-glow');
             else indicator.classList.remove('pulsate-glow');
+        }
+
+        // Toggle popup visibility
+        const hasInteracted = localStorage.getItem('deoch_has_interacted_with_stat_popup') === 'true';
+        const isDismissed = document.body.classList.contains('stat-tooltip-dismissed');
+        document.body.classList.toggle('has-available-points', hasPoints && !hasInteracted && !isDismissed);
+
+        // Reset dismissal state when points are cleared so it can reappear on next grant
+        if (!hasPoints) {
+            document.body.classList.remove('stat-tooltip-dismissed');
+            localStorage.removeItem('deoch_has_interacted_with_stat_popup');
         }
     },
 
@@ -338,6 +351,18 @@ export const StatManager = {
 
         actionsList.appendChild(newItem);
         DeochUtils.queueIconRefresh();
+    },
+
+    initStatTooltip() {
+        const tooltip = document.getElementById('stat-points-tooltip');
+        if (tooltip) {
+            tooltip.addEventListener('click', (e) => {
+                e.stopPropagation();
+                localStorage.setItem('deoch_has_interacted_with_stat_popup', 'true');
+                document.body.classList.add('stat-tooltip-dismissed');
+                if (window.InterfaceManager) window.InterfaceManager.toggleHUD(true);
+            }, { signal: this.signal });
+        }
     },
 
     cleanup() {

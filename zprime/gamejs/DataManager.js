@@ -26,6 +26,7 @@ export const DataManager = {
         this.signal = signal;
         this.initLegacyForm();
         this.migrateLegacyData();
+        this.renderGallery();
     },
 
     loadLastCharacter() {
@@ -168,8 +169,12 @@ export const DataManager = {
             })(),
             stats: window.StatsManager ? window.StatsManager.getStats() : {},
             maxHp: parseInt(document.getElementById('hud-max-hp-input')?.value) || 28,
+            currentHp: window.mobileTargetHp !== undefined ? window.mobileTargetHp : (parseInt(document.getElementById('hud-max-hp-input')?.value) || 28),
+            tempHp: window.mobileTargetTempHp || 0,
             maxMp: parseInt(document.getElementById('hud-max-mp-input')?.value) || 12,
+            currentMp: window.mobileTargetMp !== undefined ? window.mobileTargetMp : (parseInt(document.getElementById('hud-max-mp-input')?.value) || 12),
             maxSp: parseInt(document.getElementById('mobile-max-sp-input')?.value) || 10,
+            currentSp: window.mobileTargetSp !== undefined ? window.mobileTargetSp : (parseInt(document.getElementById('mobile-max-sp-input')?.value) || 10),
             inspiration: document.getElementById('test-hud-inspiration')?.checked || false,
             attunements: [
                 document.getElementById('char-attune-1')?.checked || false,
@@ -213,6 +218,15 @@ export const DataManager = {
         window.mobileMaxHp = char.maxHp || 28;
         window.mobileMaxMp = char.maxMp || 12;
         window.mobileMaxSp = char.maxSp || 10;
+
+        window.mobileTargetHp = char.currentHp !== undefined ? char.currentHp : window.mobileMaxHp;
+        window.mobileDisplayHp = window.mobileTargetHp;
+        window.mobileTargetTempHp = char.tempHp || 0;
+        window.mobileDisplayTempHp = window.mobileTargetTempHp;
+        window.mobileTargetMp = char.currentMp !== undefined ? char.currentMp : window.mobileMaxMp;
+        window.mobileDisplayMp = window.mobileTargetMp;
+        window.mobileTargetSp = char.currentSp !== undefined ? char.currentSp : window.mobileMaxSp;
+        window.mobileDisplaySp = window.mobileTargetSp;
 
         const hpInput = document.getElementById('hud-max-hp-input');
         if (hpInput) hpInput.value = window.mobileMaxHp;
@@ -286,6 +300,7 @@ export const DataManager = {
 
         this.isInitializing = false;
         console.log('Character loaded:', char.name);
+        this.renderGallery();
     },
 
     newCharacter() {
@@ -334,6 +349,14 @@ export const DataManager = {
         window.mobileMaxHp = 28;
         window.mobileMaxMp = 12;
         window.mobileMaxSp = 10;
+        window.mobileTargetHp = 28;
+        window.mobileDisplayHp = 28;
+        window.mobileTargetTempHp = 0;
+        window.mobileDisplayTempHp = 0;
+        window.mobileTargetMp = 12;
+        window.mobileDisplayMp = 12;
+        window.mobileTargetSp = 10;
+        window.mobileDisplaySp = 10;
         const hpInput = document.getElementById('hud-max-hp-input');
         if (hpInput) hpInput.value = 28;
         const mpInput = document.getElementById('hud-max-mp-input');
@@ -573,36 +596,52 @@ export const DataManager = {
      * Renders the test sheet character gallery.
      */
     renderGallery() {
-        const galleryContainer = document.getElementById('test-gallery-grid');
-        if (!galleryContainer) return;
-
         const characters = this.getJson(this.KEYS.CHARACTERS, []);
-        galleryContainer.innerHTML = '';
 
-        characters.forEach(char => {
-            const card = document.createElement('div');
-            card.className = 'test-gallery-card' + (char.id === this.activeCharId ? ' active' : '');
-            card.innerHTML = `
+        // 1. Full Grid (Dialog Gallery)
+        const galleryContainer = document.getElementById('test-gallery-grid');
+        if (galleryContainer) {
+            galleryContainer.innerHTML = '';
+            characters.forEach(char => {
+                const card = document.createElement('div');
+                card.className = 'test-gallery-card' + (char.id === this.activeCharId ? ' active' : '');
+                card.innerHTML = `
+                    <div class="card-bg"></div>
+                    <div class="card-content">
+                        <div class="char-avatar"><i data-lucide="user"></i></div>
+                        <div class="char-info">
+                            <div class="char-name">${char.name}</div>
+                            <div class="char-meta">Level ${char.level} ${char.primaryClass || 'Hero'}</div>
+                        </div>
+                    </div>
+                `;
+                card.addEventListener('click', () => {
+                    this.loadCharacter(char.id);
+                }, { signal: this.signal });
+                galleryContainer.appendChild(card);
+            });
+
+            // Add "New Character" card
+            const newCard = document.createElement('div');
+            newCard.className = 'test-gallery-card new-char';
+            newCard.innerHTML = `
                 <div class="card-bg"></div>
                 <div class="card-content">
-                    <div class="char-avatar">
-                        <i data-lucide="user"></i>
-                    </div>
+                    <div class="char-avatar"><i data-lucide="plus"></i></div>
                     <div class="char-info">
-                        <div class="char-name">${char.name}</div>
-                        <div class="char-meta">Level ${char.level} ${char.primaryClass || 'Hero'}</div>
+                        <div class="char-name">Create New</div>
+                        <div class="char-meta">Begin a new journey</div>
                     </div>
                 </div>
             `;
-            card.addEventListener('click', () => {
-                this.loadCharacter(char.id);
-                const galleryModal = document.getElementById('character-gallery-dialog');
-                if (galleryModal) galleryModal.close();
+            newCard.addEventListener('click', () => {
+                this.newCharacter();
+                document.getElementById('character-gallery-dialog')?.close();
             }, { signal: this.signal });
-            galleryContainer.appendChild(card);
-        });
+            galleryContainer.appendChild(newCard);
+        }
 
-        // Populate integrated gallery list in management popup
+        // 2. Integrated List (Management Popup)
         const galleryList = document.getElementById('test-gallery-list');
         if (galleryList) {
             galleryList.innerHTML = '';
@@ -626,42 +665,18 @@ export const DataManager = {
                     if (char.id === this.activeCharId) {
                         btn.style.borderColor = 'var(--accent-primary)';
                         btn.style.color = 'var(--accent-primary)';
-                        btn.style.background = 'rgba(var(--accent-rgb), 0.1)';
+                        btn.style.background = 'var(--accent-glow)';
                         btn.style.boxShadow = '0 0 10px var(--accent-glow)';
                     }
 
                     btn.innerHTML = `<i data-lucide="user" style="width: 14px; height: 14px;"></i> ${char.name || 'Unknown Hero'}`;
                     btn.addEventListener('click', () => {
                         this.loadCharacter(char.id);
-                        const menu = document.querySelector('.management-menu');
-                        if (menu) menu.open = false;
                     }, { signal: this.signal });
                     galleryList.appendChild(btn);
                 });
             }
         }
-
-        // Add "New Character" card
-        const newCard = document.createElement('div');
-        newCard.className = 'test-gallery-card new-char';
-        newCard.innerHTML = `
-            <div class="card-bg"></div>
-            <div class="card-content">
-                <div class="char-avatar">
-                    <i data-lucide="plus"></i>
-                </div>
-                <div class="char-info">
-                    <div class="char-name">Create New</div>
-                    <div class="char-meta">Begin a new journey</div>
-                </div>
-            </div>
-        `;
-        newCard.addEventListener('click', () => {
-            this.newCharacter();
-            const galleryModal = document.getElementById('character-gallery-dialog');
-            if (galleryModal) galleryModal.close();
-        }, { signal: this.signal });
-        galleryContainer.appendChild(newCard);
 
         DeochUtils.queueIconRefresh();
     },

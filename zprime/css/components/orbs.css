@@ -155,8 +155,8 @@ body.has-available-points .floating-vitality-orbs.expanded .summary-item {
     overflow: hidden;
 }
 
-body.on-test-page.char-sheet-active .floating-vitality-orbs,
-body.on-test-page .floating-vitality-orbs {
+body.on-test-page.char-sheet-active:not(.tour-active):not(.tour-active) .floating-vitality-orbs,
+body.on-test-page:not(.tour-active) .floating-vitality-orbs {
     transform: translateY(0);
     opacity: 1;
     visibility: visible;

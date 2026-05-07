@@ -1,7 +1,23 @@
 .u-tour-overlay {
-    position: fixed;
-    z-index: 10000;
-    background: radial-gradient(circle at center, rgba(15, 7, 25, 0.98) 0%, #000 100%);
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    margin: 0 !important;
+    z-index: 20000000 !important;
+    display: flex;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow-y: auto !important;
+    background: radial-gradient(circle at center, rgba(15, 7, 25, 0.98) 0%, #000 100%) !important;
+}
+
+.u-tour-overlay.hidden {
+    display: none !important;
 }
 
 /* --- Mobile Creation Tour Styles --- */
@@ -147,7 +163,7 @@ body.tour-active {
     right: 0;
     bottom: 0;
     background: rgba(0, 0, 0, 0.85);
-    z-index: 10000;
+    z-index: 20000000;
     display: none;
     pointer-events: auto;
 }
@@ -164,19 +180,14 @@ body.tour-active {
     }
 }
 
-/* Hide the orbs while the creation tour is active */
-
-body.tour-active .floating-vitality-orbs {
-    transform: translateY(100%);
-    opacity: 0;
-    pointer-events: none;
-}
+/* Hide elements during tour handled by components */
 
 /* Hide HUDs during Tour */
 
+body.tour-active:not(.char-sheet-active) .global-header,
 body.tour-active:not(.char-sheet-active) .top-mobile-hud,
 body.tour-active:not(.char-sheet-active) .floating-vitality-orbs,
 body.tour-active:not(.char-sheet-active) .combat-utilities-wrapper,
 body.tour-active:not(.char-sheet-active) #toggle-dice-btn {
-    display: none;
+    display: none !important;
 }

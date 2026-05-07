@@ -196,7 +196,7 @@ body .roll-mod-pill.active-dis {
     box-shadow: none;
 }
 
-body.on-test-page #mobile-sheet-view {
+body.on-test-page:not(.tour-active) #mobile-sheet-view {
     padding-top: 100px;
     transition: padding-top 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -382,12 +382,12 @@ body.combat-mode {
     transition: bottom 0.4s ease;
 }
 
-body.on-test-page.char-sheet-active .combat-utilities-wrapper,
-body.on-test-page .combat-utilities-wrapper {
+body.on-test-page.char-sheet-active:not(.tour-active):not(.tour-active) .combat-utilities-wrapper,
+body.on-test-page:not(.tour-active) .combat-utilities-wrapper {
     display: flex;
 }
 
-body.on-test-page .combat-utilities-wrapper {
+body.on-test-page:not(.tour-active) .combat-utilities-wrapper {
     top: 50%;
     bottom: auto;
     left: 0;
@@ -401,14 +401,14 @@ body.on-test-page .combat-utilities-wrapper {
 
 /* Show standard dice roller elements on the test page (identical to character sheet) */
 
-body.on-test-page #dice-roller-widget .dice-result-container,
-body.on-test-page #dice-roller-widget .dice-controls-row {
+body.on-test-page:not(.tour-active) #dice-roller-widget .dice-result-container,
+body.on-test-page:not(.tour-active) #dice-roller-widget .dice-controls-row {
     display: grid;
 }
 
 /* Ensure the dice roller widget has a clear glass background on the test page */
 
-body.on-test-page #dice-roller-widget {
+body.on-test-page:not(.tour-active) #dice-roller-widget {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -417,8 +417,8 @@ body.on-test-page #dice-roller-widget {
     /* Clear the toggle button (40px) with a small gap */
 }
 
-body.on-test-page #dice-roller-widget::before,
-body.on-test-page #dice-roller-widget::after {
+body.on-test-page:not(.tour-active) #dice-roller-widget::before,
+body.on-test-page:not(.tour-active) #dice-roller-widget::after {
     content: "";
     position: absolute;
     left: 0;
@@ -428,12 +428,12 @@ body.on-test-page #dice-roller-widget::after {
     z-index: 10;
 }
 
-body.on-test-page #dice-roller-widget::before {
+body.on-test-page:not(.tour-active) #dice-roller-widget::before {
     top: 0;
     border-radius: 12px 12px 0 0;
 }
 
-body.on-test-page #dice-roller-widget::after {
+body.on-test-page:not(.tour-active) #dice-roller-widget::after {
     bottom: 0;
     border-radius: 0 0 12px 12px;
 }
@@ -444,11 +444,11 @@ body.on-test-page #dice-roller-widget::after {
     display: none;
 }
 
-body.on-test-page #dice-roller-widget .dice-widget-mobile-stats {
+body.on-test-page:not(.tour-active) #dice-roller-widget .dice-widget-mobile-stats {
     display: none;
 }
 
-body.on-test-page #combat-log-widget {
+body.on-test-page:not(.tour-active) #combat-log-widget {
     display: none;
 }
 
@@ -473,7 +473,7 @@ body.combat-mode .combat-utilities-wrapper {
         justify-content: center;
         bottom: 180px;
         /* HUD (150px) + Toggle (30px) */
-    }body.on-test-page .combat-utilities-wrapper {
+    }body.on-test-page:not(.tour-active) .combat-utilities-wrapper {
         bottom: auto;
         top: 50%;
         left: 0;
@@ -492,7 +492,7 @@ body.combat-mode .combat-utilities-wrapper {
         bottom: 180px;
         justify-content: center;
         align-items: flex-end;
-    }body.on-test-page .combat-utilities-wrapper {
+    }body.on-test-page:not(.tour-active) .combat-utilities-wrapper {
         bottom: auto;
         top: 50%;
         left: 0;
@@ -541,8 +541,8 @@ body.combat-mode .combat-utilities-wrapper {
     cursor: pointer;
 }
 
-body.on-test-page.char-sheet-active #toggle-dice-btn,
-body.on-test-page #toggle-dice-btn {
+body.on-test-page.char-sheet-active:not(.tour-active):not(.tour-active) #toggle-dice-btn,
+body.on-test-page:not(.tour-active) #toggle-dice-btn {
     display: flex;
 }
 
@@ -557,11 +557,11 @@ body.on-test-page #toggle-dice-btn {
     display: none;
 }
 
-body.on-test-page #toggle-dice-btn .chevron-icon {
+body.on-test-page:not(.tour-active) #toggle-dice-btn .chevron-icon {
     display: none;
 }
 
-body.on-test-page #toggle-dice-btn i,
+body.on-test-page:not(.tour-active) #toggle-dice-btn i,
 #toggle-dice-btn svg {
     pointer-events: none;
 }
@@ -572,11 +572,11 @@ body.on-test-page #toggle-dice-btn i,
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-body.on-test-page #toggle-dice-btn.active .dice-icon {
+body.on-test-page:not(.tour-active) #toggle-dice-btn.active .dice-icon {
     transform: rotate(360deg);
 }
 
-body.on-test-page #toggle-dice-btn {
+body.on-test-page:not(.tour-active) #toggle-dice-btn {
     top: 50%;
     bottom: auto;
     left: 0;
@@ -594,12 +594,12 @@ body.on-test-page #toggle-dice-btn {
     align-items: center;
 }
 
-body.on-test-page #toggle-dice-btn i {
+body.on-test-page:not(.tour-active) #toggle-dice-btn i {
     transform: rotate(90deg);
 }
 
-body.on-test-page #toggle-dice-btn.active i,
-body.on-test-page #toggle-dice-btn.active svg {
+body.on-test-page:not(.tour-active) #toggle-dice-btn.active i,
+body.on-test-page:not(.tour-active) #toggle-dice-btn.active svg {
     transform: rotate(-90deg);
 }
 
@@ -613,7 +613,7 @@ body.combat-mode #toggle-dice-btn {
   #toggle-dice-btn {
         bottom: 150px;
         /* Match mobile HUD height */
-    }body.on-test-page #toggle-dice-btn {
+    }body.on-test-page:not(.tour-active) #toggle-dice-btn {
         bottom: auto;
         top: 50%;
     }body.combat-mode #toggle-dice-btn {
@@ -847,7 +847,7 @@ body.combat-mode #toggle-dice-btn {
     pointer-events: none;
 }
 
-body.on-test-page .mobile-sheet-container {
+body.on-test-page:not(.tour-active) .mobile-sheet-container {
     padding-top: 5.5rem;
     min-height: 100vh;
     overflow-y: auto;
@@ -875,34 +875,34 @@ body.on-test-page .mobile-sheet-container {
 }
 
 @media (max-width: 768px) {
-  body.on-test-page #mobile-sheet-view {
+  body.on-test-page:not(.tour-active) #mobile-sheet-view {
         padding-top: calc(66px + env(safe-area-inset-top, 0px));
-    }body.on-test-page .mobile-sheet-container {
+    }body.on-test-page:not(.tour-active) .mobile-sheet-container {
         gap: 0.75rem;
         padding-bottom: 4.5rem;
-    }body.on-test-page #test-tabs-card {
+    }body.on-test-page:not(.tour-active) #test-tabs-card {
         margin-bottom: 0.25rem;
-    }body.on-test-page .tabs-card,
-    body.on-test-page .stats-card {
+    }body.on-test-page:not(.tour-active) .tabs-card,
+    body.on-test-page:not(.tour-active) .stats-card {
         padding-top: 0.75rem;
         padding-bottom: 0.85rem;
         padding-left: 0.65rem;
         padding-right: 0.65rem;
-    }body.on-test-page .actions-panel {
+    }body.on-test-page:not(.tour-active) .actions-panel {
         margin-bottom: 0.75rem;
-    }body.on-test-page .conditions-panel,
-    body.on-test-page .restoration-panel,
-    body.on-test-page .damage-calculator {
+    }body.on-test-page:not(.tour-active) .conditions-panel,
+    body.on-test-page:not(.tour-active) .restoration-panel,
+    body.on-test-page:not(.tour-active) .damage-calculator {
         margin-top: 0.35rem;
-    }body.on-test-page .conditions-wrapper.expanded,
-    body.on-test-page .restoration-content-wrapper.expanded,
-    body.on-test-page .damage-calc-content-wrapper.expanded {
+    }body.on-test-page:not(.tour-active) .conditions-wrapper.expanded,
+    body.on-test-page:not(.tour-active) .restoration-content-wrapper.expanded,
+    body.on-test-page:not(.tour-active) .damage-calc-content-wrapper.expanded {
         margin-top: 0.35rem;
-    }body.on-test-page .exhaustion-track {
+    }body.on-test-page:not(.tour-active) .exhaustion-track {
         gap: 0.55rem;
-    }body.on-test-page .exhaustion-dots {
+    }body.on-test-page:not(.tour-active) .exhaustion-dots {
         gap: 0.25rem;
-    }body.on-test-page .languages-grid {
+    }body.on-test-page:not(.tour-active) .languages-grid {
         gap: 0.5rem;
     }
 }
@@ -996,7 +996,7 @@ body.on-test-page .mobile-sheet-container {
 }
 
 @media (max-width: 768px) {
-    body.on-test-page #test-tabs-card .tab-content {
+    body.on-test-page:not(.tour-active) #test-tabs-card .tab-content {
         padding-bottom: 0.5rem;
     }
 }

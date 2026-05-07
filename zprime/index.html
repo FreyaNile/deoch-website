@@ -2116,8 +2116,7 @@
     </div>
 
     <!-- Character Creation Tour Overlay (Full Screen) -->
-    <div id="creation-tour"
-        class="u-fullscreen u-tour-overlay u-flex-column u-flex-center u-p-1 u-overflow-y-auto hidden">
+    <div id="creation-tour" class="u-tour-overlay hidden">
 
         <div class="glass-panel-dark tour-card" id="test-tour-card">
             <!-- Tour Progress Bar -->
@@ -2559,9 +2558,8 @@
             </div>
 
             <!-- Restoration Panel (Moved from bottom HUD) -->
-            <div class="restoration-panel">
-                <details class="restoration-panel glass-panel-premium m-t-md"
-                    style="background: var(--surface-glass-dark); overflow: hidden;">
+            <details class="restoration-panel m-t-md"
+                    style="overflow: hidden;">
                     <summary class="collapsible-section-header flex-between p-md" id="restoration-header"
                         style="list-style: none; cursor: pointer;">
                         <h4 class="text-uppercase-tracked"
@@ -2646,13 +2644,13 @@
                     </div>
                 </details>
                 <div class="u-flex-center u-gap-1-5 u-mt-1 u-pt-0-75 u-border-top-faint u-relative u-z-max">
-                    <button type="button" id="test-theme-btn" class="glass-btn icon-btn-circle" title="Cycle Theme">
-                        <i data-lucide="palette" class="u-font-size-md"></i>
+                    <button type="button" id="test-theme-btn" class="icon-btn-circle" title="Cycle Theme">
+                        <i data-lucide="palette" style="width: 16px; height: 16px;"></i>
                     </button>
 
                 <details class="management-menu u-relative u-z-max">
-                    <summary id="test-settings-btn" class="glass-btn icon-btn-circle" title="Data Management">
-                        <i data-lucide="settings" class="u-font-size-md"></i>
+                    <summary id="test-settings-btn" class="icon-btn-circle" title="Data Management">
+                        <i data-lucide="settings" style="width: 16px; height: 16px;"></i>
                     </summary>
 
                     <!-- Floating Management Popup -->
@@ -2690,7 +2688,6 @@
                         </div>
                     </div>
                 </details>
-                </div>
             </div>
         </div>
     </div>

@@ -310,6 +310,7 @@ export const VitalsManager = {
             this.triggerSlosh('.mana-orb');
         }
         this.syncToMainSheet();
+        if (window.DataManager) window.DataManager.saveCharacter();
     },
 
     adjustHP(delta) {
@@ -357,6 +358,8 @@ export const VitalsManager = {
                 if (window.mobileTargetMp > val) { window.mobileTargetMp = val; window.mobileDisplayMp = val; }
             }
         }
+        this.syncToMainSheet();
+        if (window.DataManager) window.DataManager.saveCharacter();
     },
 
     triggerSlosh(selector) {

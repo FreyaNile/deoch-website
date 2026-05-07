@@ -33,7 +33,7 @@
     filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.4));
 }
 
-body.on-test-page.char-sheet-active.has-available-points .stat-points-tooltip {
+body.on-test-page.char-sheet-active:not(.tour-active).has-available-points .stat-points-tooltip {
     opacity: 1;
     visibility: visible;
     transform: translate(-50%, 0);
@@ -157,18 +157,18 @@ body.has-available-points .expanded-points-tracker {
     flex-direction: column;
 }
 
-body.on-test-page .top-mobile-hud {
+body.on-test-page:not(.tour-active) .top-mobile-hud {
     display: flex;
 }
 
-body.on-test-page .top-mobile-hud .restoration-panel,
-body.on-test-page .top-mobile-hud .conditions-panel {
+body.on-test-page:not(.tour-active) .top-mobile-hud .restoration-panel,
+body.on-test-page:not(.tour-active) .top-mobile-hud .conditions-panel {
     padding: 0.3rem 0.5rem;
     height: auto;
     margin-top: 0.75rem;
 }
 
-body.on-test-page .top-mobile-hud .restoration-panel h4 {
+body.on-test-page:not(.tour-active) .top-mobile-hud .restoration-panel h4 {
     color: var(--accent-primary);
     font-size: 0.75rem;
     letter-spacing: 0.15em;
@@ -177,7 +177,7 @@ body.on-test-page .top-mobile-hud .restoration-panel h4 {
     opacity: 0.8;
 }
 
-body.on-test-page .top-mobile-hud .inspiration-toggle:has(input:checked) {
+body.on-test-page:not(.tour-active) .top-mobile-hud .inspiration-toggle:has(input:checked) {
     background: rgba(245, 158, 11, 0.15);
     border-color: #f59e0b;
     box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
@@ -194,7 +194,7 @@ body .top-mobile-hud .summary-item svg {
 
 /* Push content further down when HUD is expanded */
 
-body.on-test-page .top-mobile-hud.expanded+#mobile-sheet-view {
+body.on-test-page:not(.tour-active) .top-mobile-hud.expanded+#mobile-sheet-view {
     padding-top: 247px;
 }
 
@@ -369,44 +369,44 @@ body.combat-mode #hud-chevron {
 /* Reposition mobile nav above HUD on test page */
 
 @media (max-width: 768px) {
-  body.on-test-page .top-mobile-hud.expanded+#mobile-sheet-view {
+  body.on-test-page:not(.tour-active) .top-mobile-hud.expanded+#mobile-sheet-view {
         padding-top: calc(244px + env(safe-area-inset-top, 0px));
-    }body.on-test-page .top-mobile-hud {
+    }body.on-test-page:not(.tour-active) .top-mobile-hud {
         min-height: 68px;
         padding-top: 0.25rem;
         padding-bottom: 0.25rem;
         padding-left: 0.3rem;
         padding-right: 0.3rem;
-    }body.on-test-page .top-mobile-hud.expanded {
+    }body.on-test-page:not(.tour-active) .top-mobile-hud.expanded {
         padding-top: 0.25rem;
         padding-bottom: 0.5rem;
         pointer-events: auto;
         /* Ensure expanded HUD is interactive */
-    }body.on-test-page .top-hud-content {
+    }body.on-test-page:not(.tour-active) .top-hud-content {
         pointer-events: auto;
         /* Ensure header content is interactive */
-    }body.on-test-page .top-hud-expanded-content {
+    }body.on-test-page:not(.tour-active) .top-hud-expanded-content {
         pointer-events: auto;
         /* Ensure expanded content is interactive */
-    }body.on-test-page .top-hud-left {
+    }body.on-test-page:not(.tour-active) .top-hud-left {
         gap: 0.55rem;
-    }body.on-test-page .top-hud-right {
+    }body.on-test-page:not(.tour-active) .top-hud-right {
         gap: 0.5rem;
-    }body.on-test-page .hud-avatar-container {
+    }body.on-test-page:not(.tour-active) .hud-avatar-container {
         width: 48px;
         height: 48px;
-    }body.on-test-page .hud-avatar {
+    }body.on-test-page:not(.tour-active) .hud-avatar {
         display: flex;
-    }body.on-test-page .hud-name {
+    }body.on-test-page:not(.tour-active) .hud-name {
         font-size: 0.95rem;
         line-height: 1.1;
-    }body.on-test-page .hud-sub {
+    }body.on-test-page:not(.tour-active) .hud-sub {
         font-size: 0.6rem;
         line-height: 1.15;
-    }body.on-test-page .top-hud-expanded-content {
+    }body.on-test-page:not(.tour-active) .top-hud-expanded-content {
         margin-top: 0.75rem;
-    }body.on-test-page .top-mobile-hud .restoration-panel,
-    body.on-test-page .top-mobile-hud .conditions-panel {
+    }body.on-test-page:not(.tour-active) .top-mobile-hud .restoration-panel,
+    body.on-test-page:not(.tour-active) .top-mobile-hud .conditions-panel {
         margin-top: 0.45rem;
         padding: 0.2rem 0.4rem;
     }
@@ -455,7 +455,7 @@ body.hud-expanded.has-session-spent .summary-item.stat-has-spent .stat-overlay-b
 body.combat-mode .stat-points-tooltip,
 body.stat-tooltip-dismissed .stat-points-tooltip,
 body.tour-active .stat-points-tooltip,
-body.on-test-page .top-mobile-hud.expanded~.stat-points-tooltip,
+body.on-test-page:not(.tour-active) .top-mobile-hud.expanded~.stat-points-tooltip,
 body.hud-expanded .stat-points-tooltip {
     opacity: 0;
     visibility: hidden;

@@ -172,6 +172,7 @@ export const CreationTour = {
             tourContainer.classList.remove('hidden');
             tourContainer.style.display = 'flex';
             tourContainer.style.opacity = '1';
+            document.body.classList.remove('char-sheet-active');
             document.body.classList.add('tour-active');
         }
         if (mainContent) {

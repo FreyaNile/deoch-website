@@ -375,3 +375,59 @@ details.management-menu summary::-webkit-details-marker {
 .bulk-adjustment-title {
     display: block;
 }
+/* --- Gallery Grid Styles --- */
+#test-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.test-gallery-card {
+    position: relative;
+    padding: 1.25rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+.test-gallery-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-4px);
+}
+
+.test-gallery-card.active {
+    background: var(--accent-glow);
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.test-gallery-card.active .char-name {
+    color: var(--accent-primary);
+}
+
+.test-gallery-card .char-name {
+    font-family: var(--font-secondary);
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    transition: color 0.3s ease;
+}
+
+.test-gallery-card .char-meta {
+    font-size: 0.65rem;
+    opacity: 0.6;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.test-gallery-card .char-avatar {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 0.75rem;
+    color: var(--accent-primary);
+}

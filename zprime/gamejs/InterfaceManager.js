@@ -454,7 +454,9 @@ export const InterfaceManager = {
 
             document.addEventListener('click', (e) => {
                 if (managementMenu && managementMenu.open) {
-                    if (!managementMenu.contains(e.target)) {
+                    // Only close if click is outside AND the target is still in the document
+                    // (prevents closing when buttons are removed/re-rendered during selection)
+                    if (!managementMenu.contains(e.target) && document.body.contains(e.target)) {
                         managementMenu.open = false;
                     }
                 }
