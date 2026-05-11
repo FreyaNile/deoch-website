@@ -53,7 +53,7 @@
 }
 
 .orb-value-overlay {
-    z-index: 10;
+    z-index: var(--z-surface);
     pointer-events: none;
     text-align: center;
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8));
@@ -127,7 +127,7 @@ body.has-available-points .floating-vitality-orbs.expanded .summary-item {
     width: 100%;
     height: 0;
     /* Eliminated invisible buffer zone around the orbs */
-    z-index: 5;
+    z-index: var(--z-floor);
     transition: none;
     -webkit-tap-highlight-color: transparent;
 }
@@ -137,7 +137,7 @@ body.has-available-points .floating-vitality-orbs.expanded .summary-item {
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 99999;
+    z-index: var(--z-hud-mobile);
     padding: 0 1.25rem;
     background: transparent;
     user-select: none;
@@ -253,7 +253,7 @@ body.on-test-page:not(.tour-active) .floating-vitality-orbs {
     right: -5px;
     bottom: -5px;
     pointer-events: none;
-    z-index: 5;
+    z-index: var(--z-floor);
 }
 
 .stamina-orb .orb-frame-overlay {
@@ -269,7 +269,7 @@ body.on-test-page:not(.tour-active) .floating-vitality-orbs {
     left: 50%;
     transform: translate(-50%, -50%);
     pointer-events: none;
-    z-index: 10;
+    z-index: var(--z-surface);
 }
 
 .orb-value-overlay span {
@@ -293,7 +293,7 @@ body.on-test-page:not(.tour-active) .floating-vitality-orbs {
     left: 0;
     width: 100%;
     height: 50%;
-    z-index: 20;
+    z-index: var(--z-elevated);
     cursor: pointer;
 }
 

@@ -34,7 +34,6 @@ html[data-theme="abyssal"] {
     --metallic-gradient: linear-gradient(135deg, #cccccc 0%, #999999 20%, #666666 45%, #777777 55%, #555555 80%, #333333 100%);
 }
 
-html[data-theme="abyssal"] .glass-panel,
 html[data-theme="abyssal"] .glass-panel-dark,
 html[data-theme="abyssal"] .class-card,
 html[data-theme="abyssal"] .ethos-card,

@@ -1,9 +1,8 @@
 export const CreationTour = {
     currentStep: 0,
-    totalSteps: 6,
+    totalSteps: 5,
     data: {
         race: '',
-        language: '',
         trinket: '',
         traits: [],
         feat: ''
@@ -60,9 +59,6 @@ export const CreationTour = {
             case 'roll-age':
                 this.rollAge();
                 break;
-            case 'select-language':
-                this.selectLanguage(target.value);
-                break;
             case 'select-trinket':
                 this.selectTrinket(target.getAttribute('data-trinket'));
                 break;
@@ -85,40 +81,41 @@ export const CreationTour = {
     },
 
 
-    showStep(n) {
-        const steps = document.querySelectorAll('.tour-step');
-        steps.forEach(step => {
+    hideAllSteps() {
+        document.querySelectorAll('.tour-step').forEach(step => {
             step.style.display = 'none';
             step.classList.remove('active');
         });
+    },
 
-        const currentStepEl = document.querySelector(`.tour-step[data-step="${n}"]`);
-        if (currentStepEl) {
-            currentStepEl.style.display = 'block';
-            setTimeout(() => currentStepEl.classList.add('active'), 10);
-            
-            // SPE: Auto-focus name input on first slide for immediate typing
-            if (n === 0) {
-                const nameInput = document.getElementById('tour-name-input');
-                if (nameInput) setTimeout(() => nameInput.focus(), 150);
-            }
+    activateStep(n) {
+        const el = document.querySelector(`.tour-step[data-step="${n}"]`);
+        if (!el) return;
+        el.style.display = 'block';
+        setTimeout(() => el.classList.add('active'), 10);
+        if (n === 0) {
+            const nameInput = document.getElementById('tour-name-input');
+            if (nameInput) setTimeout(() => nameInput.focus(), 150);
         }
+    },
 
-        // Update navigation buttons
-        const prevBtn = document.getElementById('tour-prev');
-        const nextBtn = document.getElementById('tour-next');
-        const finishBtn = document.getElementById('tour-finish');
+    updateTourControls(n) {
+        const toggle = (id, cond) => {
+            const btn = document.getElementById(id);
+            if (btn) btn.style.display = cond ? 'block' : 'none';
+        };
+        toggle('tour-prev', n > 0);
+        toggle('tour-next', n < this.totalSteps);
+        toggle('tour-finish', n === this.totalSteps);
 
-        if (prevBtn) prevBtn.style.display = n > 0 ? 'block' : 'none';
-        if (nextBtn) nextBtn.style.display = n < this.totalSteps ? 'block' : 'none';
-        if (finishBtn) finishBtn.style.display = n === this.totalSteps ? 'block' : 'none';
-
-        // Update progress bar
         const progress = document.getElementById('tour-progress');
-        if (progress) {
-            progress.style.width = `${((n + 1) / (this.totalSteps + 1)) * 100}%`;
-        }
+        if (progress) progress.style.width = `${((n + 1) / (this.totalSteps + 1)) * 100}%`;
+    },
 
+    showStep(n) {
+        this.hideAllSteps();
+        this.activateStep(n);
+        this.updateTourControls(n);
         this.currentStep = n;
     },
 
@@ -150,7 +147,6 @@ export const CreationTour = {
         this.data = {
             name: '',
             race: '',
-            language: '',
             trinket: '',
             traits: [],
             feat: ''
@@ -206,7 +202,7 @@ export const CreationTour = {
     },
 
     rollAge() {
-        const age = Math.floor(Math.random() * 40) + 16;
+        const age = Math.floor((crypto.getRandomValues(new Uint32Array(1))[0] / 4294967296) * 40) + 16;
         this.data.age = age;
         const display = document.getElementById('tour-age-display');
         if (display) {
@@ -220,12 +216,6 @@ export const CreationTour = {
             rollBtn.textContent = 'CONTINUE';
             rollBtn.dataset.tourAction = 'next-step';
         }
-    },
-
-    selectLanguage(lang) {
-
-        this.data.language = lang;
-        this.nextStep();
     },
 
     selectTrinket(trinket) {
@@ -262,13 +252,16 @@ export const CreationTour = {
             const expValDisplay = document.getElementById('test-exp-value-display');
             if (expValDisplay) expValDisplay.textContent = this.data.age;
             
-            if (window.MechanicsManager) {
-                window.MechanicsManager.updateLevelFromExp();
+            if (window.ProgressionManager) {
+                window.ProgressionManager.updateLevelFromExp();
             }
         }
 
         const tour = document.getElementById('creation-tour');
         if (!tour) return;
+
+        // Immediately clear transparency to allow test interaction
+        if (window.InterfaceManager?.clearSplashTransparency) window.InterfaceManager.clearSplashTransparency();
 
         tour.style.opacity = '0';
         setTimeout(() => this._completeTourCleanup(isGMMode), 500);
@@ -283,7 +276,6 @@ export const CreationTour = {
         document.body.classList.remove('tour-active');
         if (!mainContent) return;
 
-        if (window.InterfaceManager?.clearSplashTransparency) window.InterfaceManager.clearSplashTransparency();
         document.body.classList.add('char-sheet-active', 'on-test-page');
         if (window.InterfaceManager?.toggleHUD) window.InterfaceManager.toggleHUD(false);
         document.body.classList.remove('hud-expanded');
@@ -303,8 +295,7 @@ export const CreationTour = {
         }
         
         // Re-init listeners once sheet is visible
-        if (window.StatsManager) window.StatsManager.init(this.signal);
-        if (window.MobileActions) window.MobileActions.init(this.signal);
+        if (window.ProgressionManager) window.ProgressionManager.init(null, this.signal);
     },
 
     cleanup() {

@@ -157,8 +157,8 @@ export const DiceRoller = {
      * @param {number} sides - Number of sides on the die.
      */
     roll(sides) {
-        let r1 = Math.floor(Math.random() * sides) + 1;
-        let r2 = Math.floor(Math.random() * sides) + 1;
+        let r1 = Math.floor(DeochUtils.random() * sides) + 1;
+        let r2 = Math.floor(DeochUtils.random() * sides) + 1;
         
         let result = r1;
         let info = `d${sides}`;
@@ -194,7 +194,7 @@ export const DiceRoller = {
         }
         
         // Final fallback to DOM
-        const attrBox = document.querySelector(`.dice-widget-mobile-stats .attr-box[data-stat="${stat}"]`);
+        const attrBox = document.querySelector(`.dice-widget-mobile-stats .stat-box[data-stat="${stat}"]`);
         if (attrBox) {
             const modText = attrBox.querySelector('div:last-child')?.textContent;
             if (modText) return parseInt(modText.replace(/[()]/g, '').replace('+', '')) || 0;
@@ -233,7 +233,7 @@ export const DiceRoller = {
      * @description Performs a generic check roll (d20 + mod).
      */
     rollCheck(mod, label) {
-        const roll = Math.floor(Math.random() * 20) + 1;
+        const roll = Math.floor(DeochUtils.random() * 20) + 1;
         const total = roll + mod;
         const info = `${label}: d20(${roll}) + ${mod >= 0 ? '+' : ''}${mod}`;
         

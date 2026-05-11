@@ -8,8 +8,15 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
   use: {
-    baseURL: 'http://localhost:5173', // Adjust to your dev server port
+    baseURL: 'http://127.0.0.1:3000/zprime/',
     trace: 'on-first-retry',
+  },
+  webServer: {
+    command: 'python3 -m http.server 3000',
+    url: 'http://127.0.0.1:3000/zprime/index.html',
+    reuseExistingServer: !process.env.CI,
+    stdout: 'pipe',
+    stderr: 'pipe',
   },
   projects: [
     {

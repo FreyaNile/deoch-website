@@ -8,28 +8,25 @@ import { DiceRoller } from './dice-roller.js';
 import { CreationTour } from './tour.js';
 import { DeochUtils } from './DeochUtils.js';
 import { DataManager } from './DataManager.js';
-import { StatManager } from './StatManager.js';
+import { ProgressionManager } from './ProgressionManager.js';
 import { VitalsManager, HealthOrbShader } from './orbs.js';
 import { GMManager } from './GMManager.js';
-import { MechanicsManager } from './MechanicsManager.js';
 import { InterfaceManager } from './InterfaceManager.js';
 
-// Global Bridge for Legacy/Inline Event Handlers
+// Global Bridge for Legacy/Inline Event Handlers (IMMEDIATE)
 window.DiceRoller = DiceRoller;
 window.VitalsManager = VitalsManager;
-window.StatsManager = StatManager;
-window.MobileActions = StatManager;
+window.StatsManager = ProgressionManager;
+window.MobileActions = ProgressionManager;
 window.CreationTour = CreationTour;
 window.DeochUtils = DeochUtils;
 window.DataManager = DataManager;
 window.HealthOrbShader = HealthOrbShader;
 window.GMManager = GMManager;
-window.MechanicsManager = MechanicsManager;
+window.MechanicsManager = ProgressionManager;
+window.ProgressionManager = ProgressionManager;
 window.InterfaceManager = InterfaceManager;
-
 window.navigateTo = (id) => InterfaceManager.navigateTo(id);
-
-// Tour Bridges
 window.nextTourStep = () => CreationTour.nextStep();
 window.prevTourStep = () => CreationTour.prevStep();
 window.finishTour = () => CreationTour.finishTour();
@@ -37,7 +34,6 @@ window.resetTour = () => CreationTour.resetTour();
 window.selectTourRace = (race) => CreationTour.selectRace(race);
 window.selectTourHeritage = (id, name) => CreationTour.selectHeritage(id, name);
 window.rollTourAge = () => CreationTour.rollAge();
-window.selectTourLanguage = (lang) => CreationTour.selectLanguage(lang);
 window.selectTourTrinket = (trinket) => CreationTour.selectTrinket(trinket);
 window.toggleTourTrait = (el, trait) => CreationTour.toggleTrait(el, trait);
 window.selectTourFeat = (feat) => CreationTour.selectFeat(feat);
@@ -85,8 +81,7 @@ class App {
         // 4. Page-Specific Orchestration
 
         // 4. Page-Specific Orchestration
-        StatManager.init(null, this.signal);
-        MechanicsManager.init(null, this.signal);
+        ProgressionManager.init(null, this.signal);
         GMManager.init(null, this.signal);
         CreationTour.init(this.signal);
 
@@ -119,8 +114,8 @@ class App {
         this.lifecycle.abort();
         
         [
-            DataManager, DiceRoller, VitalsManager, StatManager, 
-            CreationTour, MechanicsManager, InterfaceManager
+            DataManager, DiceRoller, VitalsManager, ProgressionManager, 
+            CreationTour, InterfaceManager
         ].forEach(m => {
             if (m.cleanup) m.cleanup();
         });

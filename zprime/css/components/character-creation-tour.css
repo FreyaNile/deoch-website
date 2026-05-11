@@ -1,23 +1,23 @@
-.u-tour-overlay {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    margin: 0 !important;
-    z-index: 20000000 !important;
+#creation-tour.u-tour-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    z-index: var(--z-tour);
     display: flex;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    overflow-y: auto !important;
-    background: radial-gradient(circle at center, rgba(15, 7, 25, 0.98) 0%, #000 100%) !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+    background: radial-gradient(circle at center, rgba(15, 7, 25, 0.98) 0%, #000 100%);
 }
 
-.u-tour-overlay.hidden {
-    display: none !important;
+#creation-tour.u-tour-overlay.hidden {
+    display: none;
 }
 
 /* --- Mobile Creation Tour Styles --- */
@@ -163,7 +163,7 @@ body.tour-active {
     right: 0;
     bottom: 0;
     background: rgba(0, 0, 0, 0.85);
-    z-index: 20000000;
+    z-index: var(--z-tour);
     display: none;
     pointer-events: auto;
 }
@@ -189,5 +189,78 @@ body.tour-active:not(.char-sheet-active) .top-mobile-hud,
 body.tour-active:not(.char-sheet-active) .floating-vitality-orbs,
 body.tour-active:not(.char-sheet-active) .combat-utilities-wrapper,
 body.tour-active:not(.char-sheet-active) #toggle-dice-btn {
-    display: none !important;
+    display: none;
+}
+
+/* --- Shared Tour Components --- */
+.tour-card {
+    width: 100%;
+    max-width: 480px;
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 1), 0 0 30px var(--accent-glow);
+}
+
+.tour-progress-bar {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.05);
+    width: 100%;
+}
+
+.tour-progress-fill {
+    height: 100%;
+    background: var(--accent-primary);
+    transition: width 0.4s ease;
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.tour-content {
+    padding: 2rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.tour-step-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.tour-input-wrapper {
+    margin-bottom: 2.5rem;
+    width: 100%;
+    max-width: 320px;
+}
+
+.tour-input {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid var(--accent-primary);
+    padding: 1.25rem;
+    border-radius: 16px;
+    color: white;
+    text-align: center;
+    font-family: var(--font-primary);
+    font-size: 1.4rem;
+    outline: none;
+    box-shadow: 0 0 20px var(--accent-glow);
+    transition: all 0.3s ease;
+}
+
+.tour-input:focus {
+    box-shadow: 0 0 30px var(--accent-glow);
+    border-color: white;
+}
+
+.tour-option-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
 }

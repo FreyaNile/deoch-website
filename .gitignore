@@ -1,10 +1,9 @@
 .agents/
+.gemini/
 .tmp/
 .vscode/
-debug/
 directives/
 node_modules/
-tests/
 skills/
+tests/
 .env
-mcp_config.json

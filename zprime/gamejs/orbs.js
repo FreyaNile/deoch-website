@@ -310,63 +310,69 @@ export const VitalsManager = {
             this.triggerSlosh('.mana-orb');
         }
         this.syncToMainSheet();
-        if (window.DataManager) window.DataManager.saveCharacter();
     },
 
     adjustHP(delta) {
-        if (!window.MechanicsManager) return;
+        if (!window.ProgressionManager) return;
         const max = window.mobileMaxHp || 24;
         const currentHp = window.mobileTargetHp || 0;
         const currentTemp = window.mobileTargetTempHp || 0;
         
-        const result = window.MechanicsManager.calculateHPChange(currentHp, currentTemp, delta, max);
+        const result = window.ProgressionManager.calculateHPChange(currentHp, currentTemp, delta, max);
         window.mobileTargetHp = result.hp;
         window.mobileTargetTempHp = result.temp;
     },
 
-    updateMaxStat(stat) {
-        if (stat === 'hp') {
-            const input = document.getElementById('hud-max-hp-input');
-            if (!input) return;
-            const val = Math.max(1, parseInt(input.value) || 1);
-            window.mobileMaxHp = val;
-            if (window.mobileTargetHp === undefined) window.mobileTargetHp = val;
-            if (window.mobileDisplayHp === undefined) window.mobileDisplayHp = val;
-            if (window.mobileDisplayTempHp === undefined) window.mobileDisplayTempHp = 0;
-            if (window.mobileTargetHp > val) { window.mobileTargetHp = val; window.mobileDisplayHp = val; }
-        } else if (stat === 'sp') {
-            const input = document.getElementById('mobile-max-sp-input');
-            if (!input) return;
-            const val = parseInt(input.value) || 0;
-            window.mobileMaxSp = val;
-            const spOrb = document.querySelector('.orb-group.sp-group');
-            if (spOrb) spOrb.style.display = val > 0 ? 'flex' : 'none';
-            if (val > 0) {
-                if (window.mobileTargetSp === undefined) window.mobileTargetSp = val;
-                if (window.mobileTargetSp > val) window.mobileTargetSp = val;
-            }
-        } else if (stat === 'mp') {
-            const input = document.getElementById('hud-max-mp-input');
-            if (!input) return;
-            const val = parseInt(input.value) || 0;
-            window.mobileMaxMp = val;
-            const mpOrb = document.querySelector('.orb-group.mp-group');
-            if (mpOrb) mpOrb.style.display = val > 0 ? 'flex' : 'none';
-            if (val > 0) {
-                if (window.mobileTargetMp === undefined) window.mobileTargetMp = val;
-                if (window.mobileDisplayMp === undefined) window.mobileDisplayMp = val;
-                if (window.mobileTargetMp > val) { window.mobileTargetMp = val; window.mobileDisplayMp = val; }
-            }
+    _updateMaxHp() {
+        const input = document.getElementById('hud-max-hp-input');
+        if (!input) return;
+        const val = Math.max(1, parseInt(input.value) || 1);
+        window.mobileMaxHp = val;
+        if (window.mobileTargetHp === undefined) window.mobileTargetHp = val;
+        if (window.mobileDisplayHp === undefined) window.mobileDisplayHp = val;
+        if (window.mobileDisplayTempHp === undefined) window.mobileDisplayTempHp = 0;
+        if (window.mobileTargetHp > val) { window.mobileTargetHp = val; window.mobileDisplayHp = val; }
+    },
+
+    _updateMaxSp() {
+        const input = document.getElementById('mobile-max-sp-input');
+        if (!input) return;
+        const val = parseInt(input.value) || 0;
+        window.mobileMaxSp = val;
+        const spOrb = document.querySelector('.orb-group.sp-group');
+        if (spOrb) spOrb.style.display = val > 0 ? 'flex' : 'none';
+        if (val > 0) {
+            if (window.mobileTargetSp === undefined) window.mobileTargetSp = val;
+            if (window.mobileTargetSp > val) window.mobileTargetSp = val;
         }
+    },
+
+    _updateMaxMp() {
+        const input = document.getElementById('hud-max-mp-input');
+        if (!input) return;
+        const val = parseInt(input.value) || 0;
+        window.mobileMaxMp = val;
+        const mpOrb = document.querySelector('.orb-group.mp-group');
+        if (mpOrb) mpOrb.style.display = val > 0 ? 'flex' : 'none';
+        if (val > 0) {
+            if (window.mobileTargetMp === undefined) window.mobileTargetMp = val;
+            if (window.mobileDisplayMp === undefined) window.mobileDisplayMp = val;
+            if (window.mobileTargetMp > val) { window.mobileTargetMp = val; window.mobileDisplayMp = val; }
+        }
+    },
+
+    updateMaxStat(stat) {
+        if (stat === 'hp') this._updateMaxHp();
+        else if (stat === 'sp') this._updateMaxSp();
+        else if (stat === 'mp') this._updateMaxMp();
         this.syncToMainSheet();
-        if (window.DataManager) window.DataManager.saveCharacter();
     },
 
     triggerSlosh(selector) {
         const orbContainer = document.querySelector(selector);
         if (orbContainer) {
             orbContainer.classList.remove('sloshing');
-            void orbContainer.offsetWidth;
+            orbContainer.getBoundingClientRect();
             orbContainer.classList.add('sloshing');
         }
     },

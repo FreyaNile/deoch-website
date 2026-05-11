@@ -1,4 +1,5 @@
 import { DeochUtils } from './DeochUtils.js';
+import { UpkeepData } from './UpkeepData.js';
 
 /**
  * @module GMManager
@@ -7,6 +8,7 @@ import { DeochUtils } from './DeochUtils.js';
 export const GMManager = {
     init(sheet, signal) {
         this.signal = signal;
+        this.renderMonsterCatalog();
         this.bindGMModeActions();
     },
 
@@ -43,43 +45,33 @@ export const GMManager = {
         }
     },
 
-    bindGMModeActions() {
-        const monsterData = {
-            goblin: {
-                name: 'Goblin',
-                type: 'Small Humanoid',
-                ac: '12',
-                hp: '7',
-                mp: '0',
-                speed: '30ft',
-                summary: 'Skittish ambusher that relies on numbers and dirty tactics.',
-                actions: ['Scimitar +3 to hit, 1d6+1 damage', 'Shortbow +3 to hit, 1d6+1 damage']
-            },
-            spider: {
-                name: 'Spider',
-                type: 'Tiny Beast',
-                ac: '13',
-                hp: '4',
-                mp: '0',
-                speed: '20ft, climb 20ft',
-                summary: 'Venomous crawler suited for cramped spaces and surprise attacks.',
-                actions: ['Bite +4 to hit, 1 damage, target checks against venom']
-            },
-            horse: {
-                name: 'Horse',
-                type: 'Large Beast',
-                ac: '11',
-                hp: '19',
-                mp: '0',
-                speed: '60ft',
-                summary: 'Fast mount or battlefield obstacle with a strong kick.',
-                actions: ['Hooves +4 to hit, 2d4+2 damage']
-            }
-        };
+    renderMonsterCatalog() {
+        const container = document.getElementById('dynamic-monster-grid');
+        if (!container) return;
 
+        container.innerHTML = UpkeepData.BESTIARY.map(monster => `
+            <div class="monster-card-item glass-panel-dark" data-monster="${monster.id}">
+                <div class="monster-icon-wrapper">
+                    <i data-lucide="${monster.icon}" class="u-font-size-md"
+                        style="color: var(--accent-primary);"></i>
+                </div>
+                <div>
+                    <div class="u-font-primary u-font-size-xl">
+                        ${monster.name}</div>
+                    <div class="u-font-size-xs u-opacity-0-6"
+                        style="text-transform: uppercase; letter-spacing: 0.05em;">
+                        ${monster.type}</div>
+                </div>
+                <i data-lucide="chevron-right"
+                    class="u-font-size-md u-opacity-0-4 u-mt-0-25 u-ml-auto"></i>
+            </div>
+        `).join('');
+    },
+
+    bindGMModeActions() {
         document.querySelectorAll('.monster-card-item').forEach(card => {
             card.addEventListener('click', () => {
-                const monster = monsterData[card.dataset.monster];
+                const monster = UpkeepData.BESTIARY.find(m => m.id === card.dataset.monster);
                 const list = document.getElementById('gm-monster-list');
                 const detail = document.getElementById('gm-monster-detail');
                 const display = document.getElementById('monster-info-display');

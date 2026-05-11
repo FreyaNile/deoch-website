@@ -1,5 +1,6 @@
 import { DeochUtils } from './DeochUtils.js';
 import { DataManager } from './DataManager.js';
+import { UpkeepData } from './UpkeepData.js';
 
 /**
  * @module InterfaceManager
@@ -14,20 +15,27 @@ export const InterfaceManager = {
         if (this.initialized) return;
         this.signal = signal;
 
+        // 1. Render dynamic components first so they exist in the DOM
+        this.renderConditions();
+        this.renderLanguages();
+        this.renderAttributes();
+        this.renderRestoration();
+        this.renderTimeline();
+
+        // 2. Initialize UI modules
         this.initNavigation();
         this.initHUD();
         this.initBulkModal();
         this.initManagementEvents();
-        this.renderConditions();
         this.initGlobalListeners();
         this.initialized = true;
     },
 
     renderConditions() {
         const container = document.getElementById('test-conditions-grid');
-        if (!container || !window.MechanicsManager) return;
+        if (!container || !window.ProgressionManager) return;
 
-        const conditions = window.MechanicsManager.CONDITIONS;
+        const conditions = window.ProgressionManager.CONDITIONS;
         container.innerHTML = conditions.map(c => `
             <label class="condition-item" for="${c.id}" title="${c.name}">
                 <input type="checkbox" id="${c.id}" name="${c.key}">
@@ -36,15 +44,120 @@ export const InterfaceManager = {
         `).join('');
     },
 
+    renderLanguages() {
+        const container = document.getElementById('test-languages-grid');
+        if (!container || !window.ProgressionManager) return;
+
+        const languages = window.ProgressionManager.LANGUAGES;
+        container.innerHTML = languages.map(l => `
+            <div class="language-item">
+                <span class="lang-label">${l.name}</span>
+                <div class="lang-indicators u-flex-center u-gap-0-75">
+                    <label class="icon-toggle lang-indicator-btn" title="Verbal">
+                        <input type="checkbox" id="${l.id}-v" name="${l.key}_v" class="lang-checkbox" style="display: none;">
+                        <i data-lucide="speech"></i>
+                    </label>
+                    <label class="icon-toggle lang-indicator-btn" title="Literacy">
+                        <input type="checkbox" id="${l.id}-l" name="${l.key}_l" class="lang-checkbox" style="display: none;">
+                        <i data-lucide="book-open"></i>
+                    </label>
+                </div>
+            </div>
+        `).join('');
+    },
+
+    renderAttributes() {
+        const container = document.getElementById('test-attributes-grid');
+        if (!container || !window.ProgressionManager) return;
+
+        const stats = window.ProgressionManager.ATTRIBUTES;
+        container.innerHTML = stats.map(s => `
+            <div class="attribute-card">
+                <div class="attribute-label">
+                    <i data-lucide="${s.icon}"></i>
+                    <span>${s.name}</span>
+                </div>
+                <div id="${s.id}-display" class="attribute-value">--</div>
+                <div class="attribute-formula">${s.formula}</div>
+            </div>
+        `).join('');
+    },
+
+    renderRestoration() {
+        const container = document.getElementById('test-restoration-grid');
+        if (!container || !window.ProgressionManager) return;
+
+        const dice = window.ProgressionManager.RESTORATION_DICE;
+        
+        // Template logic: We use the middle index to place the result display
+        const midIndex = Math.floor(dice.length / 2);
+        
+        let diceHTML = '';
+        dice.forEach((d, i) => {
+            diceHTML += `
+                <button type="button" class="roll-h-die" data-sides="${d.sides}"
+                    style="width: 100%; padding: 0.2rem 0; font-size: 0.6rem; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 4px; color: #10b981; cursor: pointer;">${d.label}</button>
+            `;
+            if (i === midIndex - 1 || (dice.length === 1 && i === 0)) {
+                diceHTML += '<span id="healing-roll-result" style="display: block; font-size: 1.4rem; font-weight: 800; color: #10b981; margin: 0;">--</span>';
+            }
+        });
+
+        // Fallback if result display wasn't added
+        if (!diceHTML.includes('healing-roll-result')) {
+            diceHTML = '<span id="healing-roll-result" style="display: block; font-size: 1.4rem; font-weight: 800; color: #10b981; margin: 0;">--</span>' + diceHTML;
+        }
+
+        container.innerHTML = `
+            <div style="display: flex; flex-direction: column; gap: 0.4rem; padding: 0.5rem 1rem 1rem 1rem;">
+                <p style="font-size: 0.75rem; color: var(--text-secondary); margin: 0; opacity: 0.8;">Sleep to use healing dice.</p>
+                <div style="display: flex; gap: 0.75rem; align-items: center; margin: 0.5rem 0;">
+                    <div style="text-align: center; min-width: 60px; display: flex; flex-direction: column; gap: 0.25rem; align-items: center;">
+                        ${diceHTML}
+                    </div>
+                    <div style="display: flex; flex: 1; gap: 0.4rem;">
+                        <button type="button" id="apply-healing-hp" class="secondary-btn"
+                            style="background: #10b981; border-color: #10b981; color: white; padding: 0.5rem; font-size: 0.75rem; flex: 1; height: 38px;">+ HP</button>
+                        <button type="button" id="apply-healing-mana" class="secondary-btn"
+                            style="background: #3b82f6; border-color: #3b82f6; color: white; padding: 0.5rem; font-size: 0.75rem; flex: 1; height: 38px;">+ Mana</button>
+                    </div>
+                </div>
+                <div class="u-flex u-gap-0-5 u-mt-0-5">
+                    <button type="button" id="rest-btn"
+                        class="primary-btn u-flex-1 u-p-0-6 u-font-size-sm u-bold u-flex-center u-gap-0-5 u-border-radius-md">
+                        <i data-lucide="bed" class="u-icon-xs"></i> FULL REST
+                    </button>
+                </div>
+            </div>
+        `;
+    },
+
+    renderTimeline() {
+        const container = document.getElementById('dynamic-timeline');
+        if (!container) return;
+
+        container.innerHTML = UpkeepData.CHANGELOG.map(entry => `
+            <article class="update-card">
+                <div class="update-date">${entry.date}</div>
+                <h3 class="update-title">${entry.title}</h3>
+                <details>
+                    <summary>${entry.summary ? 'View Details' : 'View Changelog'}</summary>
+                    <div class="card-detail-content">
+                        ${entry.summary ? `<p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">${entry.summary}</p>` : ''}
+                        <ul class="changelog-list">
+                            ${entry.bullets.map(bullet => `<li>${bullet}</li>`).join('')}
+                        </ul>
+                    </div>
+                </details>
+            </article>
+        `).join('');
+    },
+
     // --- Navigation & Routing ---
 
     initNavigation() {
-        window.addEventListener('hashchange', () => this.handleHashChange(), { signal: this.signal });
-
-        const splash = document.getElementById('char-sheet-splash');
-        if (splash) {
-            splash.addEventListener('click', () => this.transitionSplash(), { signal: this.signal });
-        }
+        DeochUtils.addEvent(window, 'hashchange', () => this.handleHashChange(), { signal: this.signal });
+        DeochUtils.addEvent('char-sheet-splash', 'click', () => this.transitionSplash(), { signal: this.signal });
 
         if (window.location.hash) {
             this.handleHashChange();
@@ -113,7 +226,7 @@ export const InterfaceManager = {
         const welcomeMsg = document.getElementById('splash-welcome-msg');
         if (!welcomeMsg) return;
 
-        const testGallery = DataManager.getJson(DataManager.KEYS.CHARACTERS, []);
+        const testGallery = DataManager.getCharacters();
         let name = null;
         if (testGallery.length > 0) {
             const lastId = DataManager.get(DataManager.KEYS.LAST_CHAR_ID);
@@ -142,17 +255,16 @@ export const InterfaceManager = {
 
         setTimeout(() => {
             splashEl.style.display = 'none';
-            const hasChar = DataManager.getJson(DataManager.KEYS.CHARACTERS, []).length > 0;
+            const hasChar = DataManager.getCharacters().length > 0;
 
             if (!hasChar) {
-                if (window.DataManager) window.DataManager.newCharacter();
+                DeochUtils.newHero();
             } else if (mainContentEl) {
                 document.body.classList.remove('tour-active');
                 document.body.classList.add('char-sheet-active', 'on-test-page');
                 this.clearSplashTransparency();
-                mainContentEl.style.display = 'flex';
-                setTimeout(() => { mainContentEl.style.opacity = '1'; }, 50);
-                if (window.MechanicsManager) window.MechanicsManager.updateLevelFromExp();
+                DeochUtils.safeTransition(mainContentEl, 'flex', '1');
+                if (window.ProgressionManager) window.ProgressionManager.updateLevelFromExp();
             }
         }, 600);
     },
@@ -174,20 +286,21 @@ export const InterfaceManager = {
         const hud = document.getElementById('top-mobile-hud');
         if (!hud) return;
 
-        hud.addEventListener('click', (e) => {
-            const forbidden = ['button', 'input', 'summary', 'select', '.inspiration-toggle', '.hud-avatar', 'svg'];
+        DeochUtils.addEvent('top-mobile-hud', 'click', (e) => {
+            const forbidden = [
+                'button', 'input', 'select', 'svg',
+                '.inspiration-toggle', '.hud-avatar', 
+                '.summary-item', '.stat-box', '.clickable-input', 
+                '.stat-confirm-bar'
+            ];
             if (forbidden.some(sel => e.target.closest(sel))) return;
-            if (e.target.closest('.top-hud-expanded-content') || e.target.closest('.stats-header-summary')) return;
             this.toggleHUD();
         }, { signal: this.signal });
 
-        const expandBtn = hud.querySelector('.hud-menu-btn');
-        if (expandBtn) {
-            expandBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                this.toggleHUD();
-            }, { signal: this.signal });
-        }
+        DeochUtils.addEvent(DeochUtils.qs('.hud-menu-btn', hud), 'click', (e) => {
+            e.stopPropagation();
+            this.toggleHUD();
+        }, { signal: this.signal });
 
         this.initHUDEXP();
         this.initHUDAvatar();
@@ -217,7 +330,7 @@ export const InterfaceManager = {
 
         if (!isExpanded) hud.querySelectorAll('details').forEach(d => d.open = false);
 
-        if (window.StatsManager) window.StatsManager.updateStatIndicators();
+        if (window.ProgressionManager) window.ProgressionManager.updateStatIndicators();
         DeochUtils.queueIconRefresh();
     },
 
@@ -225,6 +338,14 @@ export const InterfaceManager = {
         const expBox = document.getElementById('test-hud-exp-box-wrapper');
         if (expBox) {
             expBox.addEventListener('click', (e) => {
+                const isInputClick = e.target.closest('.clickable-input');
+                
+                // Only toggle if the actual box was clicked
+                if (!isInputClick) {
+                    e.preventDefault();
+                    return;
+                }
+
                 e.stopPropagation();
                 const details = expBox.closest('details');
                 if (details && !details.open) {
@@ -235,9 +356,9 @@ export const InterfaceManager = {
 
         const expInput = document.getElementById('test-exp-input');
         if (expInput) {
-            const sync = () => { if (window.MechanicsManager) window.MechanicsManager.updateLevelFromExp(); };
-            expInput.addEventListener('input', sync, { signal: this.signal });
-            expInput.addEventListener('change', sync, { signal: this.signal });
+            const sync = () => { if (window.ProgressionManager) window.ProgressionManager.updateLevelFromExp(); };
+            DeochUtils.addEvent(expInput, 'input', sync, { signal: this.signal });
+            DeochUtils.addEvent(expInput, 'change', sync, { signal: this.signal });
         }
 
         const plus = document.getElementById('test-exp-plus');
@@ -248,12 +369,9 @@ export const InterfaceManager = {
 
     handleExpStep(e, delta) {
         e.stopPropagation();
-        const expInput = document.getElementById('test-exp-input');
-        if (!expInput) return;
-        const current = parseInt(expInput.textContent || expInput.value) || 0;
-        const newVal = Math.max(0, current + delta);
-        DeochUtils.smartSet('test-exp-input', newVal);
-        if (window.MechanicsManager) window.MechanicsManager.updateLevelFromExp();
+        const current = DeochUtils.getInt('test-exp-input', 0);
+        DeochUtils.smartSet('test-exp-input', Math.max(0, current + delta));
+        if (window.ProgressionManager) window.ProgressionManager.updateLevelFromExp();
     },
 
     initHUDAvatar() {
@@ -271,7 +389,6 @@ export const InterfaceManager = {
         const reader = new FileReader();
         reader.onload = (event) => {
             this.updateAvatarDisplay(event.target.result);
-            if (window.DataManager) window.DataManager.saveCharacter();
         };
         reader.readAsDataURL(file);
     },
@@ -293,9 +410,9 @@ export const InterfaceManager = {
     },
 
     updateHUDLevelDisplay(exp) {
-        if (!window.MechanicsManager) return;
+        if (!window.ProgressionManager) return;
 
-        const info = window.MechanicsManager.getLevelDisplayInfo(exp);
+        const info = window.ProgressionManager.getLevelDisplayInfo(exp);
 
         DeochUtils.setText('test-hud-exp-display', `EXP: ${exp}`);
         DeochUtils.setText('test-exp-value-display', exp);
@@ -312,20 +429,25 @@ export const InterfaceManager = {
         }
 
         const masteryActions = document.getElementById('test-hud-mastery-actions');
-        if (masteryActions) masteryActions.style.display = info.isMaxLevel ? 'flex' : 'none';
+        if (masteryActions) masteryActions.style.display = info.isMastered ? 'flex' : 'none';
 
         const nextText = document.getElementById('test-hud-next-level-text');
         if (nextText) {
-            nextText.textContent = info.expNeeded ? `${info.expNeeded} Experience Needed` : 'Max Level Reached';
+            if (info.isMaxLevel) {
+                nextText.style.display = 'none';
+            } else {
+                nextText.style.display = 'block';
+                nextText.textContent = `${info.expNeeded} Experience Needed`;
+            }
         }
     },
 
-    updateEXPRing(exp, totalLevel) {
+    updateEXPRing(exp, _totalLevel) {
         const fill = document.getElementById('test-hud-exp-ring-fill');
         const dot = document.getElementById('test-hud-exp-dot');
-        if (!fill || !window.MechanicsManager) return;
+        if (!fill || !window.ProgressionManager) return;
 
-        const info = window.MechanicsManager.getLevelDisplayInfo(exp);
+        const info = window.ProgressionManager.getLevelDisplayInfo(exp);
         const progress = info.progress;
         const isMaster = info.isMaxLevel;
 
@@ -375,7 +497,23 @@ export const InterfaceManager = {
             return;
         }
 
-        // 4. ID-based Actions (Buttons/Summaries)
+        // 4. Update Cards (Timeline)
+        const updateCard = target.closest('.update-card');
+        if (updateCard && !target.closest('a, button, input, select')) {
+            e.preventDefault();
+            this.toggleUpdateCard(updateCard);
+            return;
+        }
+
+        // 5. Expandable Cards (Classes)
+        const expandableCard = target.closest('.expandable-card');
+        if (expandableCard && !target.closest('a, button, input, select')) {
+            e.preventDefault();
+            this.toggleExpandableCard(expandableCard);
+            return;
+        }
+
+        // 6. ID-based Actions (Buttons/Summaries)
         const idBtn = target.closest('button[id], summary[id]');
         if (idBtn) {
             this.handleIdAction(idBtn.id, e, idBtn);
@@ -385,21 +523,21 @@ export const InterfaceManager = {
     handleDataAction(action, e, target) {
         switch (action) {
             case 'scroll-top': window.scrollTo({ top: 0, behavior: 'smooth' }); break;
-            case 'close-celebration': if (window.MechanicsManager) window.MechanicsManager.closeCelebration(); break;
+            case 'close-celebration': if (window.ProgressionManager) window.ProgressionManager.closeCelebration(); break;
             case 'update-max-stat': if (window.VitalsManager) window.VitalsManager.updateMaxStat(target.getAttribute('data-stat')); break;
         }
     },
 
     handleIdAction(id, e, btn) {
         const actions = {
-            'test-save-btn': () => { if (window.DataManager) window.DataManager.saveCharacter(); },
-            'test-new-btn': () => { if (window.DataManager) window.DataManager.newCharacter(); },
+            'test-save-btn': () => { DeochUtils.saveCharacter(); },
+            'test-new-btn': () => DeochUtils.newHero(),
             'test-export-btn': () => { if (window.DataManager) window.DataManager.exportCharacter(); },
             'test-delete-btn': () => { if (window.DataManager) window.DataManager.deleteCharacter(); },
             'test-theme-btn': () => this.cycleTheme(),
-            'test-hud-spend-exp-btn': () => { e.stopPropagation(); if (window.MechanicsManager) window.MechanicsManager.triggerMasteryCelebration(); },
-            'test-confirm-stats': () => { e.stopPropagation(); if (window.StatsManager) window.StatsManager.confirmStatAllocation(); },
-            'test-deny-stats': () => { e.stopPropagation(); if (window.StatsManager) window.StatsManager.denyStatAllocation(); },
+            'test-hud-spend-exp-btn': () => { e.stopPropagation(); if (window.ProgressionManager) window.ProgressionManager.triggerMasteryCelebration(); },
+            'test-confirm-stats': () => { e.stopPropagation(); if (window.ProgressionManager) window.ProgressionManager.confirmStatAllocation(); },
+            'test-deny-stats': () => { e.stopPropagation(); if (window.ProgressionManager) window.ProgressionManager.denyStatAllocation(); },
             'test-gallery-btn': () => document.getElementById('character-gallery-dialog')?.showModal(),
             'test-import-btn-popup': () => {
                 const modal = document.getElementById('test-import-export-modal');
@@ -446,7 +584,7 @@ export const InterfaceManager = {
         if (settingsBtn) {
             settingsBtn.addEventListener('click', () => {
                 settingsBtn.classList.remove('btn-clicked-spin');
-                void settingsBtn.offsetWidth;
+                settingsBtn.getBoundingClientRect();
                 settingsBtn.classList.add('btn-clicked-spin');
                 if (window.navigator?.vibrate) window.navigator.vibrate(5);
             }, { signal: this.signal });
@@ -527,8 +665,10 @@ export const InterfaceManager = {
         const selectors = ['.hp-group .orb-touch-zone', '.mp-group .orb-touch-zone', '.sp-group .orb-touch-zone'];
         document.querySelectorAll(selectors.join(',')).forEach(el => {
             let timer;
-            const start = (e) => {
-                const stat = el.closest('.hp-group') ? 'hp' : el.closest('.mp-group') ? 'mana' : 'stamina';
+            const start = (_e) => {
+                let stat = 'stamina';
+                if (el.closest('.hp-group')) stat = 'hp';
+                else if (el.closest('.mp-group')) stat = 'mana';
                 this.wasLongPress = false;
                 timer = setTimeout(() => {
                     this.wasLongPress = true;
@@ -569,7 +709,6 @@ export const InterfaceManager = {
                 const val = Math.abs(parseInt(input.value)) || 0;
                 if (val !== 0 && window.VitalsManager) {
                     window.VitalsManager.adjust('temp-hp', val);
-                    if (window.DataManager) window.DataManager.saveCharacter();
                 }
                 this.hideBulkModal();
             };
@@ -627,16 +766,36 @@ export const InterfaceManager = {
         const val = Math.abs(parseInt(input?.value)) || 0;
         if (val !== 0 && window.VitalsManager) {
             window.VitalsManager.adjust(this.currentBulkStat, val * multiplier);
-            if (window.DataManager) window.DataManager.saveCharacter();
         }
         this.hideBulkModal();
     },
 
-    showClassSelection(isSecondary = false) {
+    showClassSelection(_isSecondary = false) {
         // Class selection UI logic
     },
 
     cleanup() {
         console.log('InterfaceManager: Cleanup called');
+    },
+
+    // --- Updates & Changelog ---
+
+    toggleUpdateCard(card) {
+        const details = card.querySelector('details');
+        if (!details) return;
+
+        const wasOpen = details.hasAttribute('open');
+
+        if (!wasOpen) {
+            details.setAttribute('open', '');
+            card.classList.add('is-expanded');
+        } else {
+            details.removeAttribute('open');
+            card.classList.remove('is-expanded');
+        }
+    },
+
+    toggleExpandableCard(card) {
+        card.classList.toggle('expanded');
     }
 };

@@ -1,9 +1,12 @@
 import js from '@eslint/js';
 import globals from 'globals';
+import sonarjs from 'eslint-plugin-sonarjs';
 
 export default [
     js.configs.recommended,
+    sonarjs.configs.recommended,
     {
+        files: ['**/*.{js,mjs,cjs}'],
         languageOptions: {
             ecmaVersion: 'latest',
             sourceType: 'module',
@@ -14,7 +17,7 @@ export default [
             }
         },
         rules: {
-            'no-unused-vars': ['warn', { 
+            'no-unused-vars': ['warn', {
                 'argsIgnorePattern': '^_',
                 'varsIgnorePattern': '^_',
                 'caughtErrorsIgnorePattern': '^_'

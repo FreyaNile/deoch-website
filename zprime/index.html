@@ -13,7 +13,7 @@
     <!-- Performance Optimization: Module Preloading -->
     <link rel="modulepreload" href="./gamejs/app.js">
     <link rel="modulepreload" href="./gamejs/InterfaceManager.js">
-    <link rel="modulepreload" href="./gamejs/MechanicsManager.js">
+    <link rel="modulepreload" href="./gamejs/ProgressionManager.js">
     <link rel="modulepreload" href="./gamejs/orbs.js">
     <link rel="modulepreload" href="./gamejs/DataManager.js">
 
@@ -24,10 +24,21 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/rpg-awesome@0.2.0/css/rpg-awesome.min.css">
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link rel="stylesheet" href="css/tokens.css">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/themes/themes.css">
-    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/core/tokens.css">
+
+    <!-- Component Styles (Parallel Loading) -->
+    <link rel="stylesheet" href="css/components/deoch-splash.css">
+    <link rel="stylesheet" href="css/components/character-creation-tour.css">
+    <link rel="stylesheet" href="css/components/bestiary.css">
+    <link rel="stylesheet" href="css/components/data-management.css">
+    <link rel="stylesheet" href="css/components/orbs.css">
+    <link rel="stylesheet" href="css/components/hud.css">
+    <link rel="stylesheet" href="css/components/main-character-card.css">
+    <link rel="stylesheet" href="css/components/home-why-deoch-classes-updates.css">
+    <link rel="stylesheet" href="css/components/shared-core.css">
+
+    <link rel="stylesheet" href="css/core/themes.css">
+    <link rel="stylesheet" href="css/core/navigation.css">
     <script>
         (function () {
             try {
@@ -59,13 +70,13 @@
         /* Mastery Celebration Animations */
         @keyframes mastery-reveal {
             0% {
-                transform: scale(0.8);
+                transform: translate(-50%, -40%) scale(0.8);
                 opacity: 0;
                 filter: blur(10px);
             }
 
             100% {
-                transform: scale(1);
+                transform: translate(-50%, -50%) scale(1);
                 opacity: 1;
                 filter: blur(0);
             }
@@ -319,7 +330,7 @@
                     <details>
                         <summary>
                             <div class="content-wrapper">
-                                <h3 class="gothic-header">100% Attribute-Based</h3>
+                                <h3 class="gothic-header">100% Core Stat-Based</h3>
                                 <p class="class-desc">Zero skill-bloat. No math-heavy proficiency bonuses. Every roll is
                                     intuitive, derived directly from your hero's core essence.</p>
                             </div>
@@ -329,7 +340,7 @@
                         </summary>
                         <div class="card-detail-content">
                             Pure mechanical clarity. By removing the separate layer of "Skills," every action is tied
-                            directly to your core attributes (Brawn, Agility, etc.), making the math instant and
+                            directly to your core stats (Brawn, Agility, etc.), making the math instant and
                             intuitive.
                         </div>
                     </details>
@@ -736,527 +747,8 @@
                 <p>Follow the journey as we build Deoch.</p>
             </div>
 
-            <div class="updates-timeline">
-                <article class="update-card">
-                    <div class="update-date">April 18, 2026</div>
-                    <h3 class="update-title">Website Migration & UI Refinement</h3>
-                    <details>
-                        <summary>View Changelog</summary>
-                        <ul class="changelog-list">
-                            <li>Restored preferred timeline-style development updates</li>
-                            <li>Enhanced character sheet with responsive 3-column stat grid</li>
-                            <li>Enforced base-9 stat system with point-buy validation</li>
-                            <li>Resolved footer visual artifacts with seamless background assets</li>
-                            <li>Implemented global card-click interaction for the timeline</li>
-                            <li>Added navigation links for "Classes" and "Updates" cards</li>
-                        </ul>
-                    </details>
-                </article>
-
-                <!-- v34 → v35 -->
-                <article class="update-card">
-                    <div class="update-date">February 12, 2026</div>
-                    <h3 class="update-title">Deoch v.32 → v.32.1</h3>
-                    <details>
-                        <summary>View Changelog</summary>
-                        <ul class="changelog-list">
-                            <li>Added a bonus to passive awareness on Smellwise and Pointed Ears traits</li>
-                            <li>Adjusted Silence spell</li>
-                            <li>Adjusted wizard rank ability</li>
-                            <li>Adjusted movement options</li>
-                            <li>Adjusted unarmed attack</li>
-                            <li>Adjusted character sheet</li>
-                            <li>Adjusted pavise wording</li>
-                            <li>Adjusted survivor and athlete feats</li>
-                            <li>Revamped renown</li>
-                            <li>Edited ToC</li>
-                        </ul>
-                    </details>
-                </article>
-
-                <!-- v33 → v34 -->
-                <article class="update-card">
-                    <div class="update-date">February 5, 2026</div>
-                    <h3 class="update-title">Deoch v.31.1 → v.32</h3>
-                    <details>
-                        <summary>View Changelog</summary>
-                        <ul class="changelog-list">
-                            <li>Adjusted stat allocation progression</li>
-                            <li>Adjusted sage ability</li>
-                            <li>Adjusted magus ability</li>
-                            <li>Added mundane keyword</li>
-                            <li>Druid shift adjusted</li>
-                            <li>Names list added</li>
-                            <li>Adjusted dweller heritage trait</li>
-                            <li>Moved spells from master alphabetical list to class dedicated level ascending lists</li>
-                            <li>Experience requirements for leveling adjusted</li>
-                            <li>Removed lifestyle</li>
-                            <li>Adjusted TT scope, moved experience gain to training</li>
-                            <li>Added curfew rulings</li>
-                            <li>Added 3 factions</li>
-                            <li>Added stats rules excerpt</li>
-                            <li>Adjusted nadur spell effect</li>
-                            <li>Adjusted Druidwill spell effect</li>
-                            <li>Adjusted Hunger, Thirst and Ill conditions</li>
-                            <li>Adjust rest times</li>
-                            <li>Adjusted second chance</li>
-                            <li>Added Pristine spell</li>
-                            <li>Adjusted tusks ability</li>
-                            <li>Adjusted Aegisheir heritage excerpt</li>
-                            <li>Added Aegisheir heritage feat that was made into a general feat</li>
-                            <li>Patched hide mechanic, grapple and surprise mechanics</li>
-                            <li>Patched grapple mechanic</li>
-                            <li>Patched surprise mechanic</li>
-                            <li>Synergized carry/push&amp;push/inventory/equipment</li>
-                            <li>Adjusted two-handed weapon property</li>
-                        </ul>
-                    </details>
-                </article>
-
-                <!-- v32 → v33 -->
-                <article class="update-card">
-                    <div class="update-date">January 29, 2026</div>
-                    <h3 class="update-title">Deoch v.31 → v.31.1</h3>
-                    <details>
-                        <summary>View Changelog</summary>
-                        <ul class="changelog-list">
-                            <li>Added parchment into equipment</li>
-                            <li>Added lockpick to equipment</li>
-                            <li>Adjusted ruling groupings</li>
-                            <li>Adjusted blurb</li>
-                            <li>Adjusted gallivanting results</li>
-                            <li>Gallivanting moved from flat roll to CHA roll, and options expanded to 25</li>
-                            <li>Added option for swapping rank abilities/spells into guild training</li>
-                            <li>Research outcomes adjusted</li>
-                            <li>Renamed tournaments</li>
-                            <li>Moved unarmed ruling from Rules section and moved it into equipment</li>
-                            <li>Trip renamed</li>
-                        </ul>
-                    </details>
-                </article>
-
-                <!-- v31 → v32 -->
-                <article class="update-card">
-                    <div class="update-date">January 22, 2026</div>
-                    <h3 class="update-title">Deoch v.30 → v.31</h3>
-                    <details>
-                        <summary>View Changelog</summary>
-                        <ul class="changelog-list">
-                            <li>Adjusted character creation section to flow better without oversight</li>
-                            <li>Tightened up equipment and inventory rulings</li>
-                            <li>Moved mastercraft to a general mechanic rather than a recipe</li>
-                            <li>Removed Nhazuulian Scion, added Nhazuulian sword</li>
-                            <li>Expanded age categories, traits &amp; quirks excerpt for easier legibility</li>
-                            <li>Moved half elven max age ruling to the first page</li>
-                            <li>Mentioned interactions in the speed section of character creation</li>
-                            <li>Finalized character creation heritage lore excerpts</li>
-                            <li>Edited trinkets</li>
-                            <li>Overhauled character creation heritage excerpts</li>
-                            <li>Swapped heritage traits and feats to support thematic cohesiveness</li>
-                            <li>Decoupled recipes from starting gear</li>
-                            <li>Overhauled feats</li>
-                            <li>Adjusted monk abilities, moved wind step to level 6</li>
-                            <li>Added "Channeling" "Phylactery" and "Soulsnare" spells</li>
-                            <li>Decoupled festivals and gallivanting</li>
-                            <li>Added town types</li>
-                            <li>Removed default lifestyle</li>
-                        </ul>
-                    </details>
-                </article>
-
-                <!-- v30 → v31 -->
-                <article class="update-card">
-                    <div class="update-date">January 15, 2026</div>
-                    <h3 class="update-title">Deoch v.29.1 → v.30</h3>
-                    <details>
-                        <summary>View Changelog</summary>
-                        <ul class="changelog-list">
-                            <li>Trip moved from the fighter rank abilities to attack augments</li>
-                            <li>Added smite augments to paladin rank abilities</li>
-                            <li>Adjusted class table format</li>
-                            <li>Created "Tempo" Fighter rank ability</li>
-                            <li>Created "Punishing Smite" "Daunting Smite" "Guiding Smite" Paladin rank abilities</li>
-                            <li>Created "Battlemage" "Preservation" "Disrupt" Sorcerer rank ability</li>
-                            <li>Created "Deny" "Wildsoul" "Ancient Psychometry" "Serenity" "Ironwood Aegis" "Gnarled
-                                Staff" Druid rank ability</li>
-                            <li>Renamed "Sanctuary" to "Cairn"</li>
-                            <li>Rebalanced class ability lists to ensure semi capstones landed on 5th level</li>
-                            <li>Adjust "Holy Weapon" spell description</li>
-                            <li>Adjusted "Telekinetic" feat</li>
-                            <li>Adjusted "Tutelage" times</li>
-                            <li>Adjusted "Villainy" results</li>
-                            <li>Created "Cunning" Rogue rank ability</li>
-                            <li>Adjusted mercy mechanic</li>
-                            <li>Adjusted hidden mechanic</li>
-                            <li>Adjusted hunger, thirst, illness</li>
-                            <li>Integrated "thief" rank ability into core class section</li>
-                            <li>Renamed "Lethal" to "Assassin Strike"</li>
-                            <li>Added "Shield of Faith" ability to paladin rank list</li>
-                            <li>Added equipment rulings to the character creation section</li>
-                            <li>Added options for rank swapping and spell swapping</li>
-                            <li>Hide moved from actions to reactions</li>
-                            <li>Created "Clemency" paladin rank ability</li>
-                            <li>Adjusted Rite of Inspiration rank ability</li>
-                            <li>Renamed level 9 paladin ability to Aingeal</li>
-                            <li>Adjusted "Genesis" paladin rank ability</li>
-                            <li>Adjusted date of the long day</li>
-                            <li>Adjusted Mystic Fist monk ability</li>
-                            <li>Expanded AoO triggers</li>
-                            <li>Adjusted Wolf Fang Fist monk ability</li>
-                        </ul>
-                    </details>
-                </article>
-
-                <!-- Playtest Jan 10 -->
-                <article class="update-card">
-                    <div class="update-date">January 10, 2026</div>
-                    <h3 class="update-title">Online Closed Playtest</h3>
-                    <details>
-                        <summary>View Details</summary>
-                        <ul class="changelog-list">
-                            <li>Focus: High-level combat balancing and dungeon crawl mechanics</li>
-                            <li>Testing the new "Sunburst" and "Lightning Bolt" disintegration effects</li>
-                            <li>Gathering data on the new WIS-based initiative system</li>
-                        </ul>
-                    </details>
-                </article>
-
-                <!-- v29 → v29.1 -->
-                <article class="update-card">
-                    <div class="update-date">January 8, 2026</div>
-                    <h3 class="update-title">Deoch v.29 → v.29.1</h3>
-                    <details>
-                        <summary>View Changelog</summary>
-                        <ul class="changelog-list">
-                            <li>Created wizard ability "Controlled Channeling" &amp; "Collector"</li>
-                            <li>Created sorcerer ability "Manifest"</li>
-                            <li>"Mute Casting" moved to feats</li>
-                            <li>Adjusted sorcerer's "Spell Resistance" &amp; "Bypass"</li>
-                            <li>Removed "Foresight" sorcerer ability, reworked ability into prescience spell</li>
-                            <li>Added "Grant Experience" Paladin spell</li>
-                        </ul>
-                    </details>
-                </article>
-
-                <!-- Playtest Jan 8 -->
-                <article class="update-card">
-                    <div class="update-date">January 8, 2026</div>
-                    <h3 class="update-title">Online Closed Playtest</h3>
-                    <details>
-                        <summary>View Details</summary>
-                        <ul class="changelog-list">
-                            <li>Focus: Mid-level social interactions and town generation testing</li>
-                            <li>Testing the "Pursue Bounty" and "Piety" towntime activities</li>
-                            <li>Validation of the revised "Hidden" and "Assassin Strike" mechanics</li>
-                        </ul>
-                    </details>
-                </article>
-
-                <!-- Playtest Jan 5 -->
-                <article class="update-card">
-                    <div class="update-date">January 5, 2026</div>
-                    <h3 class="update-title">Online Closed Playtest</h3>
-                    <details>
-                        <summary>View Details</summary>
-                        <ul class="changelog-list">
-                            <li>Focus: Early-game character progression and basic equipment economy</li>
-                            <li>Stress-testing the new "Stamina" and "Mana" resource management</li>
-                            <li>Verifying the "Mercy" mechanic for inspiration use</li>
-                        </ul>
-                    </details>
-                </article>
-
-                <!-- v28 → v29 -->
-                <article class="update-card">
-                    <div class="update-date">January 1, 2026</div>
-                    <h3 class="update-title">Deoch v.28 → v.29</h3>
-                    <details>
-                        <summary>View Changelog</summary>
-                        <ul class="changelog-list">
-                            <li>Revamped Rest &amp; Sleep mechanics, separated full rest mechanic from towntime</li>
-                            <li>Wizard scrolls excerpt adjusted</li>
-                            <li>Fixed reach weapon property description</li>
-                            <li>Added dungeon generation rules</li>
-                            <li>Added town generation rules</li>
-                            <li>Adjusted class health and healing die values</li>
-                            <li>Coupled experience and currency, players gain experience via silver offerings</li>
-                            <li>Gain Rank excerpt adjusted</li>
-                            <li>Pain Eater adjusted and moved into main class</li>
-                            <li>Created "Talos Skin", "Effortless Evasion", "Battlehoned", "Adrenaline", "Iron Chin",
-                                "Warpath", "Sixth Sense", "Intimidating Presence" Barbarian abilities</li>
-                            <li>Created "Zero Error" Fighter ability</li>
-                            <li>Created "Trapwise", "Thief", "Counterfeiter", "Untouchable" Rogue abilities</li>
-                            <li>Created "Commoner" stat block</li>
-                            <li>Created "Ironwood" &amp; "Spellwood" Druid abilities</li>
-                            <li>Created "Hierophant" Paladin ability</li>
-                            <li>Adjusted "Cleave"</li>
-                            <li>Coupled bleed mechanic and bloodied mechanic into a single mechanic</li>
-                            <li>Thirst and hunger moved from a submechanic of exhaustion to its own mechanic</li>
-                            <li>Adjusted Surprised condition</li>
-                            <li>Casting Focus effect adjusted</li>
-                        </ul>
-                    </details>
-                </article>
-
-                <!-- v27 → v28 -->
-                <article class="update-card">
-                    <div class="update-date">December 25, 2025</div>
-                    <h3 class="update-title">Deoch v.27 → v.28</h3>
-                    <details>
-                        <summary>View Changelog</summary>
-                        <ul class="changelog-list">
-                            <li>Removed ambidextrous feat</li>
-                            <li>Light weapon attacks now apply stat mod to attack and damage as normal</li>
-                            <li>Removed 3 deity feats</li>
-                            <li>Added elven heritage feat</li>
-                            <li>Renamed Or'uk Resilience to Or'uk Brawn</li>
-                            <li>Mastercraft is now its own recipe, adjusted from a general ruling</li>
-                        </ul>
-                    </details>
-                </article>
-
-                <!-- v26 → v27 -->
-                <article class="update-card">
-                    <div class="update-date">December 18, 2025</div>
-                    <h3 class="update-title">Deoch v.26 → v.27</h3>
-                    <details>
-                        <summary>View Changelog</summary>
-                        <ul class="changelog-list">
-                            <li>Rebalanced class spell lists</li>
-                            <li>Magic Missile, Mind Sliver, Acid Splash, Detect Magic, Cradh, Weaken, Cadal, and Slad
-                                are now Wizard spells</li>
-                            <li>Mage Armour moved to level 1 from level 2</li>
-                            <li>New spells added: Chaos, Vortex, Ghuul, Confusion</li>
-                            <li>Invisibility, See Invisibility, Prescience, Dust, Reverse Gravity and Time Stasis are
-                                now Sorcerer spells</li>
-                            <li>Meteor Swarm is now a Druid spell</li>
-                            <li>Blink's spell effect is now an upcast of Step</li>
-                            <li>Slow moved to 6th level</li>
-                            <li>Mage Hand, Levitate and the old Telekinesis spells have been compounded into the new
-                                Telekinesis spell</li>
-                            <li>Disintegrate spell removed, disintegrate effect now applies to Sunburst and Lightning
-                                Bolt</li>
-                            <li>Adjusted deity excerpt</li>
-                            <li>Added Freecast ruling in spellcasting</li>
-                        </ul>
-                    </details>
-                </article>
-
-                <!-- Live Twitch Session -->
-                <article class="update-card">
-                    <div class="update-date">December 15, 2025</div>
-                    <h3 class="update-title">Live Twitch Session</h3>
-                    <details>
-                        <summary>View Details</summary>
-                        <ul class="changelog-list">
-                            <li>Live stream discussion focused on core mechanics</li>
-                            <li>Behind-the-scenes look at world map development</li>
-                            <li>Interactive Q&A with the Twitch community</li>
-                        </ul>
-                    </details>
-                </article>
-
-                <!-- v25 → v26 -->
-                <article class="update-card">
-                    <div class="update-date">December 11, 2025</div>
-                    <h3 class="update-title">Deoch v.24 → v.26</h3>
-                    <details>
-                        <summary>View Changelog</summary>
-                        <ul class="changelog-list">
-                            <li>Updated damage values on weapons</li>
-                            <li>Adjusted towntime to daily and weekly (player choice) instead of just weekly</li>
-                            <li>Removed "Survival" Towntime activity</li>
-                            <li>Added "Pursue Bounty" Towntime activity</li>
-                            <li>Added "Piety" option for lifestyle</li>
-                            <li>Removed Fate → Added Mercy mechanic for inspiration</li>
-                            <li>Adjusted Rest &amp; Sleep Ruling</li>
-                            <li>Long rest renamed Full rest</li>
-                            <li>Full rest no longer requires 7 days of rest → requirement moved to resting within city
-                                or town</li>
-                            <li>Full rest no longer removes exhaustion, the function is served by sleeping entirely</li>
-                            <li>Full rests no longer remove wounds, healing must be sought out</li>
-                            <li>Removed Greatclub</li>
-                            <li>Added Simple &amp; Advanced weapons</li>
-                            <li>Tweaked Hearty trait → Added Tough trait</li>
-                            <li>Adjusted loading property description</li>
-                            <li>Adjusted Armour description</li>
-                            <li>Adjusted Age mechanic</li>
-                            <li>Removed ration box</li>
-                            <li>Overhauled character sheet page 1 &amp; 2</li>
-                            <li>Druid abilities shifted, domain moved to main class</li>
-                            <li>Adjusted Ranger Rank Titles</li>
-                            <li>Added "Totem" ability for main class druids</li>
-                            <li>Standardized class resources. Martials get stamina, casters get mana</li>
-                            <li>Spell list &amp; Spellcasting section edits</li>
-                            <li>Adjusted weaver feat</li>
-                            <li>Adjusted feats of faith</li>
-                            <li>Elfrot now takes from max health instead of having its own effect</li>
-                            <li>Proficiency removed</li>
-                            <li>Forced March adjusted to fit current travel rules</li>
-                            <li>Reworked interactions, inventory, equipment action economy → inventory requires action,
-                                equipment requires interaction</li>
-                            <li>Light weapon property reworded</li>
-                            <li>D20 Check ruling adjusted, compounded contest ruling</li>
-                            <li>Initiative now based on WIS → used to be based on DEX</li>
-                            <li>Passive awareness equal to WIS score instead of 10 + mod</li>
-                            <li>Interaction cost 20 speed → increased from 15 speed</li>
-                            <li>Perpetual fog during daytime added via lore → vision obscured to 100 feet at most times
-                            </li>
-                            <li>AC calculation decreased from (10 + DEX mod) → (8 + DEX mod)</li>
-                            <li>Split "Notes" on page 3</li>
-                            <li>Change page 2 "Notes" to inventory</li>
-                            <li>Added spot for reputation - honor &amp; infamy</li>
-                            <li>Create a place on the character sheet for components</li>
-                        </ul>
-                    </details>
-                </article>
-
-                <!-- v.08 → v.24 -->
-                <article class="update-card">
-                    <div class="update-date">December 4, 2025</div>
-                    <h3 class="update-title">Deoch v.08 → v.24</h3>
-                    <details>
-                        <summary>View Changelog</summary>
-                        <ul class="changelog-list">
-                            <li>Lore update: Tirnoch is rich in magic metals, therefore this facilitates the conflicts
-                                in the small area, despite its small size</li>
-                            <li>Fixed proficiency at level 0 issue</li>
-                            <li>Fixed issues between powerful build, armour master, colossus and push &amp; pull rules
-                            </li>
-                            <li>Fencer feat removed and replaced → Added Improved Parry</li>
-                            <li>Craftwise description expanded</li>
-                            <li>Changed tusk ability - final iteration</li>
-                            <li>Renamed Dwellen "Brave" to "Stubborn" and added in "charmed" alongside "frightened"</li>
-                            <li>Added CHA bonus to amaranthine trait</li>
-                            <li>Feat, Traits &amp; Handicaps, Armour, Weapon systems and Adventuring equipment table and
-                                descriptions overhauled</li>
-                            <li>Added more heritage and faith feats</li>
-                            <li>Revised armour master and shield mastery feats to accommodate the new armour system</li>
-                            <li>Added estoc</li>
-                            <li>Equipment ruling added: You can't equip items over 9 lbs, except weapons or armor</li>
-                            <li>Added quill to ink bottle</li>
-                            <li>Changed piercing and slashing to sharp</li>
-                            <li>Made all weapons have finesse property</li>
-                            <li>Pricing overhaul based on real-time labour costs coupled with material costs</li>
-                            <li>Added melee weapon reaction +1 AC effect</li>
-                            <li>Added versatile ruling</li>
-                            <li>Added: Wagon → Handcart, recipe tools, Merchant Scale → Scale, retort, added bola weapon
-                            </li>
-                            <li>Removed: Outrigger vessel, acid vial, ball bearings, hunting trap, climber kit, paper,
-                                flask, parchment, whistle, perfume, magnifying glass, spyglass, shortbow</li>
-                            <li>Adjusted recipe requirements</li>
-                            <li>Removed natural armour, no longer compatible with the armour system</li>
-                            <li>Added bagmeister, bandage, leatherwork, meat pie, platesmith, pottage, pound cake,
-                                swordsmith, tailoring, talosmith, tanner, whisperfade, woodworker, windlash, wardencrest
-                            </li>
-                            <li>Complete the equipment list and description adjustment</li>
-                            <li>Towntime: Guilds</li>
-                            <li>Towntime: Training</li>
-                            <li>Towntime: Craft revision</li>
-                            <li>Poem Revision</li>
-                            <li>Towntime: Villainy</li>
-                            <li>Towntime: Run into a lower ranking member of your class that is seeking training</li>
-                            <li>Removed barrier to long resting during towntime</li>
-                            <li>Magic metals second adjustment, added aetherium and costs</li>
-                            <li>Magic metals adjusted based on the new mastercraft effect/armour system</li>
-                            <li>Tested reactions twice per round, actions once per turn - action economy</li>
-                            <li>Add parry reaction mechanic</li>
-                            <li>Equipment requires interaction, inventory requires action. Pouches create more equipment
-                                space</li>
-                            <li>Flying creature carrying weight / rules</li>
-                            <li>Removed bonus actions, +1 reaction instead</li>
-                            <li>Mastercraft effect adjusted and ruling entered</li>
-                            <li>Reintegrated 'Expertise' away from toolkits</li>
-                            <li>Experience ruling needs to specify that you spend accumulated experience to level up
-                            </li>
-                            <li>Critical revamp</li>
-                            <li>D20 check excerpt overhaul</li>
-                            <li>Added chart for average uses for die categories</li>
-                            <li>Add renown system, integrate into towntime</li>
-                            <li>Structures no longer have AC but rather have DR and damage immunities</li>
-                            <li>Powerful build affects armour equips</li>
-                            <li>Push, Lift and Drag revamped to Push &amp; Pull</li>
-                            <li>Fixed surprised condition</li>
-                            <li>Dashing is now an action</li>
-                            <li>Removed copper as a currency</li>
-                            <li>Inspiration use: "network" added, tested and removed</li>
-                            <li>Initiative based on WIS</li>
-                            <li>You no longer need to train to level up, training now instead offers additional benefits
-                            </li>
-                            <li>Added passive awareness, increased damage space, actions and reaction to char sheet</li>
-                        </ul>
-                    </details>
-                </article>
-                <!-- Changelog Announcement -->
-                <article class="update-card">
-                    <div class="update-date">November 29, 2025</div>
-                    <h3 class="update-title">Changelog Protocol Initiated</h3>
-                    <details>
-                        <summary>View Announcement</summary>
-                        <ul class="changelog-list">
-                            <li>Announcement of the formal version update changelog system</li>
-                            <li>Commitment to documenting all future mechanical shifts and lore expansions</li>
-                            <li>Streamlining developer-to-player communication for upcoming releases</li>
-                        </ul>
-                    </details>
-                </article>
-
-                <!-- RPG Alliance Con -->
-                <article class="update-card">
-                    <div class="update-date">November 17, 2024</div>
-                    <h3 class="update-title">RPG Alliance Con</h3>
-                    <details>
-                        <summary>View Details</summary>
-                        <ul class="changelog-list">
-                            <li>Deoch was played in-person at RPG Alliance Con</li>
-                            <li>Fundraising event to raise money for charity</li>
-                            <li>Live play-testing and community engagement session</li>
-                        </ul>
-                    </details>
-                </article>
-
-                <!-- Randomworlds Q&A -->
-                <article class="update-card">
-                    <div class="update-date">November 4, 2024</div>
-                    <h3 class="update-title">Randomworlds Q&A Collab</h3>
-                    <details>
-                        <summary>View Details</summary>
-                        <ul class="changelog-list">
-                            <li>Collaboration and live Q&A session with Randomworlds</li>
-                            <li>In-depth discussion of Deoch's mechanics and world-building</li>
-                            <li>Community feedback integration into development</li>
-                        </ul>
-                    </details>
-                </article>
-
-                <!-- Website Creation -->
-                <article class="update-card">
-                    <div class="update-date">October 3, 2024</div>
-                    <h3 class="update-title">Website Created</h3>
-                    <details>
-                        <summary>View Changelog</summary>
-                        <ul class="changelog-list">
-                            <li>Initial website launch</li>
-                            <li>Integrated character sheet prototype</li>
-                            <li>Added development timeline</li>
-                        </ul>
-                    </details>
-                </article>
-
-                <!-- Project Beginning -->
-                <article class="update-card">
-                    <div class="update-date">July 10, 2023</div>
-                    <h3 class="update-title">Project Inception</h3>
-                    <details>
-                        <summary>View Details</summary>
-                        <ul class="changelog-list">
-                            <li>The birth of the Deoch TTRPG concept</li>
-                            <li>Initial brainstorming of core mechanics and dark fantasy setting</li>
-                            <li>Setting the foundation for a legacy of shadows and magic</li>
-                        </ul>
-                    </details>
-                </article>
-
+            <div id="dynamic-timeline" class="updates-timeline">
+                <!-- Populated by InterfaceManager.renderTimeline() -->
             </div>
 
             <div style="display: flex; justify-content: center; margin-top: 3rem;">
@@ -1422,52 +914,8 @@
                             <h3 class="u-font-primary u-font-size-2xl u-bold u-m-0 u-tracking-wider u-text-accent">
                                 MONSTER CATALOG</h3>
                         </div>
-                        <div class="monster-grid u-grid u-gap-1">
-                            <div class="monster-card-item glass-panel-dark" data-monster="goblin">
-                                <div class="monster-icon-wrapper">
-                                    <i data-lucide="sword" class="u-font-size-md"
-                                        style="color: var(--accent-primary);"></i>
-                                </div>
-                                <div>
-                                    <div class="u-font-primary u-font-size-xl">
-                                        Goblin</div>
-                                    <div class="u-font-size-xs u-opacity-0-6"
-                                        style="text-transform: uppercase; letter-spacing: 0.05em;">
-                                        Small Humanoid</div>
-                                </div>
-                                <i data-lucide="chevron-right"
-                                    class="u-font-size-md u-opacity-0-4 u-mt-0-25 u-ml-auto"></i>
-                            </div>
-                            <div class="monster-card-item glass-panel-dark" data-monster="spider">
-                                <div class="monster-icon-wrapper">
-                                    <i data-lucide="bug" class="u-font-size-md"
-                                        style="color: var(--accent-primary);"></i>
-                                </div>
-                                <div>
-                                    <div class="u-font-primary u-font-size-xl">
-                                        Spider</div>
-                                    <div class="u-font-size-xs u-opacity-0-6"
-                                        style="text-transform: uppercase; letter-spacing: 0.05em;">
-                                        Tiny Beast</div>
-                                </div>
-                                <i data-lucide="chevron-right"
-                                    class="u-font-size-md u-opacity-0-4 u-mt-0-25 u-ml-auto"></i>
-                            </div>
-                            <div class="monster-card-item glass-panel-dark" data-monster="horse">
-                                <div class="monster-icon-wrapper">
-                                    <i data-lucide="paw-print" class="u-font-size-md"
-                                        style="color: var(--accent-primary);"></i>
-                                </div>
-                                <div>
-                                    <div class="u-font-primary u-font-size-xl">
-                                        Horse</div>
-                                    <div class="u-font-size-xs u-opacity-0-6"
-                                        style="text-transform: uppercase; letter-spacing: 0.05em;">
-                                        Large Beast</div>
-                                </div>
-                                <i data-lucide="chevron-right"
-                                    class="u-font-size-md u-opacity-0-4 u-mt-0-25 u-ml-auto"></i>
-                            </div>
+                        <div id="dynamic-monster-grid" class="monster-grid u-grid u-gap-1">
+                            <!-- Populated by GMManager.renderMonsterCatalog() -->
                         </div>
                     </div>
 
@@ -1483,7 +931,7 @@
                     </div>
                 </div>
                 <div class="tab-content">
-                    <!-- Tab 1: Core & Attributes (Static) -->
+                    <!-- Tab 1: Core Stats (Static) -->
                     <div class="tab-pane test-tab-pane active" id="test-tab-core">
                         <div class="actions-panel">
                             <div class="section-header-compact">
@@ -1512,25 +960,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-header u-grid u-gap-1 u-pt-1-5 u-pl-1-5 u-grid-cols-2 u-pr-1-5">
-                            <!-- AC Card -->
-                            <div class="secondary-stat-card">
-                                <div class="secondary-stat-label">
-                                    <i data-lucide="shield"></i>
-                                    <span>Armor Class</span>
-                                </div>
-                                <div id="char-ac-display" class="secondary-stat-value">10</div>
-                                <div class="secondary-stat-formula">8 + DEX MOD</div>
-                            </div>
-                            <!-- Initiative Card -->
-                            <div class="initiative-group secondary-stat-card">
-                                <div class="secondary-stat-label">
-                                    <i data-lucide="zap"></i>
-                                    <span>Initiative</span>
-                                </div>
-                                <div id="char-init-display" class="secondary-stat-value">+0</div>
-                                <div class="secondary-stat-formula">WIS MOD</div>
-                            </div>
+                        <div id="test-attributes-grid"
+                            class="form-header u-grid u-gap-1 u-pt-1-5 u-pl-1-5 u-grid-cols-2 u-pr-1-5">
+                            <!-- Populated by InterfaceManager.renderAttributes() -->
                         </div>
 
                         <!-- Exhaustion & Conditions Section -->
@@ -1540,19 +972,19 @@
                                 class="collapsible-section-header flex-between p-md u-no-underline u-cursor-pointer"
                                 id="test-cond-header">
                                 <div class="flex-center-gap">
-                                    <h4 class="text-uppercase-tracked u-font-size-xs u-text-accent">Conditions</h4>
+                                    <h4 class="text-uppercase-tracked u-font-size-xs u-text-accent u-m-0">Conditions
+                                    </h4>
                                     <div id="active-conditions-badge"
                                         class="u-font-size-xs u-bold u-pt-0-2 u-border-radius-full u-text-warning u-bg-warning-alpha u-p-0-2-0-8 u-border-warning hidden">
-                                        <span id="condition-count">0</span> ACTIVE
+                                        <span id="condition-count">0</span>
                                     </div>
+                                    <div id="conditions-active-summary" class="flex-center-gap hidden"></div>
                                 </div>
                                 <div class="section-toggle-btn u-flex-center u-transition-transform-0-3 u-text-accent">
                                     <i data-lucide="chevron-down"></i>
                                 </div>
                             </summary>
                             <div id="test-cond-content" class="p-md u-pt-0">
-                                <div id="conditions-active-summary" class="u-flex-center hidden"
-                                    style="flex-wrap: wrap; gap: 0.4rem; padding: 0.85rem 0 0.25rem 0;"></div>
                                 <div class="exhaustion-dots u-mb-1" style="padding: 1rem 0 0.5rem 0;">
                                     <label class="icon-toggle exhaustion-toggle" title="Exhaustion Level 1"
                                         for="char-ex-1"><input type="checkbox" id="char-ex-1" name="ex_1"
@@ -1587,6 +1019,30 @@
                             </div>
                         </details>
 
+                        <!-- Restoration Panel (Moved from HUD) -->
+                        <details
+                            class="restoration-panel m-t-md glass-panel-premium u-bg-surface-glass-dark u-overflow-hidden">
+                            <summary
+                                class="collapsible-section-header flex-between p-md u-no-underline u-cursor-pointer"
+                                id="restoration-header">
+                                <div class="flex-center-gap">
+                                    <h4 class="text-uppercase-tracked u-font-size-xs u-text-accent u-m-0">
+                                        <i data-lucide="heart" style="width: 14px; height: 14px;"></i> Restoration
+                                    </h4>
+                                    <div id="dice-count-badge-container"
+                                        class="u-font-size-xs u-bold u-pt-0-2 u-border-radius-full u-text-success u-bg-success-alpha u-p-0-2-0-8 u-border-success">
+                                        <span id="healing-dice-badge">1</span>
+                                    </div>
+                                </div>
+                                <div class="section-toggle-btn u-flex-center u-transition-transform-0-3 u-text-accent">
+                                    <i data-lucide="chevron-down"></i>
+                                </div>
+                            </summary>
+                            <div class="restoration-content-wrapper p-md u-pt-0" id="test-restoration-grid">
+                                <!-- Populated by InterfaceManager.renderRestoration() -->
+                            </div>
+                        </details>
+
                         <!-- Languages Section -->
                         <details
                             class="languages-panel glass-panel-premium m-t-md u-bg-surface-glass-dark u-overflow-hidden">
@@ -1594,8 +1050,7 @@
                                 class="collapsible-section-header flex-between p-md u-no-underline u-cursor-pointer"
                                 id="test-lang-header">
                                 <div class="flex-center-gap">
-                                    <h4 class="text-uppercase-tracked u-m-0 u-font-size-sm u-text-accent">Languages
-                                    </h4>
+                                    <h4 class="text-uppercase-tracked u-m-0 u-font-size-sm u-text-accent">Languages</h4>
                                 </div>
                                 <div class="section-toggle-btn u-flex-center"
                                     style="color: var(--accent-primary); transition: transform 0.3s ease;">
@@ -1603,133 +1058,20 @@
                                 </div>
                             </summary>
                             <div class="languages-wrapper p-md u-pt-0" id="test-lang-content">
-                                <div class="languages-grid u-grid u-gap-0-5 u-pt-1">
-                                    <!-- Language items 1-10 -->
-                                    <div class="language-item">
-                                        <span class="lang-label">Common</span>
-                                        <div class="lang-indicators u-flex-center u-gap-0-75">
-                                            <label class="icon-toggle lang-indicator-btn" title="Verbal">
-                                                <input type="checkbox" id="test-lang-v-1" class="lang-checkbox"
-                                                    style="display: none;" checked>
-                                                <i data-lucide="speech"></i>
-                                            </label>
-                                            <label class="icon-toggle lang-indicator-btn" title="Literacy">
-                                                <input type="checkbox" id="test-lang-l-1" class="lang-checkbox"
-                                                    style="display: none;" checked>
-                                                <i data-lucide="book-open"></i>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <!-- Repeat for others 2-10 with unique IDs -->
-                                    <div class="language-item">
-                                        <span class="lang-label">Language 2</span>
-                                        <div class="lang-indicators u-flex-center u-gap-0-75">
-                                            <label class="icon-toggle lang-indicator-btn" title="Verbal"><input
-                                                    type="checkbox" id="test-lang-v-2" class="lang-checkbox"
-                                                    style="display: none;"><i data-lucide="speech"></i></label>
-                                            <label class="icon-toggle lang-indicator-btn" title="Literacy"><input
-                                                    type="checkbox" id="test-lang-l-2" class="lang-checkbox"
-                                                    style="display: none;"><i data-lucide="book-open"></i></label>
-                                        </div>
-                                    </div>
-                                    <div class="language-item">
-                                        <span class="lang-label">Language 3</span>
-                                        <div class="lang-indicators u-flex-center u-gap-0-75">
-                                            <label class="icon-toggle lang-indicator-btn" title="Verbal"><input
-                                                    type="checkbox" id="test-lang-v-3" class="lang-checkbox"
-                                                    style="display: none;"><i data-lucide="speech"></i></label>
-                                            <label class="icon-toggle lang-indicator-btn" title="Literacy"><input
-                                                    type="checkbox" id="test-lang-l-3" class="lang-checkbox"
-                                                    style="display: none;"><i data-lucide="book-open"></i></label>
-                                        </div>
-                                    </div>
-                                    <div class="language-item">
-                                        <span class="lang-label">Language 4</span>
-                                        <div class="lang-indicators u-flex-center u-gap-0-75">
-                                            <label class="icon-toggle lang-indicator-btn" title="Verbal"><input
-                                                    type="checkbox" id="test-lang-v-4" class="lang-checkbox"
-                                                    style="display: none;"><i data-lucide="speech"></i></label>
-                                            <label class="icon-toggle lang-indicator-btn" title="Literacy"><input
-                                                    type="checkbox" id="test-lang-l-4" class="lang-checkbox"
-                                                    style="display: none;"><i data-lucide="book-open"></i></label>
-                                        </div>
-                                    </div>
-                                    <div class="language-item">
-                                        <span class="lang-label">Language 5</span>
-                                        <div class="lang-indicators u-flex-center u-gap-0-75">
-                                            <label class="icon-toggle lang-indicator-btn" title="Verbal"><input
-                                                    type="checkbox" id="test-lang-v-5" class="lang-checkbox"
-                                                    style="display: none;"><i data-lucide="speech"></i></label>
-                                            <label class="icon-toggle lang-indicator-btn" title="Literacy"><input
-                                                    type="checkbox" id="test-lang-l-5" class="lang-checkbox"
-                                                    style="display: none;"><i data-lucide="book-open"></i></label>
-                                        </div>
-                                    </div>
-                                    <div class="language-item">
-                                        <span class="lang-label">Language 6</span>
-                                        <div class="lang-indicators u-flex-center u-gap-0-75">
-                                            <label class="icon-toggle lang-indicator-btn" title="Verbal"><input
-                                                    type="checkbox" id="test-lang-v-6" class="lang-checkbox"
-                                                    style="display: none;"><i data-lucide="speech"></i></label>
-                                            <label class="icon-toggle lang-indicator-btn" title="Literacy"><input
-                                                    type="checkbox" id="test-lang-l-6" class="lang-checkbox"
-                                                    style="display: none;"><i data-lucide="book-open"></i></label>
-                                        </div>
-                                    </div>
-                                    <div class="language-item">
-                                        <span class="lang-label">Language 7</span>
-                                        <div class="lang-indicators u-flex-center u-gap-0-75">
-                                            <label class="icon-toggle lang-indicator-btn" title="Verbal"><input
-                                                    type="checkbox" id="test-lang-v-7" class="lang-checkbox"
-                                                    style="display: none;"><i data-lucide="speech"></i></label>
-                                            <label class="icon-toggle lang-indicator-btn" title="Literacy"><input
-                                                    type="checkbox" id="test-lang-l-7" class="lang-checkbox"
-                                                    style="display: none;"><i data-lucide="book-open"></i></label>
-                                        </div>
-                                    </div>
-                                    <div class="language-item">
-                                        <span class="lang-label">Language 8</span>
-                                        <div class="lang-indicators u-flex-center u-gap-0-75">
-                                            <label class="icon-toggle lang-indicator-btn" title="Verbal"><input
-                                                    type="checkbox" id="test-lang-v-8" class="lang-checkbox"
-                                                    style="display: none;"><i data-lucide="speech"></i></label>
-                                            <label class="icon-toggle lang-indicator-btn" title="Literacy"><input
-                                                    type="checkbox" id="test-lang-l-8" class="lang-checkbox"
-                                                    style="display: none;"><i data-lucide="book-open"></i></label>
-                                        </div>
-                                    </div>
-                                    <div class="language-item">
-                                        <span class="lang-label">Language 9</span>
-                                        <div class="lang-indicators u-flex-center u-gap-0-75">
-                                            <label class="icon-toggle lang-indicator-btn" title="Verbal"><input
-                                                    type="checkbox" id="test-lang-v-9" class="lang-checkbox"
-                                                    style="display: none;"><i data-lucide="speech"></i></label>
-                                            <label class="icon-toggle lang-indicator-btn" title="Literacy"><input
-                                                    type="checkbox" id="test-lang-l-9" class="lang-checkbox"
-                                                    style="display: none;"><i data-lucide="book-open"></i></label>
-                                        </div>
-                                    </div>
-                                    <div class="language-item">
-                                        <span class="lang-label">Language 10</span>
-                                        <div class="lang-indicators u-flex-center u-gap-0-75">
-                                            <label class="icon-toggle lang-indicator-btn" title="Verbal"><input
-                                                    type="checkbox" id="test-lang-v-10" class="lang-checkbox"
-                                                    style="display: none;"><i data-lucide="speech"></i></label>
-                                            <label class="icon-toggle lang-indicator-btn" title="Literacy"><input
-                                                    type="checkbox" id="test-lang-l-10" class="lang-checkbox"
-                                                    style="display: none;"><i data-lucide="book-open"></i></label>
-                                        </div>
-                                    </div>
+                                <div id="test-languages-grid" class="languages-grid u-grid u-gap-0-5 u-pt-1">
+                                    <!-- Populated by InterfaceManager.renderLanguages() -->
                                 </div>
                             </div>
                         </details>
                     </div>
 
-                    <div class="tab-pane test-tab-pane u-p-1 u-text-center" id="test-tab-equipment" style="display: none;">
+                    <div class="tab-pane test-tab-pane u-p-1 u-text-center" id="test-tab-equipment"
+                        style="display: none;">
                         <i data-lucide="package" class="u-mt-1 u-mb-1 u-w-48 u-h-48 u-text-accent u-opacity-0-3"></i>
                         <h4 class="u-mb-0-5 u-font-primary u-font-size-2xl">Equipment</h4>
                         <p class="u-font-size-sm u-opacity-0-7 u-text-secondary" style="line-height: 1.5;">
-                            The armory is currently being restocked. Gear management and inventory systems will return in a future update.
+                            The armory is currently being restocked. Gear management and inventory systems will return
+                            in a future update.
                         </p>
                     </div>
 
@@ -1748,7 +1090,8 @@
                         <i data-lucide="scroll" class="u-mt-1 u-mb-1 u-w-48 u-h-48 u-text-accent u-opacity-0-3"></i>
                         <h4 class="u-mb-0-5 u-font-primary u-font-size-2xl">Lore</h4>
                         <p class="u-font-size-sm u-opacity-0-7 u-text-secondary" style="line-height: 1.5;">
-                            The chronicles of your legend are being written in the stars. Backstory and world-lore tracking will be available soon.
+                            The chronicles of your legend are being written in the stars. Backstory and world-lore
+                            tracking will be available soon.
                         </p>
                     </div>
                 </div>
@@ -1763,32 +1106,32 @@
             <div class="dice-widget-content">
                 <div class="dice-widget-mobile-stats u-mb-0-75 u-pb-0-75 u-border-bottom-glass">
                     <div class="u-grid u-gap-0-4" style="grid-template-columns: repeat(3, 1fr);">
-                        <div class="attr-box attr-box-compact" data-stat="str">
+                        <div class="stat-box stat-box-compact" data-stat="str">
                             <i data-lucide="biceps-flexed" style="color: var(--color-physical);"></i>
                             <div class="value">14</div>
                             <div class="mod">+2</div>
                         </div>
-                        <div class="attr-box attr-box-compact" data-stat="dex">
+                        <div class="stat-box stat-box-compact" data-stat="dex">
                             <i data-lucide="footprints" style="color: var(--color-physical);"></i>
                             <div class="value">12</div>
                             <div class="mod">+1</div>
                         </div>
-                        <div class="attr-box attr-box-compact" data-stat="con">
+                        <div class="stat-box stat-box-compact" data-stat="con">
                             <i data-lucide="shield" style="color: var(--color-physical);"></i>
                             <div class="value">16</div>
                             <div class="mod">+3</div>
                         </div>
-                        <div class="attr-box attr-box-compact" data-stat="int">
+                        <div class="stat-box stat-box-compact" data-stat="int">
                             <i data-lucide="brain" style="color: var(--color-mental);"></i>
                             <div class="value">10</div>
                             <div class="mod">+0</div>
                         </div>
-                        <div class="attr-box attr-box-compact" data-stat="wis">
+                        <div class="stat-box stat-box-compact" data-stat="wis">
                             <i data-lucide="eye" style="color: var(--color-mental);"></i>
                             <div class="value">13</div>
                             <div class="mod">+1</div>
                         </div>
-                        <div class="attr-box attr-box-compact" data-stat="cha">
+                        <div class="stat-box stat-box-compact" data-stat="cha">
                             <i data-lucide="sparkles" class="u-text-mental"></i>
                             <div class="value">11</div>
                             <div class="mod">+0</div>
@@ -1850,12 +1193,12 @@
 
 
     <!-- Stat Points Tooltip -->
-    <div id="stat-points-tooltip" class="stat-points-tooltip">
-        <div class="tooltip-content">
-            <i data-lucide="plus-circle" class="tooltip-icon"></i>
-            <div class="tooltip-text-stack">
-                <span class="tooltip-title">NEW STAT POINTS</span>
-                <span class="tooltip-subtitle">Click to Allocate</span>
+    <div id="stat-points-tooltip" class="tooltip tooltip--stat-points">
+        <div class="tooltip__content">
+            <i data-lucide="plus-circle" class="tooltip__icon"></i>
+            <div class="tooltip__text-stack">
+                <span class="tooltip__title">NEW STAT POINTS</span>
+                <span class="tooltip__subtitle">Click to Allocate</span>
             </div>
         </div>
     </div>
@@ -2056,40 +1399,8 @@
                     </div>
                 </div>
 
-                <!-- Step 3: Languages -->
+                <!-- Step 3: Trinkets -->
                 <div class="tour-step" data-step="3" style="display: none;">
-                    <h3 class="gothic-header" style="text-align: center; margin-bottom: 0.5rem;">Linguistic Skill</h3>
-                    <p style="text-align: center; font-size: 0.8rem; opacity: 0.7; margin-bottom: 1.5rem;">Pick your
-                        known languages.</p>
-
-                    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-                        <div class="glass-panel-dark"
-                            style="padding: 0.75rem 1rem; display: flex;  align-items: center; border-radius: 12px;">
-                            <span style="font-size: 0.9rem;">Common Tongue</span>
-                            <div style="display: flex; gap: 0.5rem;">
-                                <i data-lucide="speech"
-                                    style="width: 16px; opacity: 1; color: var(--accent-primary);"></i>
-                                <i data-lucide="book-open"
-                                    style="width: 16px; opacity: 1; color: var(--accent-primary);"></i>
-                            </div>
-                        </div>
-                        <label for="tour-language-select" class="sr-only" style="display:none;">Secondary
-                            Language</label>
-                        <select id="tour-language-select" name="secondary_language" class="theme-select-box"
-                            data-tour-action="select-language"
-                            style="width: 100%; height: 45px; border-radius: 12px; font-size: 0.9rem;"
-                            autocomplete="off">
-                            <option value="">Select Secondary Language...</option>
-                            <option value="Old Elvish">Old Elvish</option>
-                            <option value="Dwarven Runic">Dwarven Runic</option>
-                            <option value="Orcish Grunts">Orcish Grunts</option>
-                            <option value="Celestial Whisper">Celestial Whisper</option>
-                        </select>
-                    </div>
-                </div>
-
-                <!-- Step 4: Trinkets -->
-                <div class="tour-step" data-step="4" style="display: none;">
                     <h3 class="gothic-header" style="text-align: center; margin-bottom: 0.5rem;">Oddities & Trinkets
                     </h3>
                     <p style="text-align: center; font-size: 0.8rem; opacity: 0.7; margin-bottom: 2rem;">Every hero
@@ -2111,8 +1422,8 @@
                     </div>
                 </div>
 
-                <!-- Step 5: Traits -->
-                <div class="tour-step" data-step="5" style="display: none;">
+                <!-- Step 4: Traits -->
+                <div class="tour-step" data-step="4" style="display: none;">
                     <h3 class="gothic-header" style="text-align: center; margin-bottom: 0.5rem;">Starting Traits</h3>
                     <p style="text-align: center; font-size: 0.8rem; opacity: 0.7; margin-bottom: 2rem;">Innate
                         qualities that define you.</p>
@@ -2142,8 +1453,8 @@
                     </div>
                 </div>
 
-                <!-- Step 6: Feats -->
-                <div class="tour-step" data-step="6" style="display: none;">
+                <!-- Step 5: Feats -->
+                <div class="tour-step" data-step="5" style="display: none;">
                     <h3 class="gothic-header" style="text-align: center; margin-bottom: 0.5rem;">Martial Feats</h3>
                     <p style="text-align: center; font-size: 0.8rem; opacity: 0.7; margin-bottom: 2rem;">Specialized
                         training and techniques.</p>
@@ -2208,33 +1519,41 @@
         <div class="top-hud-content">
             <div class="top-hud-left">
                 <div class="u-relative u-w-64 u-h-64 u-flex-shrink-0">
-                    <!-- Masked Avatar Container (Separate from SVG to allow glow) -->
-                    <div class="u-absolute u-inset-0 u-border-radius-full u-overflow-hidden u-mask-circle u-z-1">
-                        <div class="u-absolute u-inset-0 u-bg-black"></div>
-                        <div id="test-hud-avatar"
-                            class="hud-avatar u-absolute u-inset-0 u-w-full u-h-full u-flex-center u-cursor-pointer u-overflow-hidden u-border-radius-full u-pointer-events-auto">
-                            <i data-lucide="user" id="test-hud-avatar-icon" class="u-icon-md u-opacity-0-5"></i>
-                            <img id="test-hud-avatar-img" src="" class="hidden u-w-full u-h-full u-img-cover">
-                        </div>
-                    </div>
-
-                    <!-- Experience Ring (Outside the mask div) -->
                     <svg viewBox="0 0 36 36"
-                        class="u-absolute u-inset-0 u-w-full u-h-full u-rotate-n90 u-z-5 u-pointer-events-none u-overflow-visible">
-                        <linearGradient id="exp-fill-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:rgba(255,255,255,0.8);stop-opacity:1" />
-                            <stop offset="20%" style="stop-color:var(--accent-primary);stop-opacity:1" />
-                            <stop offset="50%" style="stop-color:var(--accent-secondary);stop-opacity:1" />
-                            <stop offset="80%" style="stop-color:var(--accent-primary);stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:rgba(0,0,0,0.5);stop-opacity:1" />
-                        </linearGradient>
-                        <linearGradient id="exp-mastery-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:var(--accent-primary);stop-opacity:1" />
-                            <stop offset="50%" style="stop-color:var(--accent-secondary);stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:var(--accent-primary);stop-opacity:1" />
-                            <animateTransform attributeName="gradientTransform" type="rotate" from="0 0.5 0.5"
-                                to="360 0.5 0.5" dur="4s" repeatCount="indefinite" />
-                        </linearGradient>
+                        class="u-absolute u-inset-0 u-w-full u-h-full u-z-floor u-pointer-events-none u-overflow-visible">
+                        <defs>
+                            <mask id="avatar-mask">
+                                <circle cx="18" cy="18" r="17.2" fill="white" />
+                            </mask>
+                            <linearGradient id="exp-fill-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:rgba(255,255,255,0.8);stop-opacity:1" />
+                                <stop offset="20%" style="stop-color:var(--accent-primary);stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:var(--accent-secondary);stop-opacity:1" />
+                                <stop offset="80%" style="stop-color:var(--accent-primary);stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:rgba(0,0,0,0.5);stop-opacity:1" />
+                            </linearGradient>
+                            <linearGradient id="exp-mastery-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:var(--accent-primary);stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:var(--accent-secondary);stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:var(--accent-primary);stop-opacity:1" />
+                                <animateTransform attributeName="gradientTransform" type="rotate" from="0 0.5 0.5"
+                                    to="360 0.5 0.5" dur="4s" repeatCount="indefinite" />
+                            </linearGradient>
+                        </defs>
+
+                        <!-- Avatar Backdrop (Inside SVG coordinate system) -->
+                        <circle cx="18" cy="18" r="17.2" fill="black" />
+
+                        <!-- Avatar via ForeignObject -->
+                        <foreignObject x="0" y="0" width="36" height="36" mask="url(#avatar-mask)">
+                            <div id="test-hud-avatar" xmlns="http://www.w3.org/1999/xhtml"
+                                class="hud-avatar u-w-full u-h-full u-flex-center u-cursor-pointer u-overflow-hidden u-pointer-events-auto">
+                                <i data-lucide="user" id="test-hud-avatar-icon" class="u-icon-md u-opacity-0-5"></i>
+                                <img id="test-hud-avatar-img" src="" class="hidden u-w-full u-h-full u-img-cover">
+                            </div>
+                        </foreignObject>
+
+                        <!-- Experience Ring (Always on top) -->
                         <path class="ring-bg" stroke="rgba(255,255,255,0.15)" stroke-width="1.8" fill="none"
                             d="M18 0.8 a 17.2 17.2 0 0 1 0 34.4 a 17.2 17.2 0 0 1 0 -34.4" />
                         <path id="test-hud-exp-ring-fill" class="ring-fill" stroke="url(#exp-fill-gradient)"
@@ -2243,7 +1562,7 @@
                             style="filter: drop-shadow(0 0 3px var(--accent-glow)); stroke: url(#exp-fill-gradient) !important;" />
                         <!-- Leading Dot Glow -->
                         <circle id="test-hud-exp-dot" cx="18" cy="0.8" r="1.4" fill="#fff"
-                            style="filter: drop-shadow(0 0 4px var(--accent-primary)) drop-shadow(0 0 2px #fff); z-index: 6;" />
+                            style="filter: drop-shadow(0 0 4px var(--accent-primary)) drop-shadow(0 0 2px #fff); z-index: var(--z-floor);" />
                     </svg>
                 </div>
                 <input type="file" id="test-avatar-upload" accept="image/*" style="display: none;">
@@ -2427,96 +1746,50 @@
                 </div>
             </div>
 
-            <!-- Restoration Panel (Moved from bottom HUD) -->
-            <details class="restoration-panel m-t-md"
-                    style="overflow: hidden;">
-                    <summary class="collapsible-section-header flex-between p-md" id="restoration-header"
-                        style="list-style: none; cursor: pointer;">
-                        <h4 class="text-uppercase-tracked"
-                            style="margin: 0; color: var(--accent-primary); font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem;">
-                            <i data-lucide="heart" style="width: 14px; height: 14px;"></i> Restoration
-                        </h4>
-                        <div class="flex-center-gap">
-                            <div id="dice-count-badge-container"
-                                style="font-size: 0.7rem; color: #10b981; background: rgba(16, 185, 129, 0.15); padding: 2px 8px; border-radius: 20px; border: 1px solid rgba(16, 185, 129, 0.3); font-weight: 700;">
-                                <span id="healing-dice-badge">1</span> DICE
-                            </div>
-                            <div class="section-toggle-btn"
-                                style="color: var(--accent-primary); display: flex; align-items: center; transition: transform 0.3s ease;">
-                                <i data-lucide="chevron-down"></i>
-                            </div>
-                        </div>
-                    </summary>
-                    <div class="restoration-content-wrapper p-md" id="restoration-content"
-                        style="padding-top: 0 !important;">
-                        <div
-                            style="display: flex; flex-direction: column; gap: 0.4rem; padding: 0.5rem 1rem 1rem 1rem;">
-                            <p style="font-size: 0.75rem; color: var(--text-secondary); margin: 0; opacity: 0.8;">Sleep
-                                to
-                                use healing dice.</p>
-                            <div style="display: flex; gap: 0.75rem; align-items: center; margin: 0.5rem 0;">
-                                <div
-                                    style="text-align: center; min-width: 60px; display: flex; flex-direction: column; gap: 0.25rem; align-items: center;">
-                                    <button type="button" class="roll-h-die" data-sides="4"
-                                        style="width: 100%; padding: 0.2rem 0; font-size: 0.6rem; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 4px; color: #10b981; cursor: pointer;">d4</button>
-                                    <span id="healing-roll-result"
-                                        style="display: block; font-size: 1.4rem; font-weight: 800; color: #10b981; margin: 0;">--</span>
-                                    <button type="button" class="roll-h-die" data-sides="6"
-                                        style="width: 100%; padding: 0.2rem 0; font-size: 0.6rem; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 4px; color: #10b981; cursor: pointer;">d6</button>
-                                </div>
-                                <div style="display: flex; flex: 1; gap: 0.4rem;">
-                                    <button type="button" id="apply-healing-hp" class="secondary-btn"
-                                        style="background: #10b981; border-color: #10b981; color: white; padding: 0.5rem; font-size: 0.75rem; flex: 1; height: 38px;">+
-                                        HP</button>
-                                    <button type="button" id="apply-healing-mana" class="secondary-btn"
-                                        style="background: #3b82f6; border-color: #3b82f6; color: white; padding: 0.5rem; font-size: 0.75rem; flex: 1; height: 38px;">+
-                                        Mana</button>
-                                </div>
-                            </div>
-                            <div class="u-flex u-gap-0-5 u-mt-0-5">
-                                <button type="button" id="rest-btn"
-                                    class="primary-btn u-flex-1 u-p-0-6 u-font-size-sm u-bold u-flex-center u-gap-0-5 u-border-radius-md">
-                                    <i data-lucide="bed" class="u-icon-xs"></i> FULL REST
-                                </button>
-                            </div>
+
+            <!-- Integrated Total Experience Component -->
+            <details id="test-hud-exp-details" class="u-mt-0-4 u-pt-0-5 u-border-top-glass">
+                <summary id="test-hud-exp-box-wrapper" class="u-flex u-align-center u-gap-1">
+                    <div class="u-flex-1 u-text-left">
+                        <span class="u-font-size-2xs u-text-accent u-bold text-uppercase-tracked u-block">Total
+                            Experience</span>
+                        <span id="test-hud-next-level-text" class="u-font-size-2xs u-opacity-0-5 u-block u-mt-1px">Next
+                            Level: 100</span>
+                    </div>
+                    <div class="clickable-input u-flex-center u-bg-black-40 u-border-accent u-border-radius-lg u-font-primary u-font-bold u-font-size-lg u-text-accent u-relative"
+                        style="height: 40px; width: 100px; flex-shrink: 0;">
+                        <span id="test-exp-input" class="u-hidden">20</span>
+                        <span id="test-exp-value-display">20</span>
+                    </div>
+                </summary>
+
+                <!-- Action Inputs -->
+                <div id="test-hud-exp-actions" class="u-mt-0-5">
+                    <div class="u-flex u-align-center u-gap-0-5">
+                        <input type="number" id="test-add-exp-input" placeholder="+ Experience"
+                            class="u-h-32 u-font-size-sm u-flex-1-2 u-bg-black-60 u-border-glass u-border-radius-md u-p-0-0-5 u-text-white u-font-primary u-outline-none u-text-center"
+                            autocomplete="off">
+
+                        <!-- Mastery Spend Button (Now inline) -->
+                        <div id="test-hud-mastery-actions" class="u-flex-1" style="display: none;">
+                            <button id="test-hud-spend-exp-btn"
+                                class="glass-btn premium-interactive u-w-full u-flex u-align-center u-justify-center u-gap-0-4 u-h-32 u-font-size-xs"
+                                style="border-color: var(--accent-secondary); color: var(--accent-secondary); padding: 0 0.4rem;">
+                                <i data-lucide="sparkles" style="width: 12px; height: 12px;"></i>
+                                <span>Spend</span>
+                            </button>
                         </div>
                     </div>
-                </details>
-
-
-                <!-- Integrated Total Experience Component -->
-                <details id="test-hud-exp-details" class="u-mt-0-4 u-pt-0-5 u-border-top-glass">
-                    <summary id="test-hud-exp-box-wrapper" class="u-cursor-pointer u-flex u-align-center u-gap-1">
-                        <div class="u-flex-1 u-text-left">
-                            <span class="u-font-size-2xs u-text-accent u-bold text-uppercase-tracked u-block">Total
-                                Experience</span>
-                            <span id="test-hud-next-level-text"
-                                class="u-font-size-2xs u-opacity-0-5 u-block u-mt-1px">Next Level: 100</span>
-                        </div>
-                        <div class="clickable-input u-flex-center u-bg-black-40 u-border-accent u-border-radius-lg u-font-primary u-font-bold u-font-size-lg u-text-accent u-relative"
-                            style="height: 40px; width: 100px; flex-shrink: 0;">
-                            <span id="test-exp-input" class="u-hidden">20</span>
-                            <span id="test-exp-value-display">20</span>
-                        </div>
-                    </summary>
-
-                    <!-- Action Inputs -->
-                    <div id="test-hud-exp-actions" class="u-mt-0-5">
-                        <div class="u-flex u-align-center u-gap-0-5">
-                            <input type="number" id="test-add-exp-input" placeholder="+ Experience"
-                                class="u-h-32 u-font-size-sm u-flex-1-2 u-bg-black-60 u-border-glass u-border-radius-md u-p-0-0-5 u-text-white u-font-primary u-outline-none u-text-center"
-                                autocomplete="off">
-
-                            <!-- Mastery Spend Button (Now inline) -->
-                            <span style="font-size: 0.5rem; opacity: 0.4;">500 Exp = 1 Level</span>
-                            <span style="font-size: 0.5rem; opacity: 0.4;">Enter to Apply</span>
-                        </div>
+                    <div class="u-flex u-align-center u-mt-0-25 u-px-0-25">
+                        <span style="font-size: 0.5rem; opacity: 0.4;">500 Exp = 1 Level</span>
+                        <span style="font-size: 0.5rem; opacity: 0.4; margin-left: auto;">Enter to Apply</span>
                     </div>
-                </details>
-                <div class="u-flex-center u-gap-1-5 u-mt-1 u-pt-0-75 u-border-top-faint u-relative u-z-max">
-                    <button type="button" id="test-theme-btn" class="icon-btn-circle" title="Cycle Theme">
-                        <i data-lucide="palette" style="width: 16px; height: 16px;"></i>
-                    </button>
+                </div>
+            </details>
+            <div class="u-flex-center u-gap-1-5 u-mt-1 u-pt-0-75 u-border-top-faint u-relative u-z-max">
+                <button type="button" id="test-theme-btn" class="icon-btn-circle" title="Cycle Theme">
+                    <i data-lucide="palette" style="width: 16px; height: 16px;"></i>
+                </button>
 
                 <details class="management-menu u-relative u-z-max">
                     <summary id="test-settings-btn" class="icon-btn-circle" title="Data Management">
@@ -2594,12 +1867,11 @@
     </dialog>
 
     <!-- Class Selection Modal for Test Sheet -->
-    <dialog id="class-selection-dialog" class="modal-dialog" style="max-width: 450px;">
+    <dialog id="class-selection-dialog" class="modal-dialog"
+        style="border: 1px solid var(--accent-primary); box-shadow: 0 0 30px rgba(0,0,0,0.5); position: relative;">
         <h2 class="gothic-header"
             style="color: var(--accent-primary); margin-bottom: 0.5rem; text-align: center; font-size: 1.75rem;">Choose
             Your Path</h2>
-        <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 1.5rem; text-align: center;">You have reached Level 1.
-            Your training is complete. Select your starting class to define your legacy.</p>
         <div id="test-class-options"
             style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; max-height: 350px; overflow-y: auto; padding-right: 0.5rem; scrollbar-width: thin;">
             <!-- Classes will be injected by JS -->
@@ -2607,22 +1879,27 @@
     </dialog>
 
     <!-- Multiclass Modal for Test Sheet -->
-    <dialog id="multiclass-dialog" class="modal-dialog text-center" style="max-width: 450px; padding: 2.5rem;">
-        <h2 class="gothic-header" style="color: var(--accent-primary); margin-bottom: 1rem; font-size: 1.8rem;">
-            MULTICLASSING UNLOCKED!</h2>
-        <p style="color: var(--text-primary); margin-bottom: 2rem; line-height: 1.6; font-size: 0.95rem;">You've reached
-            Level 6. Would you like to multiclass and begin leveling a second class, or continue mastering your current
-            class?</p>
-        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-            <button type="button" id="test-multiclass-yes" class="primary-btn modal-btn-confirm"
-                style="background: var(--accent-primary); padding: 0.8rem 1.5rem;">Yes, Multiclass</button>
-            <button type="button" id="test-multiclass-no" class="secondary-btn modal-btn-cancel"
-                style="padding: 0.8rem 1.5rem;">No, Stay Primary</button>
+    <div id="test-multiclass-modal" class="modal-overlay">
+        <div class="modal-content glass-panel-dark"
+            style="border: 1px solid var(--accent-primary); box-shadow: 0 0 30px rgba(0,0,0,0.5); text-align: center;">
+            <h2 class="gothic-header" style="color: var(--accent-primary); margin-bottom: 1rem; font-size: 1.8rem;">
+                MULTICLASSING UNLOCKED!</h2>
+            <p style="color: var(--text-primary); margin-bottom: 2rem; line-height: 1.6; font-size: 0.95rem;">You've
+                reached
+                Level 6. Would you like to multiclass and begin leveling a second class, or continue mastering your
+                current
+                class?</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <button type="button" id="test-multiclass-yes" class="primary-btn modal-btn-confirm"
+                    style="background: var(--accent-primary);">Yes, Multiclass</button>
+                <button type="button" id="test-multiclass-no" class="secondary-btn modal-btn-cancel">No, Stay
+                    Primary</button>
+            </div>
         </div>
-    </dialog>
+    </div>
 
     <!-- Mastery Spend Modal for Test Sheet -->
-    <dialog id="mastery-spend-dialog" class="modal-dialog" style="max-width: 450px;">
+    <dialog id="mastery-spend-dialog" class="modal-dialog">
         <h2 class="gothic-header u-text-accent-secondary u-mb-0-5 u-text-center u-font-size-2xl">Mastery Training</h2>
         <p class="u-font-size-sm u-opacity-0-8 u-mb-1-5 u-text-center">You have mastered your path. Spend your
             accumulated experience to transcend your physical or spiritual limits.</p>
@@ -2748,7 +2025,7 @@
     </div>
 
     <!-- Hidden State for Test Sheet -->
-    <input type="hidden" id="test-hud-class-choice-made" value="false">
+    <input type="hidden" id="test-class-choice-made" value="false">
     <input type="hidden" id="test-is-multiclass" value="false">
     <input type="hidden" id="test-multiclass-choice-made" value="false">
     <input type="hidden" id="test-multiclass-opt-out" value="false">
@@ -2757,12 +2034,15 @@
     <!-- Bulk Adjustment Modal -->
     <div id="bulk-adjustment-modal" class="bulk-adjustment-modal">
         <div class="bulk-adjustment-content">
-            <div id="bulk-title" class="bulk-adjustment-title" style="font-family: 'Exocet', serif; font-size: 0.6rem; margin-bottom: 0.5rem; letter-spacing: 0.1em;">ADJUST</div>
+            <div id="bulk-title" class="bulk-adjustment-title"
+                style="font-family: 'Exocet', serif; font-size: 0.6rem; margin-bottom: 0.5rem; letter-spacing: 0.1em;">
+                ADJUST</div>
             <input type="number" id="bulk-custom-val" class="bulk-input" placeholder="0" inputmode="numeric">
             <div class="bulk-grid">
                 <button class="bulk-btn minus" id="bulk-sub-btn">-</button>
                 <button class="bulk-btn plus" id="bulk-add-btn">+</button>
-                <button class="bulk-btn shield" id="bulk-temp-btn" style="display: none;"><i data-lucide="shield"></i></button>
+                <button class="bulk-btn shield" id="bulk-temp-btn" style="display: none;"><i
+                        data-lucide="shield"></i></button>
             </div>
         </div>
     </div>

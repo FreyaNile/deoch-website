@@ -3,6 +3,13 @@
  * @description Pure, stateless shared utility functions for DOM manipulation, math, and icons.
  */
 export const DeochUtils = {
+    saveCharacter() {
+        if (window.DataManager && typeof window.DataManager.saveCharacter === 'function') {
+            window.DataManager.saveCharacter();
+        } else {
+            console.warn('DeochUtils: DataManager not ready for save.');
+        }
+    },
     _iconRefreshScheduled: false,
 
     /**
@@ -20,6 +27,13 @@ export const DeochUtils = {
     },
 
     // --- DOM Helpers ---
+    qs: (sel, scope = document) => scope.querySelector(sel),
+    qsa: (sel, scope = document) => Array.from(scope.querySelectorAll(sel)),
+
+    addEvent: (sel, event, handler, options = {}) => {
+        const el = typeof sel === 'string' ? document.getElementById(sel) : sel;
+        if (el) el.addEventListener(event, handler, options);
+    },
 
     getElement: (id) => document.getElementById(id),
 
@@ -36,6 +50,19 @@ export const DeochUtils = {
     setChecked: (id, checked) => {
         const el = document.getElementById(id);
         if (el) el.checked = checked;
+    },
+
+    getInt: (id, def = 0) => {
+        const el = document.getElementById(id);
+        if (!el) return def;
+        const val = (el.textContent || el.value || '').toString().replace(/,/g, '');
+        return parseInt(val) || def;
+    },
+
+    getFloat: (id, def = 0) => {
+        const el = document.getElementById(id);
+        if (!el) return def;
+        return parseFloat(el.textContent || el.value) || def;
     },
 
     smartSet: (id, value) => {
@@ -93,7 +120,8 @@ export const DeochUtils = {
             if (!val) return defaultValue;
             try {
                 return JSON.parse(val);
-            } catch (e) {
+            } catch (_e) {
+                console.warn('DeochUtils: JSON parse error for key ' + key, _e);
                 return defaultValue;
             }
         },
@@ -106,11 +134,63 @@ export const DeochUtils = {
 
     calculateMod: (val) => Math.floor((val - 10) / 2),
 
-    calculateLevelFromExp: (exp) => {
-        return Math.floor((-1 + Math.sqrt(1 + exp / 62.5)) / 2);
+    /**
+     * Cryptographically secure random number between 0 (inclusive) and 1 (exclusive).
+     */
+    random: () => crypto.getRandomValues(new Uint32Array(1))[0] / 4294967296,
+
+    /**
+     * Helper for smooth opacity transitions after display changes.
+     */
+    safeTransition: (el, display = 'block', opacity = '1', delay = 50) => {
+        const target = typeof el === 'string' ? document.getElementById(el) : el;
+        if (!target) return;
+        target.style.display = display;
+        setTimeout(() => { target.style.opacity = opacity; }, delay);
     },
 
-    calculateExpForLevel: (level) => {
-        return 250 * level * (level + 1);
+    /**
+     * Standardized character card rendering to unify Unified and Legacy galleries.
+     */
+    renderGalleryCard: (char, { activeId = null, variant = 'modern', isNew = false } = {}) => {
+        const isActive = char?.id === activeId;
+        const name = isNew ? 'Create New' : (char?.name || 'Unknown Hero');
+        const meta = isNew ? 'Begin a new journey' : `Level ${char?.level || '1'} ${char?.primaryClass || 'Hero'}`;
+        const icon = isNew ? 'plus' : 'user';
+
+        if (variant === 'modern') {
+            const card = document.createElement('div');
+            card.className = 'test-gallery-card' + (isNew ? ' new-char' : '') + (isActive ? ' active' : '');
+            card.innerHTML = `
+                <div class="card-bg"></div>
+                <div class="card-content">
+                    <div class="char-avatar"><i data-lucide="${icon}"></i></div>
+                    <div class="char-info">
+                        <div class="char-name">${name}</div>
+                        <div class="char-meta">${meta}</div>
+                    </div>
+                </div>
+            `;
+            return card;
+        } else {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.innerHTML = `<i data-lucide="${icon}" style="width: 14px; height: 14px;"></i> ${name}`;
+            return btn;
+        }
+    },
+
+    /**
+     * Unified character creation trigger.
+     */
+    newHero: () => {
+        if (window.DataManager) window.DataManager.newCharacter();
+    },
+
+    /**
+     * Unified character save trigger.
+     */
+    saveHero: () => {
+        if (window.DataManager) window.DataManager.saveCharacter();
     }
 };
